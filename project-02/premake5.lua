@@ -6,7 +6,7 @@ end
 
 local LocationDir = path.join(Root, "../solution/project-02", _ACTION)
 
-workspace "SampleTest"
+workspace "Project02"
 	location(LocationDir)
 	configurations {"Release"}
 
@@ -23,11 +23,11 @@ project "app"
 project "staticLib"
 	kind "StaticLib"
 
-	files { path.join(Root, "src/staticLib/main.cpp") }
+	files { path.join(Root, "src/staticlib/lib.cpp") }
 
 project "sharedLib"
 	kind "SharedLib"
 
-	files { path.join(Root, "src/app/main.cpp") }
+	files { path.join(Root, "src/sharedlib/lib.cpp") }
 
 -- TODO external libraries, dependency order

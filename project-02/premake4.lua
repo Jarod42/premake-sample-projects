@@ -6,7 +6,7 @@ end
 
 local LocationDir = path.join(Root, "../solution/project-02/" .. _ACTION) -- premake4 doesn't support variadic join
 
-solution "SampleTest"
+solution "Project02"
   language "c++"
 	location(LocationDir)
 	configurations {"Release"}
@@ -24,11 +24,11 @@ project "app"
 project "staticLib"
 	kind "StaticLib"
 
-	files { path.join(Root, "src/staticLib/main.cpp") }
+	files { path.join(Root, "src/staticlib/lib.cpp") }
 
 project "sharedLib"
 	kind "SharedLib"
 
-	files { path.join(Root, "src/app/main.cpp") }
+	files { path.join(Root, "src/sharedlib/lib.cpp") }
 
 -- TODO external libraries, dependency order

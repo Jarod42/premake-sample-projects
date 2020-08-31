@@ -31,5 +31,5 @@ jobs:
       run: |
         premake4 --file="project-02/premake4.lua" gmake
         cd solution/project-02/gmake
-        make
+        make verbose=1
       #continue-on-error: true

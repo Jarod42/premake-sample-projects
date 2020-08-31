@@ -12,8 +12,8 @@
       <Switch Name="PreprocessOnly" Value="-E"/>
       <Switch Name="Preprocessor" Value="-D"/>
       <Switch Name="Source" Value="-c "/>
-      <Tool Name="AR" Value="&quot;ar.exe&quot; rcu"/>
-      <Tool Name="AS" Value="&quot;as.exe&quot;"/>
+      <Tool Name="AR" Value="&quot;ar&quot; rcu"/>
+      <Tool Name="AS" Value="&quot;as&quot;"/>
       <Tool Name="CC" Value="&quot;gcc&quot;"/>
       <Tool Name="CXX" Value="&quot;g++&quot;"/>
       <Tool Name="Debugger" Value="&quot;gdb&quot;"/>
