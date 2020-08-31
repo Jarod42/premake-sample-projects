@@ -27,9 +27,9 @@ jobs:
         make
       #continue-on-error: true
 
-    - name: Test LinkOptions
-      run: |
-        premake4 --file="project-02/premake4.lua" gmake
-        cd solution/project-02/gmake
-        make verbose=1
-      #continue-on-error: true
+#    - name: Test LinkOptions
+#      run: |
+#        premake4 --file="project-02/premake4.lua" gmake
+#        cd solution/project-02/gmake
+#        make verbose=1
+#      #continue-on-error: true
