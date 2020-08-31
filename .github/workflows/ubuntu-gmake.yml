@@ -10,23 +10,26 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: apt-get install premake4
+      run: sudo apt-get install -y premake4
+
     - name: Test Simple
       run: |
-        premake5 --file="project-00/premake5.lua" gmake
+        premake4 --file="project-00/premake4.lua" gmake
         cd solution/project-00/gmake
         make
-      continue-on-error: true
+      #continue-on-error: true
 
     - name: Test BuildOptions
       run: |
-        premake5 --file="project-01/premake5.lua" gmake
+        premake4 --file="project-01/premake4.lua" gmake
         cd solution/project-01/gmake
         make
-      continue-on-error: true
+      #continue-on-error: true
 
     - name: Test LinkOptions
       run: |
-        premake5 --file="project-02/premake5.lua" gmake
+        premake4 --file="project-02/premake4.lua" gmake
         cd solution/project-02/gmake
         make
-      continue-on-error: true
+      #continue-on-error: true
