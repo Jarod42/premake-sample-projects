@@ -19,7 +19,7 @@ project "app"
 	kind "ConsoleApp"
 
 	files { path.join(Root, "src/app/main.cpp") }
-  links {"StaticLib", "SharedLib"}
+  links {"staticLib", "sharedLib"}
 
 project "staticLib"
 	kind "StaticLib"

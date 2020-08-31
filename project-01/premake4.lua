@@ -36,4 +36,5 @@ project "app"
   filter "toolset:msc"
     buildoptions {'/DRETURN0="return 0;"'}
 --]]
-  buildoptions {'-DRETURN0="return 0;"'} -- assumes gcc/clang currently
+  buildoptions {'-DRETURN0="return 0"'} -- assumes gcc/clang currently
+-- seems codelite has issue with semi column in buildoptions

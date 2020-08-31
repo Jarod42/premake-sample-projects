@@ -15,5 +15,5 @@ COMPLEX_MACRO // void f() {}
 int main()
 {
 	f();
-	RETURN0 // buildoptions similar to define('RETURN0="return 0;"')
+	RETURN0; // buildoptions similar to define('RETURN0="return 0"')
 }
