@@ -17,17 +17,20 @@ solution "Project02"
 
 project "app"
 	kind "ConsoleApp"
+  targetname "app"
 
 	files { path.join(Root, "src/app/main.cpp") }
   links {"staticLib", "sharedLib"}
 
 project "staticLib"
 	kind "StaticLib"
+  targetname "static"
 
 	files { path.join(Root, "src/staticlib/lib.cpp") }
 
 project "sharedLib"
 	kind "SharedLib"
+  targetname "shared"
 
 	files { path.join(Root, "src/sharedlib/lib.cpp") }
 
