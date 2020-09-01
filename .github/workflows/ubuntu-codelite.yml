@@ -34,7 +34,5 @@ jobs:
       run: |
         premake4 --file="project-02/premake4.lua" codelite
         cd solution/project-02/codelite
-        codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project02.workspace --project=staticLib --config=Release --command=build --verbose --execute
-        codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project02.workspace --project=sharedLib --config=Release --command=build --verbose --execute
         codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project02.workspace --project=app --config=Release --command=build --verbose --execute
       #continue-on-error: true
