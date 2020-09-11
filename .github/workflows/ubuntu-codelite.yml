@@ -10,29 +10,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: apt-get install premake5
+    - name: apt-get install premake4
       run: sudo apt-get install -y premake4
 
     - name: sudo apt-get install -y codelite
       run: sudo apt-get install -y codelite
 
-    - name: Test Simple
-      run: |
-        premake4 --file="project-00/premake4.lua" codelite
-        cd solution/project-00/codelite
-        codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project00.workspace --project=app --config=Release --command=build --verbose --execute
-      #continue-on-error: true
-
-    - name: Test BuildOptions
-      run: |
-        premake4 --file="project-01/premake4.lua" codelite
-        cd solution/project-01/codelite
-        codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project01.workspace --project=app --config=Release --command=build --verbose --execute
-      #continue-on-error: true
-
-    - name: Test LinkOptions
-      run: |
-        premake4 --file="project-02/premake4.lua" codelite
-        cd solution/project-02/codelite
-        codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project02.workspace --project=app --config=Release --command=build --verbose --execute
-      #continue-on-error: true
+    - name: test projects
+      run: ./test_projects.sh premake4 codelite

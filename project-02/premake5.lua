@@ -4,9 +4,9 @@ if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "../solution/project-02", _ACTION)
+local LocationDir = path.join(Root, "solution", _ACTION)
 
-workspace "Project02"
+workspace "Project"
 	location(LocationDir)
 	configurations {"Release"}
 

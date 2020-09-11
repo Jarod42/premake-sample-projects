@@ -13,23 +13,5 @@ jobs:
     - name: apt-get install premake4
       run: sudo apt-get install -y premake4
 
-    - name: Test Simple
-      run: |
-        premake4 --file="project-00/premake4.lua" gmake
-        cd solution/project-00/gmake
-        make
-      #continue-on-error: true
-
-    - name: Test BuildOptions
-      run: |
-        premake4 --file="project-01/premake4.lua" gmake
-        cd solution/project-01/gmake
-        make
-      #continue-on-error: true
-
-    - name: Test LinkOptions
-      run: |
-        premake4 --file="project-02/premake4.lua" gmake
-        cd solution/project-02/gmake
-        make
-      #continue-on-error: true
+    - name: test projects
+      run: ./test_projects.sh premake4 gmake

@@ -1,9 +1,9 @@
 ![Ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/ubuntu-gmake/badge.svg)
 ![Ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/ubuntu-codelite/badge.svg)
 
-Sample projects for integration testing premake5
+Sample projects for integration testing premake4/premake5
 
-Currently check gmake/codelite
+Currently check  premake4 for gmake/codelite
 
 - project-00:
 nearly empty configurations

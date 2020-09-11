@@ -4,9 +4,9 @@ if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "../solution/project-00/" .. _ACTION) -- premake4 doesn't support variadic join
+local LocationDir = path.join(Root, "solution/" .. _ACTION) -- premake4 doesn't support variadic join
 
-solution "Project00"
+solution "Project"
   language "c++"
 	location(LocationDir)
 	configurations {"Release"}
