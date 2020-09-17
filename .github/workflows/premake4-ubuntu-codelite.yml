@@ -1,4 +1,4 @@
-name: ubuntu-gmake
+name: premake4-ubuntu-codelite
 
 on: [push, pull_request]
 
@@ -13,5 +13,8 @@ jobs:
     - name: apt-get install premake4
       run: sudo apt-get install -y premake4
 
+    - name: sudo apt-get install -y codelite
+      run: sudo apt-get install -y codelite
+
     - name: test projects
-      run: ./test_projects.sh premake4 gmake
+      run: ./test_projects.sh premake4 codelite

@@ -1,5 +1,5 @@
-![Ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/ubuntu-gmake/badge.svg)
-![Ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/ubuntu-codelite/badge.svg)
+![Ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake4-ubuntu-gmake/badge.svg)
+![Ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake4-ubuntu-codelite/badge.svg)
 
 Sample projects for integration testing premake4/premake5
 
