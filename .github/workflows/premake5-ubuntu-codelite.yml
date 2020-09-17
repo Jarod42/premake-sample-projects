@@ -1,0 +1,30 @@
+name: premake5-ubuntu-codelite
+
+on: [push, pull_request]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: checkout premake5
+      uses: actions/checkout@v2
+      with:
+          repository: premake/premake-core
+          path: premake-build
+    - name: Build premake5
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak linux CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+
+    - name: sudo apt-get install -y codelite
+      run: sudo apt-get install -y codelite
+
+    - name: test projects
+      run: PATH=$PATH:. ./test_projects.sh premake5 codelite

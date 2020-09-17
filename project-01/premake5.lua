@@ -24,7 +24,7 @@ project "app"
 	includedirs {path.join(Root, "src/include")}
 
 	defines "MACRO"
-	defines {'COMPLEX_MACRO=void f() {}'} -- no quotes
+	defines {'COMPLEX_MACRO="void f() {}"'}
   filter "toolset:gcc or toolset:clang"
     buildoptions {'-DRETURN0="return 0"'}
 		-- seems codelite has issue with semi column in buildoptions
