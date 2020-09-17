@@ -1,0 +1,30 @@
+name: premake4-ubuntu-codeblocks
+
+on: [push, pull_request]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: apt-get update
+      run: sudo apt-get update -y
+
+    - name: apt-get install premake4
+      run: sudo apt-get install -y premake4
+
+    - name: apt-get install -y codeblocks
+      run: sudo apt-get install -y codeblocks
+
+    - name: codeblocks's default configuration
+      run: |
+        mkdir -p ~/.config/codeblocks
+        cp codeblocks/default.conf ~/.config/codeblocks/
+
+    - name: test projects
+      uses: GabrielBB/xvfb-action@v1 # fake X-server as codeblocks requires displays :/
+      with:
+        run: ./test_projects.sh premake4 codeblocks

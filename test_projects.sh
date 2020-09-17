@@ -12,6 +12,16 @@ fi
 premake=$1
 action=$2
 
+function run_codeblocks
+{
+  # require X11/graphical terminal :-/
+  # xvfb might simulate one.
+  codeblocks --no-splash-screen --target=Release --build Project.workspace
+  # Project.workspace
+  # app.cbp
+  return $?
+}
+
 function run_codelite
 {
   codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project.workspace --project=app --config=Release --command=build --verbose --execute
@@ -83,7 +93,7 @@ do
     echo $project" OK"
   else
     echo $project" KO"
-	res=1
+    res=1
   fi
   cd ../../..
 done
