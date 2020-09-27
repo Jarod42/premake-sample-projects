@@ -5,6 +5,9 @@ on: [push, pull_request]
 jobs:
   linux:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        action: [gmake, gmake2]
 
     steps:
     - name: Checkout
@@ -24,4 +27,4 @@ jobs:
         rm -Rf premake-build
 
     - name: test projects
-      run: PATH=$PATH:. ./test_projects.sh premake5 gmake
+      run: PATH=$PATH:. ./test_projects.sh premake5 ${{ matrix.action }}

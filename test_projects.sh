@@ -24,6 +24,12 @@ function run_gmake
   return $?
 }
 
+function run_gmake2
+{
+  make
+  return $?
+}
+
 res=0
 for project in project-*
 do
