@@ -13,6 +13,7 @@ workspace "Project"
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin"))
 	targetname("app")
+	startproject "app"
 
 project "app"
 	kind "ConsoleApp"
