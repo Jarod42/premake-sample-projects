@@ -10,10 +10,11 @@
 # error "defines not supported"
 #endif
 
-COMPLEX_MACRO // void f() {}
+#if MACRO2 != 2 // defines "MACRO2=2"
+# error "defines with value not supported"
+#endif
 
 int main()
 {
-	f();
-	RETURN0; // buildoptions similar to define('RETURN0="return 0"')
+	RETURN 0; // buildoptions similar to define('RETURN="return"')
 }

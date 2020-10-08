@@ -6,10 +6,13 @@
 Sample projects for integration testing premake4/premake5
 
 - project-00:
-nearly empty configurations
+Nearly empty configurations
 
 - project-01:
-test basic build options (`includedirs`, `sysincludedirs`, `forceincludes`, `defines` (simple and with quote), `buildoptions`)
+test basic build options (`includedirs`, `sysincludedirs`, `forceincludes`, `defines`, `buildoptions`)
 
 - project-02:
 test application kind (`"ConsoleApp"`, `"staticLib"`, `"SharedLib"`) and `links` between projects.
+
+- project-03:
+test with "special" characters (space, quotes, semicolon)

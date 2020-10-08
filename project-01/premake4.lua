@@ -28,13 +28,12 @@ project "app"
 	includedirs {path.join(Root, "src/include")}
 
 	defines "MACRO"
-	defines {'COMPLEX_MACRO="void f() {}"'}
+	defines "MACRO2=2"
 
 --[[ filter is premake5
   filter "toolset:gcc or toolset:clang"
-    buildoptions {'-DRETURN0="return 0;"'}
+    buildoptions {'-DRETURN="return"'}
   filter "toolset:msc"
-    buildoptions {'/DRETURN0="return 0;"'}
+    buildoptions {'/DRETURN="return"'}
 --]]
-  buildoptions {'-DRETURN0="return 0"'} -- assumes gcc/clang currently
--- seems codelite has issue with semi column in buildoptions
+  buildoptions {'-DRETURN="return"'} -- assumes gcc/clang currently
