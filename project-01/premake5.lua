@@ -12,8 +12,8 @@ workspace "Project"
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin"))
-  targetname("app")
-	
+	targetname("app")
+
 project "app"
 	kind "ConsoleApp"
 
@@ -27,9 +27,9 @@ project "app"
 	defines "MACRO2=2"
 
 
-  filter "toolset:gcc or toolset:clang"
-    buildoptions {'-DRETURN="return"'}
+	filter "toolset:gcc or toolset:clang"
+		buildoptions {'-DRETURN="return"'}
 		-- seems codelite has issue with semi column in buildoptions
 
-  filter "toolset:msc"
-    buildoptions {'/DRETURN="return"'}
+	filter "toolset:msc"
+		buildoptions {'/DRETURN="return"'}

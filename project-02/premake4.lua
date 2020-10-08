@@ -7,30 +7,30 @@ end
 local LocationDir = path.join(Root, "solution/" .. _ACTION) -- premake4 doesn't support variadic join
 
 solution "Project"
-  language "c++"
+	language "c++"
 	location(LocationDir)
 	configurations {"Release"}
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin"))
-  targetname("app")
+	targetname("app")
 
 project "app"
 	kind "ConsoleApp"
-  targetname "app"
+	targetname "app"
 
 	files { path.join(Root, "src/app/main.cpp") }
-  links {"staticLib", "sharedLib"}
+	links {"staticLib", "sharedLib"}
 
 project "staticLib"
 	kind "StaticLib"
-  targetname "static"
+	targetname "static"
 
 	files { path.join(Root, "src/staticlib/lib.cpp") }
 
 project "sharedLib"
 	kind "SharedLib"
-  targetname "shared"
+	targetname "shared"
 
 	files { path.join(Root, "src/sharedlib/lib.cpp") }
 
