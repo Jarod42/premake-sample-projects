@@ -32,5 +32,5 @@ project "app"
 		buildoptions {'-DRETURN="return"'}
 		-- seems codelite has issue with semi column in buildoptions
 
-	filter "toolset:msc"
-		buildoptions {'/DRETURN="return"'}
+	filter "toolset:msc*"
+		buildoptions {'/D RETURN="return"'}

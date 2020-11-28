@@ -29,6 +29,47 @@ function run_gmake2
   make
   return $?
 }
+function run_vs2005
+{
+    msbuild.exe Project.sln
+    return $?
+}
+function run_vs2008
+{
+    msbuild.exe Project.sln
+    return $?
+}
+function run_vs2010
+{
+    msbuild.exe Project.sln
+    return $?
+}
+function run_vs2012
+{
+    msbuild.exe Project.sln
+    return $?
+}
+function run_vs2013
+{
+    msbuild.exe Project.sln
+    return $?
+}
+function run_vs2015
+{
+    msbuild.exe Project.sln
+    return $?
+}
+function run_vs2017
+{
+    msbuild.exe Project.sln
+    return $?
+}
+
+function run_vs2019
+{
+    msbuild.exe Project.sln
+    return $?
+}
 
 res=0
 for project in project-*

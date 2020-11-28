@@ -26,12 +26,11 @@ project "app"
 	sysincludedirs {path.join(Root, "src/sys include")}
 	includedirs {path.join(Root, "src/regular include")}
 
-	--defines {"'FOO=const char* foo() { return \"[]|\"; }'"} -- Failed
-	buildoptions {"-D'FOO=const char* foo() { return \"[]|\"; }'"} -- workaround
-
+	defines {"'FOO=const char* foo() { return \"[]|\"; }'"} -- Failed
+	--buildoptions {"-D'FOO=const char* foo() { return \"[]|\"; }'"} -- workaround
 
 	filter "toolset:gcc or toolset:clang"
 		buildoptions {"-D'BAR=const char* bar() { return \"[]|\"; }'"}
 
-	filter "toolset:msc"
-		buildoptions {"/D'BAR=const char* bar() { return \"[]|\"; }'"}
+	filter "toolset:msc*"
+		buildoptions {"/D 'BAR=const char* bar() { return \"[]|\"; }'"}

@@ -1,0 +1,37 @@
+name: premake5-windows-msvc
+
+on: [push, pull_request]
+
+jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: checkout premake5
+      uses: actions/checkout@v2
+      with:
+        repository: premake/premake-core
+        path: premake-build
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Build premake5
+      run: |
+        call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+        cd premake-build
+        nmake -f Bootstrap.mak MSDEV=vs2019 windows-msbuild PLATFORM=Win32 CONFIG=release
+        cp bin/release/premake5.exe ../
+        cd ..
+      shell: cmd
+
+    - name: test projects
+      run: |
+        echo $PATH
+        #"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+        echo $PATH
+        PATH=$PATH:. ./test_projects.sh premake5 vs2019
+      shell: bash
