@@ -14,3 +14,6 @@ test basic build options (`includedirs`, `sysincludedirs`, `forceincludes`, `def
 
 - project-02:
 test application kind (`"ConsoleApp"`, `"staticLib"`, `"SharedLib"`) and `links` between projects.
+
+- project-03:
+test with "special" characters (space, quotes, semicolon)
