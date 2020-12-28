@@ -23,6 +23,9 @@ jobs:
         cd ..
         rm -Rf premake-build
 
+    - name: apt-get update
+      run: sudo apt-get update -y
+
     - name: sudo apt-get install -y codelite
       run: sudo apt-get install -y codelite
 

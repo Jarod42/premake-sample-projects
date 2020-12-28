@@ -10,6 +10,9 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: apt-get update
+      run: sudo apt-get update -y
+
     - name: apt-get install premake4
       run: sudo apt-get install -y premake4
 
