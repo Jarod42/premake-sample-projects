@@ -1,0 +1,52 @@
+name: premake5-ubuntu-codeblocks
+
+on: [push, pull_request]
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: apt-get update
+      run: sudo apt-get update -y
+
+    - name: checkout premake5
+      uses: actions/checkout@v2
+      with:
+          repository: premake/premake-core
+          path: premake-build
+    - name: Build premake5
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak linux CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+        echo "." >> $GITHUB_PATH
+
+    - name: checkout premake-codeblocks module
+      uses: actions/checkout@v2
+      with:
+          repository: chris-be/premake-codeblocks
+          path: premake-codeblocks
+
+    - name: add premake codeblocks module
+      run: |
+        echo "require 'premake-codeblocks/codeblocks'" >> premake-system.lua
+
+    - name: apt-get install -y codeblocks
+      run: sudo apt-get install -y codeblocks
+
+    - name: codeblocks's default configuration
+      run: |
+        mkdir -p ~/.config/codeblocks
+        cp codeblocks/default.conf ~/.config/codeblocks/
+
+    - name: test projects
+      timeout-minutes: 5 # tends to not stop properly in case of failure
+      uses: GabrielBB/xvfb-action@v1 # fake X-server as codeblocks requires displays :/
+      with:
+        run: ./test_projects.sh premake5 codeblocks
