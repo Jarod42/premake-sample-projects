@@ -16,3 +16,6 @@ test basic build options (`includedirs`, `sysincludedirs`, `forceincludes`, `def
 
 - project-02:
 test application kind (`"ConsoleApp"`, `"staticLib"`, `"SharedLib"`) and `links` between projects.
+
+- project-pch:
+test pre-compiled header (`pchheader`/`pchsource`)
