@@ -25,6 +25,7 @@ jobs:
         cp codeblocks/default.conf ~/.config/codeblocks/
 
     - name: test projects
+      timeout-minutes: 5 # tends to not stop properly in case of failure
       uses: GabrielBB/xvfb-action@v1 # fake X-server as codeblocks requires displays :/
       with:
         run: ./test_projects.sh premake4 codeblocks
