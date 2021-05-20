@@ -1,6 +1,14 @@
 name: premake5-windows-msvc
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'project-*/**'
+      - .github/workflows/premake5-windows-msvc.yml
+  pull_request:
+    paths:
+      - 'project-*/**'
+      - .github/workflows/premake5-windows-msvc.yml
 
 jobs:
   windows:

@@ -1,6 +1,14 @@
 name: premake4-ubuntu-codeblocks
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'project-*/**'
+      - .github/workflows/premake4-ubuntu-codeblocks.yml
+  pull_request:
+    paths:
+      - 'project-*/**'
+      - .github/workflows/premake4-ubuntu-codeblocks.yml
 
 jobs:
   linux:
