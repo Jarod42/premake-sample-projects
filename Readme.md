@@ -7,7 +7,7 @@
 ![Premake5 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codeblocks/badge.svg)
 ![Premake5 windows msvc badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-windows-msvc/badge.svg)
 
-Sample projects for integration testing premake4/premake5
+Sample projects for integration testing [premake4/premake5](https://premake.github.io/)
 
 - project-00:
 Nearly empty configurations
