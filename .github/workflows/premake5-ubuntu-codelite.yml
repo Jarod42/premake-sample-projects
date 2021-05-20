@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - 'project-*/**'
+      - 'codelite/**'
       - .github/workflows/premake5-ubuntu-codelite.yml
   pull_request:
     paths:
       - 'project-*/**'
+      - 'codelite/**'
       - .github/workflows/premake5-ubuntu-codelite.yml
 
 jobs:

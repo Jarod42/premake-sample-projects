@@ -4,10 +4,12 @@ on:
   push:
     paths:
       - 'project-*/**'
+      - 'codeblocks/**'
       - .github/workflows/premake4-ubuntu-codeblocks.yml
   pull_request:
     paths:
       - 'project-*/**'
+      - 'codeblocks/**'
       - .github/workflows/premake4-ubuntu-codeblocks.yml
 
 jobs:
