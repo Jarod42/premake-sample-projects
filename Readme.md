@@ -13,10 +13,10 @@ Sample projects for integration testing premake4/premake5
 Nearly empty configurations
 
 - project-01:
-test basic build options (`includedirs`, `sysincludedirs`, `forceincludes`, `defines`, `buildoptions`)
+test basic build options ([`includedirs`](https://premake.github.io/docs/includedirs), [`sysincludedirs`](https://premake.github.io/docs/sysincludedirs), [`forceincludes`](https://premake.github.io/docs/forceincludes), [`defines`](https://premake.github.io/docs/defines), [`buildoptions`](https://premake.github.io/docs/buildoptions))
 
 - project-02:
-test application kind (`"ConsoleApp"`, `"staticLib"`, `"SharedLib"`) and `links` between projects.
+test application [`kind`](https://premake.github.io/docs/kind) (`"ConsoleApp"`, `"staticLib"`, `"SharedLib"`) and [`links`](https://premake.github.io/docs/links) between projects.
 
 - project-pch:
-test pre-compiled header (`pchheader`/`pchsource`)
+test [pre-compiled header](https://premake.github.io/docs/Precompiled-Headers) ([`pchheader`](https://premake.github.io/docs/pchheader)/[`pchsource`](https://premake.github.io/docs/pchsource))
