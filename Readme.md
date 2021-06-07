@@ -28,7 +28,7 @@ test [pre-compiled header](https://premake.github.io/docs/Precompiled-Headers) (
 
 ![Premake5 ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-gmake/badge.svg)
 
-![Premake5 ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codelite/badge.svg) (`codelite-make` doesn't report errors) missing pch support
+![Premake5 ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codelite/badge.svg) (`codelite-make` doesn't report errors)
 
 ![Premake5 windows msvc badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-windows-msvc/badge.svg)
 
