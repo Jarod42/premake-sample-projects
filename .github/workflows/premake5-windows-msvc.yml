@@ -1,6 +1,7 @@
 name: premake5-windows-msvc
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'project-*/**'

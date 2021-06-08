@@ -1,6 +1,7 @@
 name: premake5-ubuntu-gmake
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'project-*/**'
