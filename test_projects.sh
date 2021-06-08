@@ -16,7 +16,7 @@ function run_codeblocks
 {
   # require X11/graphical terminal :-/
   # xvfb might simulate one.
-  codeblocks --no-splash-screen --target=Release --build Project.workspace
+  codeblocks --no-splash-screen --target=Release --build Project.workspace &&  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
   # Project.workspace
   # app.cbp
   return $?
@@ -24,60 +24,60 @@ function run_codeblocks
 
 function run_codelite
 {
-  codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project.workspace --project=app --config=Release --command=build --verbose --execute
+  codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project.workspace --project=app --config=Release --command=build --verbose --execute && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
   return $?
 }
 
 function run_gmake
 {
-  make
+  make &&  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
   return $?
 }
 
 function run_gmake2
 {
-  make
+  make &&  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
   return $?
 }
 function run_vs2005
 {
-    msbuild.exe Project.sln
+    msbuild.exe Project.sln && ./bin/app.exe
     return $?
 }
 function run_vs2008
 {
-    msbuild.exe Project.sln
+    msbuild.exe Project.sln && ./bin/app.exe
     return $?
 }
 function run_vs2010
 {
-    msbuild.exe Project.sln
+    msbuild.exe Project.sln && ./bin/app.exe
     return $?
 }
 function run_vs2012
 {
-    msbuild.exe Project.sln
+    msbuild.exe Project.sln && ./bin/app.exe
     return $?
 }
 function run_vs2013
 {
-    msbuild.exe Project.sln
+    msbuild.exe Project.sln && ./bin/app.exe
     return $?
 }
 function run_vs2015
 {
-    msbuild.exe Project.sln
+    msbuild.exe Project.sln && ./bin/app.exe
     return $?
 }
 function run_vs2017
 {
-    msbuild.exe Project.sln
+    msbuild.exe Project.sln && ./bin/app.exe
     return $?
 }
 
 function run_vs2019
 {
-    msbuild.exe Project.sln
+    msbuild.exe Project.sln && ./bin/app.exe
     return $?
 }
 
