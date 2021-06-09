@@ -14,6 +14,9 @@ test application [`kind`](https://premake.github.io/docs/kind) (`"ConsoleApp"`, 
 - project-pch:
 test [pre-compiled header](https://premake.github.io/docs/Precompiled-Headers) ([`pchheader`](https://premake.github.io/docs/pchheader)/[`pchsource`](https://premake.github.io/docs/pchsource))
 
+- project-prepost-build:
+test [`prebuildcommands`](https://premake.github.io/docs/prebuildcommands)/[`postbuildcommands`](https://premake.github.io/docs/postbuildcommands) (and some tokens for premake5)
+
 ## Results
 
 ### Premake4's core
