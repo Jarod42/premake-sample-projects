@@ -37,4 +37,4 @@ test [`prebuildcommands`](https://premake.github.io/docs/prebuildcommands)/[`pos
 
 ### [Module codeblocks](https://github.com/chris-be/premake-codeblocks)
 
-![Premake5 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codeblocks/badge.svg) missing support of [`sysincludedirs`](https://premake.github.io/docs/sysincludedirs), [`forceincludes`](https://premake.github.io/docs/forceincludes)
+![Premake5 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codeblocks/badge.svg) missing support of [`sysincludedirs`](https://premake.github.io/docs/sysincludedirs), [`forceincludes`](https://premake.github.io/docs/forceincludes) and Token replacement (in pre/post build commands)
