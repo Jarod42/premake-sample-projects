@@ -35,4 +35,4 @@ test [`prebuildcommands`](https://premake.github.io/docs/prebuildcommands)/[`pos
 |Basics| :heavy_check_mark: |:heavy_check_mark:|:heavy_check_mark:|:x: missing support of [`sysincludedirs`](https://premake.github.io/docs/sysincludedirs), [`forceincludes`](https://premake.github.io/docs/forceincludes)
 |Kinds|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 |Pch|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
-|Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x: Missing Token replacement
+|Pre/post build|:heavy_check_mark:|:heavy_check_mark:Missing messages|:heavy_check_mark:|:x: Missing Token replacement
