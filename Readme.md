@@ -17,6 +17,9 @@ test [pre-compiled header](https://premake.github.io/docs/Precompiled-Headers) (
 - project-prepost-build:
 test [`prebuildcommands`](https://premake.github.io/docs/prebuildcommands)/[`postbuildcommands`](https://premake.github.io/docs/postbuildcommands) (and some tokens for premake5)
 
+- project-customcommand:
+test [`buildcommands`](https://premake.github.io/docs/buildcommands)/[`buildinputs`](https://premake.github.io/docs/buildinputs)/[`buildoutputs`](https://premake.github.io/docs/buildoutputs)/[`buildmessage`](https://premake.github.io/docs/buildmessage)/[`compilebuildoutputs`](https://premake.github.io/docs/compilebuildoutputs) (and some tokens and per file configuration) (premake5 only)
+
 ## Results
 
 ### Premake4's core
@@ -36,3 +39,4 @@ test [`prebuildcommands`](https://premake.github.io/docs/prebuildcommands)/[`pos
 |Kinds|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 |Pch|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 |Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x: Missing Token replacement
+|custom build|:heavy_check_mark:|:x: Not implemented|:heavy_check_mark:|:x: Not implemented
