@@ -1,13 +1,15 @@
 #!/bin/bash
 
-if [ "$1" == "" ]
+if [ "$1" != "premake4" -a "$1" != "premake5" ]
 then
   echo "first argument should be a premake4 or premake5"
+  exit 1
 fi
 
 if [ "$2" == "" ]
 then
   echo "second argument should be a premake action (gmake, codelite)"
+  exit 1
 fi
 premake=$1
 action=$2
@@ -84,6 +86,11 @@ function run_vs2019
 res=0
 for project in project-*
 do
+  if [ ! -e $project/$premake.lua ]
+  then
+    echo $project" Skipped"
+    continue
+  fi
   echo $project
   $premake --file=$project/$premake.lua $action
   cd $project/solution/$action
