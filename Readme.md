@@ -41,4 +41,4 @@ test [`buildcommands`](https://premake.github.io/docs/buildcommands)/[`buildinpu
 |Kinds|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 |Pch|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 |Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x: Missing Token replacement
-|custom build|:heavy_check_mark:|:x: Not implemented|:heavy_check_mark:|:x: Not implemented
+|custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x: Not implemented
