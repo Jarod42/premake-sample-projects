@@ -1,0 +1,3 @@
+[submodule "submodules/premake-codeblocks"]
+	path = submodules/premake-codeblocks
+	url = https://github.com/Jarod42/premake-codeblocks.git

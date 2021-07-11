@@ -20,6 +20,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+      with:
+        submodules: recursive
 
     - name: apt-get update
       run: sudo apt-get update -y
@@ -38,15 +40,9 @@ jobs:
         rm -Rf premake-build
         echo "." >> $GITHUB_PATH
 
-    - name: checkout premake-codeblocks module
-      uses: actions/checkout@v2
-      with:
-          repository: chris-be/premake-codeblocks
-          path: premake-codeblocks
-
     - name: add premake codeblocks module
       run: |
-        echo "require 'premake-codeblocks/codeblocks'" >> premake-system.lua
+        echo "require 'submodules/premake-codeblocks/codeblocks'" >> premake-system.lua
 
     - name: apt-get install -y codeblocks
       run: sudo apt-get install -y codeblocks
