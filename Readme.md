@@ -32,13 +32,13 @@ test [`buildcommands`](https://premake.github.io/docs/buildcommands)/[`buildinpu
 |Pch|:heavy_check_mark:|:x: Not implemented|:heavy_check_mark:|
 |Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
-### Premake5's core and [Module CodeBlocks](https://github.com/chris-be/premake-codeblocks)
+### Premake5's core and [Module CodeBlocks](https://github.com/Jarod42/premake-codeblocks) (fixed fork)
 
 ||gmake|Codelite|Msvc|CodeBlocks|
 |:---|:---:|:---:|:---:|:---:|
 ||![Premake5 ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-gmake/badge.svg)|![Premake5 ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codelite/badge.svg)|![Premake5 windows msvc badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-windows-msvc/badge.svg)|![Premake5 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codeblocks/badge.svg)
-|Basics| :heavy_check_mark: |:heavy_check_mark:|:heavy_check_mark:|:x: missing support of [`sysincludedirs`](https://premake.github.io/docs/sysincludedirs), [`forceincludes`](https://premake.github.io/docs/forceincludes)
+|Basics|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)
 |Kinds|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
 |Pch|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:
-|Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x: Missing Token replacement
-|custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x: Not implemented
+|Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)
+|custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)
