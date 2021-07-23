@@ -1,3 +1,6 @@
+[submodule "submodules/premake-cmake"]
+	path = submodules/premake-cmake
+	url = https://github.com/Jarod42/premake-cmake.git
 [submodule "submodules/premake-codeblocks"]
 	path = submodules/premake-codeblocks
 	url = https://github.com/Jarod42/premake-codeblocks.git

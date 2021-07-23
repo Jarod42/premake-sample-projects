@@ -26,6 +26,12 @@ function exec_windows
   return $?
 }
 
+function run_cmake
+{
+  cmake . && make && exec_unix
+  return $?
+}
+
 function run_codeblocks
 {
   # require X11/graphical terminal :-/
