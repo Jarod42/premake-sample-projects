@@ -14,11 +14,23 @@ fi
 premake=$1
 action=$2
 
+function exec_unix
+{
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
+  return $?
+}
+
+function exec_windows
+{
+  ./bin/app.exe
+  return $?
+}
+
 function run_codeblocks
 {
   # require X11/graphical terminal :-/
   # xvfb might simulate one.
-  codeblocks --no-splash-screen --target=Release --build Project.workspace &&  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
+  codeblocks --no-splash-screen --target=Release --build Project.workspace && exec_unix
   # Project.workspace
   # app.cbp
   return $?
@@ -26,60 +38,61 @@ function run_codeblocks
 
 function run_codelite
 {
-  codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project.workspace --project=app --config=Release --command=build --verbose --execute && LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
+  codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project.workspace --project=app --config=Release --command=build --verbose --execute && exec_unix
   return $?
 }
 
 function run_gmake
 {
-  make &&  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
+  make && exec_unix
   return $?
 }
 
 function run_gmake2
 {
-  make &&  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
+  make && exec_unix
   return $?
 }
+
 function run_vs2005
 {
-    msbuild.exe Project.sln && ./bin/app.exe
+    msbuild.exe Project.sln && exec_windows
     return $?
 }
 function run_vs2008
 {
-    msbuild.exe Project.sln && ./bin/app.exe
+    msbuild.exe Project.sln && exec_windows
     return $?
 }
 function run_vs2010
 {
-    msbuild.exe Project.sln && ./bin/app.exe
+    msbuild.exe Project.sln && exec_windows
     return $?
 }
 function run_vs2012
 {
-    msbuild.exe Project.sln && ./bin/app.exe
+    msbuild.exe Project.sln && exec_windows
     return $?
 }
 function run_vs2013
 {
-    msbuild.exe Project.sln && ./bin/app.exe
+    msbuild.exe Project.sln && exec_windows
     return $?
 }
 function run_vs2015
 {
-    msbuild.exe Project.sln && ./bin/app.exe
+    msbuild.exe Project.sln && exec_windows
     return $?
 }
 function run_vs2017
 {
-    msbuild.exe Project.sln && ./bin/app.exe
+    msbuild.exe Project.sln && exec_windows
     return $?
 }
 
 function run_vs2019
 {
-    msbuild.exe Project.sln && ./bin/app.exe
+    msbuild.exe Project.sln && exec_windows
     return $?
 }
 
