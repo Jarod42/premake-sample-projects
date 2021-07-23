@@ -1,0 +1,50 @@
+name: premake5-ubuntu-ninja
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'project-*/**'
+      - .github/workflows/premake5-ubuntu-ninja.yml
+  pull_request:
+    paths:
+      - 'project-*/**'
+      - .github/workflows/premake5-ubuntu-ninja.yml
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: checkout premake5
+      uses: actions/checkout@v2
+      with:
+          repository: premake/premake-core
+          path: premake-build
+
+    - name: Build premake5
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak linux CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+
+    - name: apt-get update
+      run: sudo apt-get update -y
+
+    - name: apt-get install ninja-build
+      run: |
+        sudo apt-get install -y ninja-build
+
+    - name: add premake ninja module
+      run: |
+        echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
+
+    - name: test projects
+      run: PATH=$PATH:. ./test_projects.sh premake5 ninja

@@ -1,3 +1,6 @@
 [submodule "submodules/premake-codeblocks"]
 	path = submodules/premake-codeblocks
 	url = https://github.com/Jarod42/premake-codeblocks.git
+[submodule "submodules/premake-ninja"]
+	path = submodules/premake-ninja
+	url = https://github.com/Jarod42/premake-ninja.git

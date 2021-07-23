@@ -54,6 +54,12 @@ function run_gmake2
   return $?
 }
 
+function run_ninja
+{
+  ninja && exec_unix
+  return $?
+}
+
 function run_vs2005
 {
     msbuild.exe Project.sln && exec_windows
