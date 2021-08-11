@@ -5,19 +5,19 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 - project-00:
 Nearly empty configurations
 
-- project-01:
+- project-01-include-define-and-buildoptions:
 test basic build options ([`includedirs`](https://premake.github.io/docs/includedirs), [`sysincludedirs`](https://premake.github.io/docs/sysincludedirs) (premake5), [`forceincludes`](https://premake.github.io/docs/forceincludes) (premake5), [`defines`](https://premake.github.io/docs/defines), [`buildoptions`](https://premake.github.io/docs/buildoptions))
 
-- project-02:
+- project-02-kind:
 test application [`kind`](https://premake.github.io/docs/kind) (`"ConsoleApp"`, `"staticLib"`, `"SharedLib"`) and [`links`](https://premake.github.io/docs/links) between projects.
 
-- project-pch:
+- project-03-pch:
 test [pre-compiled header](https://premake.github.io/docs/Precompiled-Headers) ([`pchheader`](https://premake.github.io/docs/pchheader)/[`pchsource`](https://premake.github.io/docs/pchsource))
 
-- project-prepost-build:
+- project-04-prepost-build:
 test [`prebuildcommands`](https://premake.github.io/docs/prebuildcommands)/[`postbuildcommands`](https://premake.github.io/docs/postbuildcommands) (and some tokens for premake5)
 
-- project-customcommand:
+- project-05-customcommand:
 test [`buildcommands`](https://premake.github.io/docs/buildcommands)/[`buildinputs`](https://premake.github.io/docs/buildinputs)/[`buildoutputs`](https://premake.github.io/docs/buildoutputs)/[`buildmessage`](https://premake.github.io/docs/buildmessage)/[`compilebuildoutputs`](https://premake.github.io/docs/compilebuildoutputs) (and some tokens and per file configuration) (premake5 only)
 
 ## Results
@@ -39,7 +39,7 @@ Modules:
 - [Module CMake](https://github.com/Jarod42/premake-cmake) (fork not yet fixed)
 - [Module Ninja](https://github.com/Jarod42/premake-ninja) (fixed fork)
 
-||gmake|Codelite|Msvc|CodeBlocks|CMake|Ninja|
+||gmake|Codelite|Msvc vs2019|CodeBlocks|CMake|Ninja|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
 ||![Premake5 ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-gmake/badge.svg)|![Premake5 ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codelite/badge.svg)|![Premake5 windows msvc badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-windows-msvc/badge.svg)|![Premake5 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-codeblocks/badge.svg)|![Premake5 ubuntu cmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-cmake/badge.svg)|![Premake5 ubuntu ninja badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-ubuntu-ninja/badge.svg)|
 |Basics|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|
