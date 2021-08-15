@@ -36,7 +36,7 @@ test [`buildcommands`](https://premake.github.io/docs/buildcommands)/[`buildinpu
 
 Modules:
 - [Module CodeBlocks](https://github.com/Jarod42/premake-codeblocks) (fixed fork)
-- [Module CMake](https://github.com/Jarod42/premake-cmake) (fork not yet fixed)
+- [Module CMake](https://github.com/Jarod42/premake-cmake) (fixed fork)
 - [Module Ninja](https://github.com/Jarod42/premake-ninja) (fixed fork)
 
 ||gmake|Codelite|Msvc vs2019|CodeBlocks|CMake|Ninja|
@@ -46,4 +46,4 @@ Modules:
 |Kinds|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |Pch|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|
 |Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|
-|custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:x:|:heavy_check_mark: (Fixed)|
+|custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|
