@@ -6,4 +6,4 @@
 	url = https://github.com/Jarod42/premake-codeblocks.git
 [submodule "submodules/premake-ninja"]
 	path = submodules/premake-ninja
-	url = https://github.com/Jarod42/premake-ninja.git
+	url = https://github.com/jimon/premake-ninja.git
