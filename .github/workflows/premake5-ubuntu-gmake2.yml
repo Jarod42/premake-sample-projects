@@ -1,15 +1,15 @@
-name: premake5-ubuntu-gmake
+name: premake5-ubuntu-gmake2
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'project-*/**'
-      - .github/workflows/premake5-ubuntu-gmake.yml
+      - .github/workflows/premake5-ubuntu-gmake2.yml
   pull_request:
     paths:
       - 'project-*/**'
-      - .github/workflows/premake5-ubuntu-gmake.yml
+      - .github/workflows/premake5-ubuntu-gmake2.yml
 
 jobs:
   linux:
@@ -33,4 +33,4 @@ jobs:
         rm -Rf premake-build
 
     - name: test projects
-      run: PATH=$PATH:. ./test_projects.sh premake5 gmake
+      run: PATH=$PATH:. ./test_projects.sh premake5 gmake2
