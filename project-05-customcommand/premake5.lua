@@ -19,11 +19,10 @@ project "app"
 	kind "ConsoleApp"
 
 	files {path.join(Root, "src", "main.cpp.in")}
-	includedirs {path.join(Root, "src")}
 
 	filter "files:**.in"
-		buildmessage "copy %{file.relpath} %{file.directory}/%{file.basename}"
+		buildmessage "copy %{file.relpath} %{file.basename}"
 		--buildinputs { "%{file.relpath}" }
-		buildoutputs { "%{file.directory}/%{file.basename}" }
-		buildcommands { "{COPYFILE} %{file.relpath} %{file.directory}/%{file.basename}" }
+		buildoutputs { path.join(LocationDir, "%{file.basename}") }
+		buildcommands { "{COPYFILE} %{file.relpath} %{file.basename}" } -- paths relative to project dir
 		compilebuildoutputs "on"

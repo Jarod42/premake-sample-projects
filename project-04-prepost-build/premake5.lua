@@ -19,10 +19,10 @@ project "app"
 	kind "ConsoleApp"
 
 	files {path.join(Root, "src", "main.cpp")}
-	includedirs {path.join(Root, "src")}
+	includedirs {LocationDir}
 
 	prebuildmessage "copy header.h.in into header.h"
-	prebuildcommands { "{COPYFILE} " .. path.join(Root, "src", "header.h.in") .. " " .. path.join(Root, "src", "header.h") }
+	prebuildcommands { "{COPYFILE} " .. path.getrelative(LocationDir, path.join(Root, "src", "header.h.in")) .. " header.h" }
 
 	postbuildmessage "move app2 into app"
 	postbuildcommands { "{MOVE} %{prj.targetdir}/app2%{cfg.targetextension} %{prj.targetdir}/app%{cfg.targetextension}" }

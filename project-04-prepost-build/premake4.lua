@@ -21,15 +21,15 @@ project "app"
 	kind "ConsoleApp"
 
 	files {path.join(Root, "src/main.cpp")}
-	includedirs {path.join(Root, "src")}
+	includedirs {LocationDir}
 
 --	prebuildmessage "copy header.h.in into header.h" -- premake5
 --	postbuildmessage "move app2 into app" -- premake5
 
 	configuration "windows"
-		prebuildcommands { "copy /B /Y " .. path.join(Root, "src/header.h.in") .. " " .. path.join(Root, "src/header.h") }
+		prebuildcommands { "copy /B /Y " .. path.getrelative(LocationDir, path.join(Root, "src/header.h.in")) .. " header.h" }
 		postbuildcommands { "move /Y bin/app2.exe bin/app.exe" }
 
 	configuration "not windows"
-		prebuildcommands { "cp " .. path.join(Root, "src/header.h.in") .. " " .. path.join(Root, "src/header.h") }
+		prebuildcommands { "cp " .. path.getrelative(LocationDir, path.join(Root, "src/header.h.in")) .. " header.h" }
 		postbuildcommands { "mv bin/app2 bin/app" }
