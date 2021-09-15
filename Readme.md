@@ -25,6 +25,7 @@ Modules:
 |Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |custom rule|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
+|[`openMP`](https://premake.github.io/docs/openmp/)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
 ### Premake4's core
 [Results for Premake4's core](Premake4_results.md)
@@ -37,3 +38,4 @@ Modules:
 - [project-04-prepost-build](projects/project-04-prepost-build/Readme.md)
 - [project-05-customcommand](projects/project-05-customcommand/Readme.md)
 - [project-06-custom-rule](projects/project-06-custom-rule/Readme.md)
+- [project-openMP](projects/project-openMP/Readme.md)
