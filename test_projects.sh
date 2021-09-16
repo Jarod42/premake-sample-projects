@@ -62,6 +62,7 @@ function run_gmake2
 
 function run_ninja
 {
+  cat build_app_Release.ninja
   ninja && exec_unix
   return $?
 }
