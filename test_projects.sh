@@ -112,7 +112,7 @@ function run_vs2019
 res=0
 for project in project-*
 do
-  if [ ! -e $project/$premake.lua ]
+  if [ ! -e $project/$premake.lua -o -e $project/unsupported_by_$action ]
   then
     echo $project" Skipped"
     continue
