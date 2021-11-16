@@ -34,10 +34,16 @@ project "sharedLib"
 
 	files { path.join(Root, "src/sharedlib/lib.cpp") }
 
+if premake.action.supports("None") then
+print('Kind "None" supported')
 project "none"
 	kind "None"
 
 	files { path.join(Root, "src/none/sample.cpp") }
+else
+print('Kind "None" is NOT supported')
+
+end
 
 
 -- TODO external libraries, dependency order
