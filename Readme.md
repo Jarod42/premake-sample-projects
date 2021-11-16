@@ -9,7 +9,7 @@ Nearly empty configurations
 test basic build options ([`includedirs`](https://premake.github.io/docs/includedirs), [`sysincludedirs`](https://premake.github.io/docs/sysincludedirs) (premake5), [`forceincludes`](https://premake.github.io/docs/forceincludes) (premake5), [`defines`](https://premake.github.io/docs/defines), [`buildoptions`](https://premake.github.io/docs/buildoptions))
 
 - project-02-kind:
-test application [`kind`](https://premake.github.io/docs/kind) (`"ConsoleApp"`, `"staticLib"`, `"SharedLib"`) and [`links`](https://premake.github.io/docs/links) between projects.
+test application [`kind`](https://premake.github.io/docs/kind) (`"ConsoleApp"`, `"StaticLib"`, `"SharedLib"`, and additionally for premake5 `"None"`) and [`links`](https://premake.github.io/docs/links) between projects.
 
 - project-03-pch:
 test [pre-compiled header](https://premake.github.io/docs/Precompiled-Headers) ([`pchheader`](https://premake.github.io/docs/pchheader)/[`pchsource`](https://premake.github.io/docs/pchsource))

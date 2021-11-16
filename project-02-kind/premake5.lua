@@ -34,4 +34,10 @@ project "sharedLib"
 
 	files { path.join(Root, "src/sharedlib/lib.cpp") }
 
+project "none"
+	kind "None"
+
+	files { path.join(Root, "src/none/sample.cpp") }
+
+
 -- TODO external libraries, dependency order
