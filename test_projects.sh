@@ -119,6 +119,12 @@ do
   fi
   echo $project
   $premake --file=$project/$premake.lua $action
+  if [ $? != 0 ]
+  then
+    res=1
+    echo $project" KO"
+    continue
+  fi
   cd $project/solution/$action
   run_$action $project
   if [ $? == 0 ]
