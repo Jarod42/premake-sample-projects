@@ -5,11 +5,13 @@ on:
   push:
     paths:
       - 'project-*/**'
-      - .github/workflows/premake5-windows-msvc.yml
+      - '.github/workflows/premake5-windows-msvc.yml'
+      - '!**/*.md'
   pull_request:
     paths:
       - 'project-*/**'
-      - .github/workflows/premake5-windows-msvc.yml
+      - '.github/workflows/premake5-windows-msvc.yml'
+      - '!**/*.md'
 
 jobs:
   windows:

@@ -6,12 +6,14 @@ on:
     paths:
       - 'project-*/**'
       - 'codeblocks/**'
-      - .github/workflows/premake5-ubuntu-codeblocks.yml
+      - '.github/workflows/premake5-ubuntu-codeblocks.yml'
+      - '!**/*.md'
   pull_request:
     paths:
       - 'project-*/**'
       - 'codeblocks/**'
-      - .github/workflows/premake5-ubuntu-codeblocks.yml
+      - '.github/workflows/premake5-ubuntu-codeblocks.yml'
+      - '!**/*.md'
 
 jobs:
   linux:

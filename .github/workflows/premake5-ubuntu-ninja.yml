@@ -5,11 +5,13 @@ on:
   push:
     paths:
       - 'project-*/**'
-      - .github/workflows/premake5-ubuntu-ninja.yml
+      - '.github/workflows/premake5-ubuntu-ninja.yml'
+      - '!**/*.md'
   pull_request:
     paths:
       - 'project-*/**'
-      - .github/workflows/premake5-ubuntu-ninja.yml
+      - '.github/workflows/premake5-ubuntu-ninja.yml'
+      - '!**/*.md'
 
 jobs:
   linux:

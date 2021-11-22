@@ -1,43 +1,6 @@
 Sample projects for integration testing [premake4/premake5](https://premake.github.io/) and some [modules](https://premake.github.io/community/modules)
 
-## Projects:
-
-- project-00:
-Nearly empty configurations
-
-- project-01-include-define-and-buildoptions:
-test basic build options ([`includedirs`](https://premake.github.io/docs/includedirs), [`sysincludedirs`](https://premake.github.io/docs/sysincludedirs) (premake5), [`forceincludes`](https://premake.github.io/docs/forceincludes) (premake5), [`defines`](https://premake.github.io/docs/defines), [`buildoptions`](https://premake.github.io/docs/buildoptions))
-
-- project-02-kind:
-test application [`kind`](https://premake.github.io/docs/kind) (`"ConsoleApp"`, `"StaticLib"`, `"SharedLib"`, and additionally for premake5 `"None"`) and [`links`](https://premake.github.io/docs/links) between projects.
-
-- project-03-pch:
-test [pre-compiled header](https://premake.github.io/docs/Precompiled-Headers) ([`pchheader`](https://premake.github.io/docs/pchheader)/[`pchsource`](https://premake.github.io/docs/pchsource))
-
-- project-04-prepost-build:
-test [`prebuildcommands`](https://premake.github.io/docs/prebuildcommands)/[`postbuildcommands`](https://premake.github.io/docs/postbuildcommands) (and some tokens for premake5)
-
-- project-05-customcommand:
-test [`buildcommands`](https://premake.github.io/docs/buildcommands)/[`buildinputs`](https://premake.github.io/docs/buildinputs)/[`buildoutputs`](https://premake.github.io/docs/buildoutputs)/[`buildmessage`](https://premake.github.io/docs/buildmessage)/[`compilebuildoutputs`](https://premake.github.io/docs/compilebuildoutputs) (and some tokens and per file configuration) (premake5 only)
-
-- project-06-custom-rule:
-test [custom rule](https://premake.github.io/docs/Custom-Rules) ([`rule`](https://premake.github.io/docs/rule), [`rules`](https://premake.github.io/docs/rules), [`fileExtension`](https://premake.github.io/docs/fileExtension), [`propertydefinition`](https://premake.github.io/docs/propertydefinition)) (and some tokens) (premake5 only)
-
 ## Results
-
-### Premake4's core
-
-||gmake|Codelite|CodeBlocks|
-|:---|:---:|:---:|:---:|
-||![Premake4 ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake4-ubuntu-gmake/badge.svg)|![Premake4 ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake4-ubuntu-codelite/badge.svg)|![Premake4 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake4-ubuntu-codeblocks/badge.svg)|
-|[`includedirs`](https://premake.github.io/docs/includedirs)| :heavy_check_mark: |:heavy_check_mark:|:heavy_check_mark:|
-|[`defines`](https://premake.github.io/docs/defines)| :heavy_check_mark: |:heavy_check_mark:|:heavy_check_mark:|
-|[`buildoptions`](https://premake.github.io/docs/buildoptions)| :heavy_check_mark: |:heavy_check_mark:|:heavy_check_mark:|
-|`kind "ConsoleApp"`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|`kind "SharedLib"`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|`kind "StaticLib"`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|Pch|:heavy_check_mark:|:x:|:heavy_check_mark:|
-|Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
 ### Premake5's core and Modules
 
@@ -62,3 +25,15 @@ Modules:
 |Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |custom rule|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
+
+### Premake4's core
+[Results for Premake4's core](Premake4_results.md)
+
+### Projects list:
+- [project-00](project-00/Readme.md)
+- [project-01-include-define-and-buildoptions](project-01-include-define-and-buildoptions/Readme.md)
+- [project-02-kind](project-02-kind/Readme.md)
+- [project-03-pch](project-03-pch/Readme.md)
+- [project-04-prepost-build](project-04-prepost-build/Readme.md)
+- [project-05-customcommand](project-05-customcommand/Readme.md)
+- [project-06-custom-rule](project-06-custom-rule/Readme.md)

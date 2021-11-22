@@ -6,12 +6,14 @@ on:
     paths:
       - 'project-*/**'
       - 'codelite/**'
-      - .github/workflows/premake4-ubuntu-codelite.yml
+      - '.github/workflows/premake4-ubuntu-codelite.yml'
+      - '!**/*.md'
   pull_request:
     paths:
       - 'project-*/**'
       - 'codelite/**'
-      - .github/workflows/premake4-ubuntu-codelite.yml
+      - '.github/workflows/premake4-ubuntu-codelite.yml'
+      - '!**/*.md'
 
 jobs:
   linux:
