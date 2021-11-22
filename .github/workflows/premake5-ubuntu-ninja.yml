@@ -49,4 +49,4 @@ jobs:
         echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
 
     - name: test projects
-      run: PATH=$PATH:. ./test_projects.sh premake5 ninja
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 ninja

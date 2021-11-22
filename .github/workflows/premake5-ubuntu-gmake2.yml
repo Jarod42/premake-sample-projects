@@ -35,4 +35,4 @@ jobs:
         rm -Rf premake-build
 
     - name: test projects
-      run: PATH=$PATH:. ./test_projects.sh premake5 gmake2
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 gmake2

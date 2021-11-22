@@ -43,4 +43,4 @@ jobs:
       run: sudo apt-get install -y codelite
 
     - name: test projects
-      run: PATH=$PATH:. ./test_projects.sh premake5 codelite
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 codelite

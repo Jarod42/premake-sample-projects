@@ -40,7 +40,7 @@ jobs:
         cp bin/release/premake5 ../
         cd ..
         rm -Rf premake-build
-        echo "." >> $GITHUB_PATH
+        echo `pwd` >> $GITHUB_PATH
 
     - name: add premake codeblocks module
       run: |

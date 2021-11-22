@@ -44,7 +44,7 @@ function run_codeblocks
 
 function run_codelite
 {
-  codelite-make --settings=../../../codelite/build_settings.xml --workspace=Project.workspace --project=app --config=Release --command=build --verbose --execute && exec_unix
+  codelite-make --settings=../../../../codelite/build_settings.xml --workspace=Project.workspace --project=app --config=Release --command=build --verbose --execute && exec_unix
   return $?
 }
 
@@ -110,6 +110,7 @@ function run_vs2019
 }
 
 res=0
+cd projects
 for project in project-*
 do
   if [ ! -e $project/$premake.lua -o -e $project/unsupported_by_$action ]
@@ -136,4 +137,5 @@ do
   fi
   cd ../../..
 done
+cd ..
 exit $res

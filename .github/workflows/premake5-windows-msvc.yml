@@ -44,5 +44,5 @@ jobs:
         echo $PATH
         #"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
         echo $PATH
-        PATH=$PATH:. ./test_projects.sh premake5 vs2019
+        PATH=$PATH:`pwd` ./test_projects.sh premake5 vs2019
       shell: bash
