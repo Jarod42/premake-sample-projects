@@ -8,11 +8,12 @@ fi
 
 if [ "$2" == "" ]
 then
-  echo "second argument should be a premake action (gmake, codelite)"
+  echo "second argument should be a premake action (gmake, codelite, ..)"
   exit 1
 fi
 premake=$1
 action=$2
+options=${@:3}
 
 function exec_unix
 {
@@ -119,7 +120,8 @@ do
     continue
   fi
   echo $project
-  $premake --file=$project/$premake.lua $action
+  rm -Rf $project/solution/$action
+  $premake --file=$project/$premake.lua $action $options
   if [ $? != 0 ]
   then
     res=1

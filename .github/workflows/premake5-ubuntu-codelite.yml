@@ -42,5 +42,11 @@ jobs:
     - name: sudo apt-get install -y codelite
       run: sudo apt-get install -y codelite
 
-    - name: test projects
+    - name: test projects default(clang)
       run: PATH=$PATH:`pwd` ./test_projects.sh premake5 codelite
+
+    - name: test projects gcc
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 codelite --cc=gcc
+
+    - name: test projects clang
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 codelite --cc=clang

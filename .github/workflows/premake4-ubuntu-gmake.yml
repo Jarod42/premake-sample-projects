@@ -24,5 +24,11 @@ jobs:
     - name: apt-get install premake4
       run: sudo apt-get install -y premake4
 
-    - name: test projects
+    - name: test projects default(gcc)
       run: ./test_projects.sh premake4 gmake
+
+    - name: test projects gcc
+      run: ./test_projects.sh premake4 gmake --cc=gcc
+
+    - name: test projects clang
+      run: ./test_projects.sh premake4 gmake --cc=clang
