@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'project-*/**'
-      - .'github/workflows/premake5-ubuntu-gmake.yml'
+      - '.github/workflows/premake5-ubuntu-gmake.yml'
       - '!**/*.md'
   pull_request:
     paths:
