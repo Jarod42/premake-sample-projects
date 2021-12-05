@@ -1,0 +1,49 @@
+name: premake5-mac-xcode4
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/project-*/**'
+      - '.github/workflows/premake5-mac-xcode4.yml'
+      - '!**/*.md'
+      - '!**/unsupported_by_*'
+  pull_request:
+    paths:
+      - 'projects/project-*/**'
+      - '.github/workflows/premake5-mac-xcode4.yml'
+      - '!**/*.md'
+      - '!**/unsupported_by_*'
+
+jobs:
+  mac:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: checkout premake5
+      uses: actions/checkout@v2
+      with:
+          repository: premake/premake-core
+          path: premake-build
+
+    - name: Build premake5
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak osx CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+
+    - name: test projects default(clang)
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 xcode4
+
+    - name: test projects gcc
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 xcode4 --cc=gcc
+
+    - name: test projects clang
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 xcode4 --cc=clang

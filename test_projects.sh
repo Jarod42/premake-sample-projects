@@ -15,6 +15,12 @@ premake=$1
 action=$2
 options=${@:3}
 
+function exec_mac
+{
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
+  return $?
+}
+
 function exec_unix
 {
   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
@@ -108,6 +114,13 @@ function run_vs2019
 {
     msbuild.exe Project.sln && exec_windows
     return $?
+}
+
+function run_xcode4
+{
+  #xcodebuild -list -project app.xcodeproj
+  xcodebuild -scheme app build && exec_mac
+  return $?
 }
 
 res=0
