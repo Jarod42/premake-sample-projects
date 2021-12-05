@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'project-*/**'
+      - 'projects/project-*/**'
       - '.github/workflows/premake4-ubuntu-gmake.yml'
       - '!**/*.md'
   pull_request:
     paths:
-      - 'project-*/**'
+      - 'projects/project-*/**'
       - '.github/workflows/premake4-ubuntu-gmake.yml'
       - '!**/*.md'
 

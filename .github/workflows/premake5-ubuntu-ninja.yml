@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'project-*/**'
+      - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-ninja.yml'
       - '!**/*.md'
   pull_request:
     paths:
-      - 'project-*/**'
+      - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-ninja.yml'
       - '!**/*.md'
 
