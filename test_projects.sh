@@ -17,7 +17,7 @@ options=${@:3}
 
 function exec_mac
 {
-  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
+  DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./bin ./bin/app
   return $?
 }
 
@@ -119,7 +119,7 @@ function run_vs2019
 function run_xcode4
 {
   #xcodebuild -list -project app.xcodeproj
-  xcodebuild -scheme app build && exec_mac
+  xcodebuild -project app.xcodeproj -scheme app build && exec_mac
   return $?
 }
 
