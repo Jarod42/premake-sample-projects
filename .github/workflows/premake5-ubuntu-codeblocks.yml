@@ -8,12 +8,14 @@ on:
       - 'codeblocks/**'
       - '.github/workflows/premake5-ubuntu-codeblocks.yml'
       - '!**/*.md'
+      - '!**/unsupported_by_*'
   pull_request:
     paths:
       - 'projects/project-*/**'
       - 'codeblocks/**'
       - '.github/workflows/premake5-ubuntu-codeblocks.yml'
       - '!**/*.md'
+      - '!**/unsupported_by_*'
 
 jobs:
   linux:

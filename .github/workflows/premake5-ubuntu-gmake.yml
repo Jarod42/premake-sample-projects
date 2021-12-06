@@ -7,11 +7,13 @@ on:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-gmake.yml'
       - '!**/*.md'
+      - '!**/unsupported_by_*'
   pull_request:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-gmake.yml'
       - '!**/*.md'
+      - '!**/unsupported_by_*'
 
 jobs:
   linux:
