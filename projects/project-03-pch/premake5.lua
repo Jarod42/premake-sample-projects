@@ -20,6 +20,9 @@ project "app"
 
 	includedirs {path.join(Root, "src")} -- to find "pch.h"
 	pchheader "pch.h"
+	defines "FOR_PCH_AND_NOT_PCH" -- Some IDE (codelite) might propose to have distinct flag between pch and non-pch file
+
+	
 if _ACTION == "codeblocks" then
 	files {path.join(Root, "src/pch.h")} -- codeblocks requires it to works.
 	-- Fine to have it in (other) IDEs anyway.

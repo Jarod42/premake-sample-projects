@@ -20,6 +20,8 @@ solution "Project"
 project "app"
 	kind "ConsoleApp"
 
+	defines "FOR_PCH_AND_NOT_PCH" -- Some IDE (codelite) might propose to have distinct flag between pch and non-pch file
+
 if is_msvc then
 	files {path.join(Root, "src/msvc/main.cpp"), path.join(Root, "src/msvc/foo.cpp")}
 	pchsource (path.join(Root, "src/msvc/pch.cpp")) -- only required for msvc
