@@ -20,9 +20,6 @@ project "app"
 
 	files {path.join(Root, "src/main.cpp")}
 
-	--forceincludes {path.join(Root, "src/force_header.h")} -- added in premake5
-	defines ("FORCE_HEADER_INCLUDED") -- **test** workaround for premake4
-
 	--sysincludedirs {path.join(Root, "src/sysinclude")} -- added in premake5
 	includedirs {path.join(Root, "src/sysinclude")} -- possible workaround
 	includedirs {path.join(Root, "src/include")}

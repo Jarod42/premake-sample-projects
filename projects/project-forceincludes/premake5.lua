@@ -20,16 +20,4 @@ project "app"
 
 	files {path.join(Root, "src/main.cpp")}
 
-	sysincludedirs {path.join(Root, "src/sysinclude")}
-	includedirs {path.join(Root, "src/include")}
-
-	defines "MACRO"
-	defines "MACRO2=2"
-
-
-	filter "toolset:gcc or toolset:clang"
-		buildoptions {'-DRETURN="return"'}
-		-- seems codelite has issue with semi column in buildoptions
-
-	filter "toolset:msc*"
-		buildoptions {'/D RETURN="return"'}
+	forceincludes {path.join(Root, "src/force_header.h")}
