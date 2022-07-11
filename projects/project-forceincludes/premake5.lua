@@ -20,4 +20,8 @@ project "app"
 
 	files {path.join(Root, "src/main.cpp")}
 
+
 	forceincludes {path.join(Root, "src/force_header.h")}
+
+	filter "toolset:msc*" -- msc requires that the header is accessible from the includedir
+		includedirs(LocationDir)
