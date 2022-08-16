@@ -1,0 +1,63 @@
+name: premake5-qt5-windows-msvc
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects-qt/project-*/**'
+      - '.github/workflows/premake5-qt5-windows-msvc.yml'
+      - '!**/*.md'
+      - '!**/unsupported_by_*'
+  pull_request:
+    paths:
+      - 'projects-qt/project-*/**'
+      - '.github/workflows/premake5-qt5-windows-msvc.yml'
+      - '!**/*.md'
+      - '!**/unsupported_by_*'
+
+jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: checkout premake5
+      uses: actions/checkout@v2
+      with:
+        repository: premake/premake-core
+        path: premake-build
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Build premake5
+      run: |
+        $vcvarall_path = vswhere -find VC\Auxiliary\Build\vcvarsall.bat
+        cmd.exe /c "call ""$vcvarall_path"" x86_amd64 && cd premake-build && nmake -f Bootstrap.mak MSDEV=vs2019 windows-msbuild PLATFORM=Win32 CONFIG=release && cp bin/release/premake5.exe ../"
+
+    - name: add premake qt module
+      run: |
+        echo "require 'submodules/premake-qt/qt'" >> premake-system.lua
+
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v1
+      with:
+        path: ../Qt
+        key: cache-windows64-Qt5.15.0
+
+    - name: Installing Qt - 5.15.0 win64_msvc2019_64
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.15.0'
+        arch: win64_msvc2019_64
+        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+    - name: test projects
+      run: |
+        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects-qt vs2019 --qt-root=$Qt5_Dir
+      shell: bash

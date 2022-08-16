@@ -1,0 +1,75 @@
+name: premake5-qt5-ubuntu-cmake
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects-qt/project-*/**'
+      - 'codelite/**'
+      - '.github/workflows/premake5-qt5-ubuntu-cmake.yml'
+      - '!**/*.md'
+      - '!**/unsupported_by_*'
+  pull_request:
+    paths:
+      - 'projects-qt/project-*/**'
+      - 'codelite/**'
+      - '.github/workflows/premake5-qt5-ubuntu-cmake.yml'
+      - '!**/*.md'
+      - '!**/unsupported_by_*'
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        submodules: recursive
+
+    - name: checkout premake5
+      uses: actions/checkout@v2
+      with:
+          repository: premake/premake-core
+          path: premake-build
+    - name: Build premake5
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak linux CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+
+    - name: add premake cmake module
+      run: |
+        echo "require 'submodules/premake-cmake/cmake'" >> premake-system.lua
+
+    - name: add premake qt module
+      run: |
+        echo "require 'submodules/premake-qt/qt'" >> premake-system.lua
+
+    - name: Cache Qt
+      id: cache-qt
+      uses: actions/cache@v1
+      with:
+        path: ../Qt
+        key: cache-ubuntu-Qt5.15.0
+
+    - name: Installing Qt5.15.0 ubuntu
+      uses: jurplel/install-qt-action@v2
+      with:
+        version: '5.15.0'
+        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+    - name: set path
+      run: |
+         echo PATH=$PATH:`pwd`
+         echo PATH=$PATH:`pwd` >> $GITHUB_ENV
+         echo QT_DIR=$Qt5_Dir
+         echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
+
+    - name: test projects
+      timeout-minutes: 5 # tends to not stop properly in case of failure
+      uses: GabrielBB/xvfb-action@v1 # fake X-server as Qt Widget requires displays :/
+      with: # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
+        run:  ./test_projects.sh premake5 projects-qt cmake #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64

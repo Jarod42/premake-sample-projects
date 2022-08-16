@@ -26,13 +26,15 @@ options=${@:4}
 # execute binary from different OS
 function exec_mac
 {
+  echo DYLD_LIBRARY_PATH: $DYLD_LIBRARY_PATH
   DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./bin ./bin/app
   return $?
 }
 
 function exec_unix
 {
-  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin ./bin/app
+  echo DYLD_LIBRARY_PATH: $DYLD_LIBRARY_PATH
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin QT_DEBUG_PLUGINS=1 ./bin/app
   return $?
 }
 

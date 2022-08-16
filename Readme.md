@@ -4,10 +4,13 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 
 ### Premake5's core and Modules
 
-Modules:
+Generator modules:
 - [Module CodeBlocks](https://github.com/Jarod42/premake-codeblocks) (fixed fork)
 - [Module CMake](https://github.com/Jarod42/premake-cmake) (fixed fork)
 - [Module Ninja](https://github.com/jimon/premake-ninja)
+
+Library modules:
+- [premake-qt module](https://github.com/dcourtois/premake-qt)
 
 ||gmake|gmake2|Codelite|Msvc vs2019|xcode4|CodeBlocks|CMake|Ninja|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -26,6 +29,8 @@ Modules:
 |custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |custom rule|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |[`openMP`](https://premake.github.io/docs/openmp/)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|[premake-qt module](https://github.com/dcourtois/premake-qt)|:x:|![gmake2](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-gmake2/badge.svg)|![Codelite](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codelite/badge.svg)|![msvc](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-windows-msvc/badge.svg)|:x:|![codeblocks](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codeblocks/badge.svg)|![cmake](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-cmake/badge.svg)|![ninja](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-ninja/badge.svg)|
+
 
 ### Premake4's core
 [Results for Premake4's core](Premake4_results.md)
@@ -39,3 +44,5 @@ Modules:
 - [project-05-customcommand](projects/project-05-customcommand/Readme.md)
 - [project-06-custom-rule](projects/project-06-custom-rule/Readme.md)
 - [project-openMP](projects/project-openMP/Readme.md)
+
+- [project-qt](projects-qt/project-qt/Readme.md)
