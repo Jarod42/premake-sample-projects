@@ -43,4 +43,4 @@ jobs:
         echo "require 'submodules/premake-cmake/cmake'" >> premake-system.lua
 
     - name: test projects
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 cmake
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects cmake

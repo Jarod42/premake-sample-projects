@@ -8,13 +8,22 @@ fi
 
 if [ "$2" == "" ]
 then
-  echo "second argument should be a premake action (gmake, codelite, ..)"
+  echo "second argument should be a projects root directory"
   exit 1
 fi
-premake=$1
-action=$2
-options=${@:3}
 
+if [ "$3" == "" ]
+then
+  echo "third argument should be a premake action (gmake, codelite, ..)"
+  exit 1
+fi
+
+premake=$1
+projects_root=$2
+action=$3
+options=${@:4}
+
+# execute binary from different OS
 function exec_mac
 {
   DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./bin ./bin/app
@@ -33,6 +42,7 @@ function exec_windows
   return $?
 }
 
+# build executable from different generator.
 function run_cmake
 {
   cmake . && make && exec_unix
@@ -123,8 +133,9 @@ function run_xcode4
   return $?
 }
 
+# main
 res=0
-cd projects
+cd $projects_root
 for project in project-*
 do
   if [ ! -e $project/$premake.lua -o -e $project/unsupported_by_$action ]

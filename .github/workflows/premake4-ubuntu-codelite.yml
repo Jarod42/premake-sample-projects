@@ -35,10 +35,10 @@ jobs:
       run: sudo apt-get install -y codelite
 
     - name: test projects default(clang)
-      run: ./test_projects.sh premake4 codelite
+      run: ./test_projects.sh premake4 projects codelite
 
     - name: test projects gcc
-      run: ./test_projects.sh premake4 codelite --cc=gcc
+      run: ./test_projects.sh premake4 projects codelite --cc=gcc
 
     - name: test projects clang
-      run: ./test_projects.sh premake4 codelite --cc=clang
+      run: ./test_projects.sh premake4 projects codelite --cc=clang

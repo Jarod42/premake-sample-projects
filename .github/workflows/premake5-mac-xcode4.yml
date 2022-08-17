@@ -8,14 +8,14 @@ on:
       - '.github/workflows/premake5-mac-xcode4.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
-      - '**/unsupported_by_xcode4'
+      - 'projects/**/unsupported_by_xcode4'
   pull_request:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-mac-xcode4.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
-      - '**/unsupported_by_xcode4'
+      - 'projects/**/unsupported_by_xcode4'
 
 jobs:
   mac:
@@ -42,10 +42,10 @@ jobs:
         rm -Rf premake-build
 
     - name: test projects default(clang)
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 xcode4
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects xcode4
 
     - name: test projects gcc
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 xcode4 --cc=gcc
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects xcode4 --cc=gcc
 
     - name: test projects clang
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 xcode4 --cc=clang
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects xcode4 --cc=clang

@@ -37,10 +37,10 @@ jobs:
         rm -Rf premake-build
 
     - name: test projects default(gcc)
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 gmake2
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects gmake2
 
     - name: test projects gcc
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 gmake2 --cc=gcc
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects gmake2 --cc=gcc
 
     - name: test projects clang
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 gmake2 --cc=clang
+      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects gmake2 --cc=clang
