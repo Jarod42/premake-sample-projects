@@ -80,49 +80,49 @@ function run_gmake2
 function run_ninja
 {
   cat build_app_Release.ninja
-  ninja && exec_unix
+  ninja app_Release && exec_unix
   return $?
 }
 
 function run_vs2005
 {
-    msbuild.exe Project.sln && exec_windows
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
     return $?
 }
 function run_vs2008
 {
-    msbuild.exe Project.sln && exec_windows
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
     return $?
 }
 function run_vs2010
 {
-    msbuild.exe Project.sln && exec_windows
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
     return $?
 }
 function run_vs2012
 {
-    msbuild.exe Project.sln && exec_windows
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
     return $?
 }
 function run_vs2013
 {
-    msbuild.exe Project.sln && exec_windows
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
     return $?
 }
 function run_vs2015
 {
-    msbuild.exe Project.sln && exec_windows
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
     return $?
 }
 function run_vs2017
 {
-    msbuild.exe Project.sln && exec_windows
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
     return $?
 }
 
 function run_vs2019
 {
-    msbuild.exe Project.sln && exec_windows
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
     return $?
 }
 
