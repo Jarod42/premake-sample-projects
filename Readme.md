@@ -4,13 +4,10 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 
 ### Premake5's core and Modules
 
-Generator modules:
+#### Generator modules:
 - [Module CodeBlocks](https://github.com/Jarod42/premake-codeblocks) (fixed fork)
 - [Module CMake](https://github.com/Jarod42/premake-cmake) (fixed fork)
 - [Module Ninja](https://github.com/jimon/premake-ninja)
-
-Library modules:
-- [premake-qt module](https://github.com/dcourtois/premake-qt)
 
 ||gmake|gmake2|Codelite|Msvc vs2019|xcode4|CodeBlocks|CMake|Ninja|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -29,8 +26,17 @@ Library modules:
 |custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |custom rule|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark: (Fixed)|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |[`openMP`](https://premake.github.io/docs/openmp/)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|[premake-qt module](https://github.com/dcourtois/premake-qt)|:x:|![gmake2](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-gmake2/badge.svg)|![Codelite](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codelite/badge.svg)|![msvc](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-windows-msvc/badge.svg)|:x:|![codeblocks](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codeblocks/badge.svg)|![cmake](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-cmake/badge.svg)|![ninja](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-ninja/badge.svg)|
 
+#### Library modules:
+- [premake-qt module](https://github.com/dcourtois/premake-qt)
+
+||gmake|gmake2|Codelite|Msvc vs2019|xcode4|CodeBlocks|CMake|Ninja|
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+||:grey_question:|![qt gmake2 badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-gmake2/badge.svg)|![qt Codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codelite/badge.svg)|![qt msvc badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-windows-msvc/badge.svg)|:grey_question:|![qt codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codeblocks/badge.svg)|![qt cmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-cmake/badge.svg)|![qt ninja badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-ninja/badge.svg)|
+|basic|:grey_question:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|moc|:x:|:x:|:x:|:heavy_check_mark:|:x:|:x:|:x:|:heavy_check_mark:|
+|qrc|:x:|:x:|:x:|:heavy_check_mark:|:x:|:x:|:x:|:heavy_check_mark:|
+|uic|:x:|:x:|:x:|:heavy_check_mark:|:x:|:x:|:x:|:x:|
 
 ### Premake4's core
 [Results for Premake4's core](Premake4_results.md)
