@@ -36,7 +36,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |basic|:grey_question:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |moc|:x:|:x:|:x:|:heavy_check_mark:|:x:|:x:|:x:|:heavy_check_mark:|
 |qrc|:x:|:x:|:x:|:heavy_check_mark:|:x:|:x:|:x:|:heavy_check_mark:|
-|uic|:x:|:x:|:x:|:heavy_check_mark:|:x:|:x:|:x:|:heavy_check_mark:|
+|uic|:x:|:x:|:x:|:heavy_check_mark:|:x:|:heavy_check_mark:|:x:|:heavy_check_mark:|
 
 ### Premake4's core
 [Results for Premake4's core](Premake4_results.md)

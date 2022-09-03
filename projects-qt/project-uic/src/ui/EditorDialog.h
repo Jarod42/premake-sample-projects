@@ -6,7 +6,6 @@
 #include "ui_EditorDialog.h"
 class EditorDialog : public QDialog
 {
-    Q_OBJECT
 public:
     explicit EditorDialog(QWidget* parent = nullptr);
     ~EditorDialog() override;
