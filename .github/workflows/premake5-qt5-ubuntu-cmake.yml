@@ -48,18 +48,12 @@ jobs:
       run: |
         echo "require 'submodules/premake-qt/qt'" >> premake-system.lua
 
-    - name: Cache Qt
-      id: cache-qt
-      uses: actions/cache@v1
-      with:
-        path: ../Qt
-        key: cache-ubuntu-Qt5.15.0
-
     - name: Installing Qt5.15.0 ubuntu
-      uses: jurplel/install-qt-action@v2
+      uses: jurplel/install-qt-action@v3
       with:
         version: '5.15.0'
-        cached: ${{ steps.cache-qt.outputs.cache-hit }}
+        cache: true
+        cache-key-prefix: 'qt-action-5.15.0_ubuntu'
 
     - name: set path
       run: |
