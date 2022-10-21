@@ -5,14 +5,12 @@ on:
   push:
     paths:
       - 'projects-qt/project-*/**'
-      - 'codelite/**'
       - '.github/workflows/premake5-qt5-ubuntu-gmake2.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
-      - 'codelite/**'
       - '.github/workflows/premake5-qt5-ubuntu-gmake2.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
