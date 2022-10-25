@@ -23,7 +23,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |[`includedirs`](https://premake.github.io/docs/includedirs)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |[`sysincludedirs`](https://premake.github.io/docs/sysincludedirs)[^deprecated_sysincludedirs]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |[`externalincludedirs`](https://premake.github.io/docs/externalincludedirs)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:(Fixed)|:heavy_check_mark:(Fixed)|:heavy_check_mark:|
-|[`forceincludes`](https://premake.github.io/docs/forceincludes)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
+|[`forceincludes`](https://premake.github.io/docs/forceincludes)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:[^xcode4_forceincludes_issue]|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |[`defines`](https://premake.github.io/docs/defines)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |[`buildoptions`](https://premake.github.io/docs/buildoptions)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |`kind "ConsoleApp"`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
@@ -50,6 +50,9 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 ||![qt gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-gmake/badge.svg)|![qt gmake2 badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-gmake2/badge.svg)|![qt Codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codelite/badge.svg)|![qt msvc badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-windows-msvc/badge.svg)|:grey_question:|![qt codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codeblocks/badge.svg)|![qt cmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-cmake/badge.svg)|![qt ninja badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-ninja/badge.svg)|
 |basic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|moc|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:[^codeblocks_custom_build]|:x:|:heavy_check_mark:|
-|qrc|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:[^codeblocks_custom_build]|:x:|:heavy_check_mark:|
-|uic|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:x:|:heavy_check_mark:|
+|moc|:heavy_check_mark:|:x:[^gmake2_qt_issue]|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:[^codeblocks_custom_build]|:x:|:heavy_check_mark:|
+|qrc|:heavy_check_mark:|:x:[^gmake2_qt_issue]|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:[^codeblocks_custom_build]|:x:|:heavy_check_mark:|
+|uic|:heavy_check_mark:|:x:[^gmake2_qt_issue]|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:x:|:heavy_check_mark:|
+
+[^xcode4_forceincludes_issue]: Reported issue: https://github.com/premake/premake-core/issues/1769
+[^gmake2_qt_issue]: Reported issue: https://github.com/premake/premake-core/issues/1916
