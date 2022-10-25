@@ -50,6 +50,6 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 ||![qt gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-gmake/badge.svg)|![qt gmake2 badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-gmake2/badge.svg)|![qt Codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codelite/badge.svg)|![qt msvc badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-windows-msvc/badge.svg)|:grey_question:|![qt codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-codeblocks/badge.svg)|![qt cmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-cmake/badge.svg)|![qt ninja badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake5-qt5-ubuntu-ninja/badge.svg)|
 |basic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|moc|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:|:x:|:heavy_check_mark:|
-|qrc|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:|:x:|:heavy_check_mark:|
+|moc|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:[^codeblocks_custom_build]|:x:|:heavy_check_mark:|
+|qrc|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:[^codeblocks_custom_build]|:x:|:heavy_check_mark:|
 |uic|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:x:|:heavy_check_mark:|
