@@ -2,6 +2,9 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 
 ## Results
 
+### Premake4's core
+[Results for Premake4's core](Premake4_results.md)
+
 ### Premake5's core and Modules
 
 #### Generator modules:
@@ -50,19 +53,3 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |moc|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:|:x:|:heavy_check_mark:|
 |qrc|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:|:x:|:heavy_check_mark:|
 |uic|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:x:|:heavy_check_mark:|
-
-### Premake4's core
-[Results for Premake4's core](Premake4_results.md)
-
-### Projects list:
-- [project-00](projects/project-00/Readme.md)
-- [project-01-include-define-and-buildoptions](projects/project-01-include-define-and-buildoptions/Readme.md)
-- [project-02-kind](projects/project-02-kind/Readme.md)
-- [project-03-pch](projects/project-03-pch/Readme.md)
-- [project-04-prepost-build](projects/project-04-prepost-build/Readme.md)
-- [project-05-customcommand](projects/project-05-customcommand/Readme.md)
-- [project-06-custom-rule](projects/project-06-custom-rule/Readme.md)
-- [project-externalincludedirs](projects/project-externalincludedirs/Readme.md)
-- [project-openMP](projects/project-openMP/Readme.md)
-
-- [project-qt](projects-qt/project-qt/Readme.md)
