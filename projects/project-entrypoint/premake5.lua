@@ -21,10 +21,10 @@ project "app"
 	files {path.join(Root, "src/main.c")}
 
 	entrypoint("main2")
-	filter {"toolset:not msc", "action:not vs*", "action:not xcode4*"}
+	filter {"toolset:not msc*", "system:not MacOSX"}
 		linkoptions "-nostartfiles"
 		linkoptions "-Wl,--entry,main2" -- should be done by entrypoint
 
-	filter {"action:xcode4"}
+	filter {"system:MacOSX"}
 		linkoptions "-nostartfiles"
-		linkoptions "-Wl,-e,_main2" -- should be done by entrypoint
+		linkoptions "-Wl,-e,_main2" -- should be done by entrypoint (extra prefix: _)
