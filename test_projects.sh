@@ -136,6 +136,8 @@ function run_xcode4
 }
 
 # main
+skipped_projects=""
+ko_projects=""
 res=0
 cd $projects_root
 for project in project-*
@@ -143,6 +145,7 @@ do
   if [ ! -e $project/$premake.lua -o -e $project/unsupported_by_$action ]
   then
     echo $project" Skipped"
+    skipped_projects=$skipped_projects"; "$project
     continue
   fi
   echo $project
@@ -152,6 +155,7 @@ do
   then
     res=1
     echo $project" KO"
+    ko_projects=$ko_projects"; "$project
     continue
   fi
   cd $project/solution/$action
@@ -161,9 +165,19 @@ do
     echo $project" OK"
   else
     echo $project" KO"
+    ko_projects=$ko_projects"; "$project
     res=1
   fi
   cd ../../..
 done
 cd ..
+# Summary
+if [[ $skipped_projects != "" ]]
+then
+  echo "Skipped:"$skipped_projects | tr ';' '\n'
+fi
+if [[ $ko_projects != "" ]]
+then
+  echo "KO:"$ko_projects | tr ';' '\n'
+fi
 exit $res
