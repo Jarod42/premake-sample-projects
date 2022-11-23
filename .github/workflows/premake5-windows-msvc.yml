@@ -37,10 +37,13 @@ jobs:
         $vcvarall_path = vswhere -find VC\Auxiliary\Build\vcvarsall.bat
         cmd.exe /c "call ""$vcvarall_path"" x86_amd64 && cd premake-build && nmake -f Bootstrap.mak MSDEV=vs2019 windows-msbuild PLATFORM=Win32 CONFIG=release && cp bin/release/premake5.exe ../"
 
-    - name: test projects
+    - name: test projects (default=msc)
       run: |
-        echo $PATH
         #"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
-        echo $PATH
         PATH=$PATH:`pwd` ./test_projects.sh premake5 projects vs2019
+      shell: bash
+
+    - name: test projects (clang)
+      run: |
+        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects vs2019 --cc=clang
       shell: bash
