@@ -14,7 +14,7 @@
 #  define CURRENT_COMPILER "GNUC " strinfigy(__GNUC__) "." strinfigy(__GNUC_MINOR__)
 # endif
 #else
-#  define CURRENT_COMPILER "Unkowned compiler"
+#  define CURRENT_COMPILER "Unknowed compiler"
 #endif
 
 
@@ -27,6 +27,12 @@
 #ifdef EXPECTED_CLANG
 # if !defined(__clang__)
 #  error "expected clang compiler"
+# endif
+#endif
+
+#ifdef EXPECTED_MSC
+# if defined(_MSC_VER)
+#  error "expected msc compiler"
 # endif
 #endif
 

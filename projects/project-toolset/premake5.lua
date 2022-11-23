@@ -20,7 +20,9 @@ project "app"
 
 	files {path.join(Root, "src/main.cpp")}
 
-  filter "options:cc=gcc or cc=mingw"
-	  defines "EXPECTED_GCC"
-  filter "options:cc=clang"
-	  defines "EXPECTED_CLANG"
+	filter "options:cc=gcc or cc=mingw"
+		defines "EXPECTED_GCC"
+	filter "options:cc=clang"
+		defines "EXPECTED_CLANG"
+	filter "options:cc=msc"
+		defines "EXPECTED_MSC"
