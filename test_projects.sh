@@ -81,9 +81,15 @@ function run_gmake2
 
 function run_ninja
 {
-  cat build_app_Release.ninja
-  ninja app_Release && exec_unix
-  return $?
+  echo "OS: "$OS
+  if [[ $OS =~ Win* ]]
+  then
+    cmd /c "ninja app_Release && exec_windows"
+    return $?
+  else
+    ninja app_Release && exec_unix
+    return $?
+  fi
 }
 
 function run_vs2005
