@@ -21,6 +21,10 @@ project "app"
 	files {path.join(Root, "src/main.cpp")}
 
 	openmp "On"
+
+	filter {"action:vs*", "toolset:clang"} -- visual studio doesn't provide flag to clang-cl :(
+		buildoptions "-openmp"
+
 -- mostly equivalent to
 --[[
 	filter "toolset:msc*"
