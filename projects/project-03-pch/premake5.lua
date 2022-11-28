@@ -30,17 +30,18 @@ end
 
 	-- source files are different as msvc drop all code before #include "pch.h"
 	-- and so avoid the check for gcc/clang
-	filter "toolset:msc*"
+	filter "action:vs* or toolset:msc*"
 		files {path.join(Root, "src/msvc/main.cpp"), path.join(Root, "src/msvc/foo.cpp")}
 
-	filter "not toolset:msc*"
+	filter {"not action:vs*", "not toolset:msc*"}
 		files {path.join(Root, "src/others/main.cpp"), path.join(Root, "src/others/foo.cpp")}
 
 	-- pch specific differences
 	filter "toolset:gcc or toolset:clang"
 		buildoptions{"-Winvalid-pch", "-Werror=invalid-pch"}
+	filter {"toolset:gcc or toolset:clang", "not action:vs*"}
 		buildoptions("-H") -- To check manually that pch is actually used
 
-	filter "toolset:msc*"
+	filter "toolset:msc* or action:vs*"
 		pchsource (path.join(Root, "src/msvc/pch.cpp")) -- only required for msvc
 		files {path.join(Root, "src/msvc/pch.cpp")} -- should also be in files
