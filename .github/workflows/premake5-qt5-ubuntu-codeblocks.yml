@@ -76,6 +76,6 @@ jobs:
 
     - name: test projects default(gcc)
       timeout-minutes: 5 # tends to not stop properly in case of failure
-      uses: GabrielBB/xvfb-action@v1 # fake X-server as Codeblocks and Qt Widget require displays :/
-      with: # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        run:  ./test_projects.sh premake5 projects-qt codeblocks #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+      run: | # fake X-server as Qt widget requires displays :/
+        # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
+        xvfb-run -a ./test_projects.sh premake5 projects-qt codeblocks #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64

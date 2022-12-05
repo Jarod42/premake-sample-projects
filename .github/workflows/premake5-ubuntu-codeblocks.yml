@@ -58,18 +58,15 @@ jobs:
 
     - name: test projects default(gcc)
       timeout-minutes: 5 # tends to not stop properly in case of failure
-      uses: GabrielBB/xvfb-action@v1 # fake X-server as codeblocks requires displays :/
-      with:
-        run: ./test_projects.sh premake5 projects codeblocks
+      run: | # fake X-server as codeblocks requires displays :/
+        xvfb-run -a ./test_projects.sh premake5 projects codeblocks
 
     - name: test projects gcc
       timeout-minutes: 5 # tends to not stop properly in case of failure
-      uses: GabrielBB/xvfb-action@v1 # fake X-server as codeblocks requires displays :/
-      with:
-        run: ./test_projects.sh premake5 projects codeblocks --cc=gcc
+      run: | # fake X-server as codeblocks requires displays :/
+        xvfb-run -a ./test_projects.sh premake5 projects codeblocks --cc=gcc
 
     - name: test projects clang
       timeout-minutes: 5 # tends to not stop properly in case of failure
-      uses: GabrielBB/xvfb-action@v1 # fake X-server as codeblocks requires displays :/
-      with:
-        run: ./test_projects.sh premake5 projects codeblocks --cc=clang
+      run: | # fake X-server as codeblocks requires displays :/
+        xvfb-run -a ./test_projects.sh premake5 projects codeblocks --cc=clang
