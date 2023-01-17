@@ -42,7 +42,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |[`compileas`](https://premake.github.io/docs/compileas) |:x:|:heavy_check_mark:|:x:|:x:|:x:|:x:|:x:[^codeblocks_fileconfig_per_config]|:x:|:heavy_check_mark:|
 |[`dependson`](https://premake.github.io/docs/dependson)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |[`externalproject`](https://premake.github.io/docs/externalproject)|:x:|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x:|:x:|:x:|
-|[`openMP`](https://premake.github.io/docs/openmp)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^msvc_clang_openmp]|:heavy_check_mark:[^msvc_clang_openmp]|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|[`openMP`](https://premake.github.io/docs/openmp)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^msvc_clang_openmp]|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |[`sanitize {"Address"}`](https://premake.github.io/docs/sanitize) |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:(Fixed)|:heavy_check_mark:|
 
 #### Library modules:
@@ -64,6 +64,5 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [^cmake_objdir]: cmake doesn't allow to specify `objdir`.
 [^codeblocks_custom_build]: Code::Blocks doesn't support generation of linkable cpp files from header files.
 [^codeblocks_fileconfig_per_config]: Code::Blocks doesn't support rules/custom builds which are different by configuration (Using [Tokens](https://premake.github.io/docs/Tokens) might allow to bypass that restriction).
-[^msvc_clang_openmp]: visual studio doesn't provide flag to clang for openmd.
 [^xcode4_includedirsafter_issue]: Reported issue: https://github.com/premake/premake-core/issues/2062
 [^xcode4_forceincludes_issue]: Reported issue: https://github.com/premake/premake-core/issues/1769
