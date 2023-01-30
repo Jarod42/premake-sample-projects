@@ -36,7 +36,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |custom rule|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |[`dependson`](https://premake.github.io/docs/dependson)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |[`openMP`](https://premake.github.io/docs/openmp)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^msvc_clang_openmp]|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|[`sanitize {"Address"}`](https://premake.github.io/docs/sanitize) |:grey_question:|:grey_question:|:grey_question:|:grey_question:|:x:|:grey_question:|:grey_question:|:grey_question:|
+|[`sanitize {"Address"}`](https://premake.github.io/docs/sanitize) |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:x:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|
 
 [^untested_by_ci]: Not tested by the CI even if projects uses them.
 [^objdir_extra]: premake appends extra `$(configName)/$(AppName)`.
