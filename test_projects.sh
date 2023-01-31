@@ -160,11 +160,12 @@ do
   fi
   cd $project/solution/$action
   run_$action $project
-  if [ $? == 0 ]
+  last_run=$?
+  if [[ $last_run == 0 ]]
   then
     echo $project" OK"
   else
-    echo $project" KO"
+    echo $project" KO " $last_run
     ko_projects=$ko_projects"; "$project
     res=1
   fi
