@@ -44,6 +44,9 @@ jobs:
     - name: sudo apt-get install -y codelite
       run: sudo apt-get install -y codelite
 
+    - name: codelite --version
+      run: xvfb-run -a codelite --version || exit 0 # codelite --version returns -1
+
     - name: test projects default(clang)
       run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects codelite
 
