@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <BuildSettings Version="2.1">
   <Compilers>
-    <Compiler Name="gnu g++" GenerateDependenciesFiles="yes" ReadObjectsListFromFile="yes" ObjectNameIdenticalToFileName="no" CompilerFamily="GCC" IsDefault="yes">
+    <Compiler Name="gnu g++" GenerateDependenciesFiles="yes" ReadObjectsListFromFile="yes" ObjectNameIdenticalToFileName="no" CompilerFamily="GCC" IsDefault="no">
       <Switch Name="ArchiveOutput" Value=" "/>
       <Switch Name="Debug" Value="-g "/>
       <Switch Name="Include" Value="-I"/>
@@ -76,7 +76,7 @@
       <LinkerOption Name="-pg">Profile code when executed</LinkerOption>
       <LinkerOption Name="-s">Remove all symbol table and relocation information from the executable</LinkerOption>
     </Compiler>
-    <Compiler Name="clang++" GenerateDependenciesFiles="yes" ReadObjectsListFromFile="yes" ObjectNameIdenticalToFileName="no" CompilerFamily="LLVM/Clang" IsDefault="no">
+    <Compiler Name="clang++" GenerateDependenciesFiles="yes" ReadObjectsListFromFile="yes" ObjectNameIdenticalToFileName="no" CompilerFamily="LLVM/Clang" IsDefault="yes">
       <Switch Name="ArchiveOutput" Value=" "/>
       <Switch Name="Debug" Value="-g "/>
       <Switch Name="Include" Value="-I"/>
@@ -152,10 +152,6 @@
       <LinkerOption Name="-s">Remove all symbol table and relocation information from the executable</LinkerOption>
     </Compiler>
   </Compilers>
-  <BuildSystem Name="GNU makefile for g++/gcc" ToolPath="mingw32-make.exe" Options="-f" Jobs="2" Active="no"/>
-  <BuildSystem Name="CMake" ToolPath="" Options="" Jobs="" Active="no"/>
-  <BuildSystem Name="CodeLite Make Generator" ToolPath="" Options="" Jobs="" Active="yes"/>
-  <BuildSystem Name="Default" ToolPath="" Options="" Jobs="" Active="yes"/>
-  <BuildSystem Name="GNU makefile onestep build" ToolPath="" Options="" Jobs="" Active="no"/>
-  <BuildSystem Name="NMakefile for MSVC toolset" ToolPath="" Options="" Jobs="" Active="no"/>
+  <BuildSystem Name="GNU makefile for g++/gcc" ToolPath="make" Options="-f" Jobs="2" Active="yes"/>
+  <BuildSystem Name="GNU makefile onestep build" ToolPath="make" Options="-f" Jobs="1" Active="no"/>
 </BuildSettings>
