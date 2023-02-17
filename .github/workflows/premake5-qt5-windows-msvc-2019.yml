@@ -1,23 +1,23 @@
-name: premake5-qt5-windows-msvc
+name: premake5-qt5-windows-msvc-2019
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'projects-qt/project-*/**'
-      - '.github/workflows/premake5-qt5-windows-msvc.yml'
+      - '.github/workflows/premake5-qt5-windows-msvc-2019.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
-      - '.github/workflows/premake5-qt5-windows-msvc.yml'
+      - '.github/workflows/premake5-qt5-windows-msvc-2019.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
 
 jobs:
   windows:
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     steps:
     - name: Checkout

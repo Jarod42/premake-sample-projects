@@ -128,6 +128,12 @@ function run_vs2019
     return $?
 }
 
+function run_vs2022
+{
+    msbuild.exe /property:Configuration=Release Project.sln && exec_windows
+    return $?
+}
+
 function run_xcode4
 {
   #xcodebuild -list -project app.xcodeproj
