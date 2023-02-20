@@ -47,7 +47,7 @@ function exec_windows
 # build executable from different generator.
 function run_cmake
 {
-  cmake . && make && exec_unix
+  cmake -DCMAKE_BUILD_TYPE=Release . && make app && exec_unix
   return $?
 }
 
@@ -69,13 +69,13 @@ function run_codelite
 
 function run_gmake
 {
-  make && exec_unix
+  make app config=release && exec_unix
   return $?
 }
 
 function run_gmake2
 {
-  make && exec_unix
+  make app config=release && exec_unix
   return $?
 }
 
