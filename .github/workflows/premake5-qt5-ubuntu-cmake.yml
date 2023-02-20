@@ -9,6 +9,7 @@ on:
       - '.github/workflows/premake5-qt5-ubuntu-cmake.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_cmake'
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
@@ -16,6 +17,7 @@ on:
       - '.github/workflows/premake5-qt5-ubuntu-cmake.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_cmake'
 
 jobs:
   linux:
