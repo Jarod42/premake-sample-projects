@@ -22,7 +22,7 @@ print("QtRoot:", QtRoot)
 workspace "Project"
   location ( LocationDir )
   -- configurations { "Debug", "Release" }
-  configurations { "Release" } -- Multiple configurations (with cistom rules) is not handled correctly for some generators (ninja, ...)
+  configurations { "Release" } -- Multiple configurations (with custom rules) is not handled correctly for some generators (ninja, ...)
 
   cppdialect "C++17"
   warnings "Extra"
