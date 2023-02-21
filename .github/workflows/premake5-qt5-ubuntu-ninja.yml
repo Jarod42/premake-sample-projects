@@ -68,6 +68,9 @@ jobs:
          echo QT_DIR=$Qt5_Dir
          echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
 
+    - name: install libxkbcommon-x11-0 # display dependency
+      run: sudo apt-get install libxkbcommon-x11-0
+
     - name: test projects default(gcc)
       timeout-minutes: 5 # tends to not stop properly in case of failure
       run: | # fake X-server as Qt widget requires displays :/
