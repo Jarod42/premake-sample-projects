@@ -28,7 +28,8 @@ jobs:
     - name: checkout premake5
       uses: actions/checkout@v3
       with:
-          repository: premake/premake-core
+          repository: Jarod42/premake-core
+          ref: codelite_build_system
           path: premake-build
     - name: Build premake5
       run: |
