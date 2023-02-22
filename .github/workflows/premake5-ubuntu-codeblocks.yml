@@ -9,6 +9,7 @@ on:
       - '.github/workflows/premake5-ubuntu-codeblocks.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_codeblocks'
   pull_request:
     paths:
       - 'projects/project-*/**'
@@ -16,6 +17,7 @@ on:
       - '.github/workflows/premake5-ubuntu-codeblocks.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_codeblocks'
 
 jobs:
   linux:
