@@ -32,6 +32,7 @@ jobs:
       with:
           repository: premake/premake-core
           path: premake-build
+
     - name: Build premake5
       run: |
         cd premake-build
@@ -39,6 +40,9 @@ jobs:
         cp bin/release/premake5 ../
         cd ..
         rm -Rf premake-build
+
+    - name: cmake --version
+      run: cmake --version
 
     - name: add premake cmake module
       run: |

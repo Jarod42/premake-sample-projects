@@ -46,13 +46,18 @@ jobs:
       run: |
         sudo apt-get install -y ninja-build
 
+    - name: ninja --version
+      run: ninja --version
+
     - name: add premake ninja module
       run: |
         echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
 
     - name: test projects default(gcc)
       run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects ninja
+
     - name: test projects gcc
       run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects ninja --cc=gcc
+
     - name: test projects clang
       run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects ninja --cc=clang
