@@ -31,6 +31,7 @@ workspace "Project"
   targetdir(path.join(LocationDir, "bin"))
 
   qt.enable()
+  qtuseexternalinclude ( true )
 
   if (QtRoot ~= nil and QtRoot ~= "") then
     qtpath(QtRoot)
