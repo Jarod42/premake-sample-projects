@@ -1,0 +1,10 @@
+extern "C" void foo();  // from foo.compileasc
+extern "C" void foo2(); // from defaultc.c
+void bar();             // from defaultcpp.c++
+
+int main()
+{
+	foo();
+	foo2();
+	bar();
+}
