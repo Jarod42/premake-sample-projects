@@ -8,12 +8,14 @@ on:
       - '.github/workflows/premake5-ubuntu-cmake.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_cmake'
   pull_request:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-cmake.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_cmake'
 
 jobs:
   linux:

@@ -9,6 +9,7 @@ on:
       - '.github/workflows/premake5-ubuntu-codelite.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_codelite'
   pull_request:
     paths:
       - 'projects/project-*/**'
@@ -16,6 +17,7 @@ on:
       - '.github/workflows/premake5-ubuntu-codelite.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_codelite'
 
 jobs:
   linux:

@@ -5,15 +5,18 @@ on:
   push:
     paths:
       - 'projects/project-*/**'
-      - '.github/workflows/premake5-windows-msvc.yml'
+      - '.github/workflows/premake5-windows-msvc-2022.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_vs2022'
+
   pull_request:
     paths:
       - 'projects/project-*/**'
-      - '.github/workflows/premake5-windows-msvc.yml'
+      - '.github/workflows/premake5-windows-msvc-2022.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_vs2022'
 
 jobs:
   windows:
