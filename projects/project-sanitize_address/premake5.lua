@@ -11,7 +11,7 @@ workspace "Project"
 	configurations {"Release"}
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
-	targetdir(path.join(LocationDir, "bin"))
+	targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
 	targetname("app")
 	startproject "app"
 
@@ -49,16 +49,16 @@ if os.target() == "windows" then
 
 	if #x86_asan_dll_paths ~= 0 then
 		filter {"action:vs*", "toolset:clang", "architecture:x86 or architecture:x32"}
-			postbuildcommands { '{COPY} "' .. x86_asan_dll_paths[1] .. '" ' .. path.join(LocationDir, "bin") }
+			postbuildcommands { '{COPY} "' .. x86_asan_dll_paths[1] .. '" ' .. path.join(LocationDir, "bin/%{cfg.buildcfg}") }
 
 		filter { "toolset:msc*", "architecture:x86 or architecture:x32" }
-			postbuildcommands { '{COPY} "' .. x86_asan_dll_paths[1] .. '" ' .. path.join(LocationDir, "bin") }
+			postbuildcommands { '{COPY} "' .. x86_asan_dll_paths[1] .. '" ' .. path.join(LocationDir, "bin/%{cfg.buildcfg}") }
 	end
 	if #x64_asan_dll_paths ~= 0 then
 		filter {"action:vs*", "toolset:clang", "architecture:x86_64 or architecture:x64"}
-			postbuildcommands { '{COPY} "' .. x64_asan_dll_paths[1] .. '" ' .. path.join(LocationDir, "bin") }
+			postbuildcommands { '{COPY} "' .. x64_asan_dll_paths[1] .. '" ' .. path.join(LocationDir, "bin/%{cfg.buildcfg}") }
 
 		filter { "toolset:msc*", "architecture:x86_64 or architecture:x64" }
-			postbuildcommands { '{COPY} "' .. x64_asan_dll_paths[1] .. '" ' .. path.join(LocationDir, "bin") }
+			postbuildcommands { '{COPY} "' .. x64_asan_dll_paths[1] .. '" ' .. path.join(LocationDir, "bin/%{cfg.buildcfg}") }
 	end
 end

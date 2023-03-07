@@ -27,20 +27,20 @@ options=${@:4}
 function exec_mac
 {
   echo DYLD_LIBRARY_PATH: $DYLD_LIBRARY_PATH
-  DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./bin ./bin/app
+  DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:./bin/Release ./bin/Release/app
   return $?
 }
 
 function exec_unix
 {
   echo DYLD_LIBRARY_PATH: $DYLD_LIBRARY_PATH
-  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin QT_DEBUG_PLUGINS=1 ./bin/app
+  LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin/Release QT_DEBUG_PLUGINS=1 ./bin/Release/app
   return $?
 }
 
 function exec_windows
 {
-  ./bin/app.exe
+  ./bin/Release/app.exe
   return $?
 }
 

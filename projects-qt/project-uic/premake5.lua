@@ -1,4 +1,4 @@
-local Root = path.getabsolute(".") .. "/"  -- getabsolute remove trailling /
+local Root = path.getabsolute(".")
 
 newoption {
   trigger = "qt-root",
@@ -21,14 +21,13 @@ print("QtRoot:", QtRoot)
 
 workspace "Project"
   location ( LocationDir )
-  -- configurations { "Debug", "Release" }
-  configurations { "Release" } -- Multiple configurations (with custom rules) is not handled correctly for some generators (ninja, ...)
+  configurations { "Debug", "Release" }
 
   cppdialect "C++17"
   warnings "Extra"
 
   objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
-  targetdir(path.join(LocationDir, "bin"))
+  targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
 
   qt.enable()
   qtuseexternalinclude ( true )

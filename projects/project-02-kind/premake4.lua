@@ -12,7 +12,7 @@ solution "Project"
 	configurations {"Release"}
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
-	targetdir(path.join(LocationDir, "bin"))
+	targetdir(path.join(LocationDir, "bin/Release"))
 	targetname("app")
 
 project "app"
