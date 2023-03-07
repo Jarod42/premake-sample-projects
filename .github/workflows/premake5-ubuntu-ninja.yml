@@ -8,12 +8,16 @@ on:
       - '.github/workflows/premake5-ubuntu-ninja.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_ninja'
+      - 'submodules/premake-ninja'
   pull_request:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-ninja.yml'
       - '!**/*.md'
       - '!**/unsupported_by_*'
+      - '**/unsupported_by_ninja'
+      - 'submodules/premake-ninja'
 
 jobs:
   linux:
