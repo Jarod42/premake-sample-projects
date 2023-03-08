@@ -25,4 +25,4 @@ project "app"
 	prebuildcommands { "{COPYFILE} " .. path.getrelative(LocationDir, path.join(Root, "src", "header.h.in")) .. " header.h" }
 
 	postbuildmessage "move app2 into app"
-	postbuildcommands { "{MOVE} %{prj.targetdir}/app2%{cfg.targetextension} %{prj.targetdir}/app%{cfg.targetextension}" }
+	postbuildcommands { "{MOVE} bin/%{cfg.buildcfg}/app2%{cfg.targetextension} bin/%{cfg.buildcfg}/app%{cfg.targetextension}" }
