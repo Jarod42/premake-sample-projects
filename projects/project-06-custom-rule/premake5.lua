@@ -26,7 +26,7 @@ rule "myrule"
 
 workspace "Project"
 	location(LocationDir)
-	configurations {"Release"}
+	configurations {"Debug", "Release"}
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
