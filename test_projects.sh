@@ -137,7 +137,7 @@ function run_vs2022
 function run_xcode4
 {
   #xcodebuild -list -project app.xcodeproj
-  xcodebuild -project app.xcodeproj -scheme app build && exec_mac
+  xcodebuild -project app.xcodeproj -configuration Release -scheme app build && exec_mac
   return $?
 }
 
