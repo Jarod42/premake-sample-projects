@@ -14,9 +14,17 @@ local LocationDir = path.join(Root, "solution", _ACTION)
 
 if _OPTIONS["qt-root"] ~= nil then
   QtRoot = path.normalize(_OPTIONS["qt-root"])
+  print("QtRoot:", QtRoot)
+else
+  QtRoot = os.getenv("QTDIR") or os.getenv("QT_DIR")
+  QtRoot = path.normalize(QtRoot)
+  print("QtRoot (from env):", QtRoot)
 end
 
-print("QtRoot:", QtRoot)
+if QtRoot == nil or QtRoot == "" then
+  premake.error("No path found for Qt")
+  exit(1)
+end
 
 rule "uic"
   display "uic"
@@ -60,12 +68,7 @@ workspace "Project"
   warnings "Extra"
 
   objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
-  targetdir(path.join(LocationDir, "bin"))
-
-  if (QtRoot ~= nil and QtRoot ~= "") then
-    externalincludedirs(path.join(QtRoot, "include"))
-    libdirs(path.join(QtRoot, "lib"))
-  end
+  targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
 
   filter "configurations:Debug"
     targetsuffix "d"
@@ -99,9 +102,12 @@ workspace "Project"
 
     includedirs(path.join(LocationDir, "obj")) -- for generated files from ui
 
-    includedirs(path.join(QtRoot, "include", "QtCore"))
-    includedirs(path.join(QtRoot, "include", "QtGui"))
-    includedirs(path.join(QtRoot, "include", "QtWidgets"))
+    externalincludedirs(path.join(QtRoot, "include"))
+    externalincludedirs(path.join(QtRoot, "include", "QtCore"))
+    externalincludedirs(path.join(QtRoot, "include", "QtGui"))
+    externalincludedirs(path.join(QtRoot, "include", "QtWidgets"))
+    libdirs(path.join(QtRoot, "lib"))
+
     defines{"QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB"}
     links{"Qt5Core", "Qt5Gui", "Qt5Widgets"}
 
