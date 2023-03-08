@@ -32,4 +32,4 @@ project "app"
 
 	configuration "not windows"
 		prebuildcommands { "cp " .. path.getrelative(LocationDir, path.join(Root, "src/header.h.in")) .. " header.h" }
-		postbuildcommands { "mv bin/app2 bin/app" }
+		postbuildcommands { "mv bin/Release/app2 bin/Release/app" }
