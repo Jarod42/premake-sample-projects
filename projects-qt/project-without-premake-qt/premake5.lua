@@ -32,7 +32,7 @@ rule "uic"
   buildmessage 'uic -o obj/ui_%{file.basename}.h %{file.relpath}'
   --buildinputs { "%{file.relpath}" }
   buildoutputs { path.join(LocationDir, "obj", "ui_%{file.basename}.h") }
-  buildcommands { path.join(QtRoot, "bin", "uic") .. " -o " .. path.join(LocationDir, "obj", "ui_%{file.basename}.h") .. " %{file.relpath}" }
+  buildcommands { path.join(QtRoot, "bin", "uic") .. " -o " .. path.join("obj", "ui_%{file.basename}.h") .. " %{file.relpath}" }
 
 --[[
 rule "qrc"
@@ -48,15 +48,15 @@ rule "qrc"
 local function moc_command()
 	buildmessage "moc -o moc_%{file.basename}.cpp %{file.relpath}"
 	buildoutputs { path.join(LocationDir, "obj", "moc_%{file.basename}.cpp") }
-	buildcommands { path.join(QtRoot, "bin", "moc") .. " -o " .. path.join(LocationDir, "obj", "moc_%{file.basename}.cpp") .. " %{file.relpath}" }
+	buildcommands { path.join(QtRoot, "bin", "moc") .. " -o " .. path.join("obj", "moc_%{file.basename}.cpp") .. " %{file.relpath}" }
 	compilebuildoutputs "on"
 end
 
 local function rcc_command()
-	buildmessage 'rcc -o obj/%{file.basename}.cpp %{file.relpath}'
+	buildmessage 'rcc -o obj/qrc_%{file.basename}.cpp %{file.relpath}'
 	--buildinputs { "%{file.relpath}" } -- extra dependencies: content of <file>..</file>
 	buildoutputs { path.join(LocationDir, "obj", "qrc_%{file.basename}.cpp") }
-	buildcommands { path.join(QtRoot, "bin", "rcc") .. " -name %{file.basename} -no-compress %{file.relpath} -o " .. path.join(LocationDir, "obj", "qrc_%{file.basename}.cpp") }
+	buildcommands { path.join(QtRoot, "bin", "rcc") .. " -name %{file.basename} -no-compress %{file.relpath} -o " .. path.join("obj", "qrc_%{file.basename}.cpp") }
 	compilebuildoutputs "on"
 end
 
