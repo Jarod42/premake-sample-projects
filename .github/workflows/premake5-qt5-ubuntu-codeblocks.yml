@@ -8,16 +8,23 @@ on:
       - 'codeblocks/**'
       - '.github/workflows/premake5-qt5-ubuntu-codeblocks.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_codeblocks'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_codeblocks'
+      - 'submodules/premake-codeblocks'
+      - 'submodules/premake-qt'
+
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
       - 'codeblocks/**'
       - '.github/workflows/premake5-qt5-ubuntu-codeblocks.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_codeblocks'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_codeblocks'
+      - 'submodules/premake-codeblocks'
+      - 'submodules/premake-qt'
 
 jobs:
   linux:

@@ -7,13 +7,20 @@ on:
       - 'projects-qt/project-*/**'
       - '.github/workflows/premake5-qt5-windows-msvc-2022.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_vs2022'
+      - 'submodules/premake-qt'
+
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
       - '.github/workflows/premake5-qt5-windows-msvc-2022.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_vs2022'
+      - 'submodules/premake-qt'
 
 jobs:
   windows:

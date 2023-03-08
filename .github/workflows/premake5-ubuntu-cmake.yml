@@ -7,15 +7,20 @@ on:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-cmake.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_cmake'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_cmake'
+      - 'submodules/premake-cmake'
+
   pull_request:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-cmake.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_cmake'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_cmake'
+      - 'submodules/premake-cmake'
 
 jobs:
   linux:

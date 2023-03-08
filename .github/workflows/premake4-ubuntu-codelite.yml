@@ -8,14 +8,19 @@ on:
       - 'codelite/**'
       - '.github/workflows/premake4-ubuntu-codelite.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake5.lua'
+      - 'projects/**/unsupported_by_codelite'
+
   pull_request:
     paths:
       - 'projects/project-*/**'
       - 'codelite/**'
       - '.github/workflows/premake4-ubuntu-codelite.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake5.lua'
+      - 'projects/**/unsupported_by_codelite'
 
 jobs:
   linux:

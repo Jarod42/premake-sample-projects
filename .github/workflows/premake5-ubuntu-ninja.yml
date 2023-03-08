@@ -7,16 +7,19 @@ on:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-ninja.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_ninja'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_ninja'
       - 'submodules/premake-ninja'
+
   pull_request:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-ubuntu-ninja.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_ninja'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_ninja'
       - 'submodules/premake-ninja'
 
 jobs:

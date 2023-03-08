@@ -7,15 +7,18 @@ on:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-windows-msvc-2019.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_vs2019'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_vs2019'
+
   pull_request:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-windows-msvc-2019.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_vs2019'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_vs2019'
 
 jobs:
   windows:

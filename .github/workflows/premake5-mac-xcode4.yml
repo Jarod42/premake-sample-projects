@@ -7,14 +7,17 @@ on:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-mac-xcode4.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
       - 'projects/**/unsupported_by_xcode4'
+
   pull_request:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-mac-xcode4.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
       - 'projects/**/unsupported_by_xcode4'
 
 jobs:

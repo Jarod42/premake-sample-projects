@@ -5,19 +5,24 @@ on:
   push:
     paths:
       - 'projects-qt/project-*/**'
-      - 'codelite/**'
       - '.github/workflows/premake5-qt5-ubuntu-cmake.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_cmake'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_cmake'
+      - 'submodules/premake-cmake'
+      - 'submodules/premake-qt'
+
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
-      - 'codelite/**'
       - '.github/workflows/premake5-qt5-ubuntu-cmake.yml'
       - '!**/*.md'
-      - '!**/unsupported_by_*'
-      - '**/unsupported_by_cmake'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_cmake'
+      - 'submodules/premake-cmake'
+      - 'submodules/premake-qt'
 
 jobs:
   linux:
