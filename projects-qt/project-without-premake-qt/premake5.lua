@@ -34,6 +34,14 @@ rule "uic"
   buildoutputs { path.join(LocationDir, "obj", "ui_%{file.basename}.h") }
   buildcommands { path.join(QtRoot, "bin", "uic") .. " -o " .. path.join("obj", "ui_%{file.basename}.h") .. " %{file.relpath}" }
 
+rule "translation"
+  display "qt translation"
+  fileextension ".ts"
+  buildmessage 'lrelease %{file.relpath} -qm bin/%{file.basename}.qm'
+  --buildinputs { "%{file.relpath}" }
+  buildoutputs { path.join(LocationDir, "bin", "%{file.basename}.qm") }
+  buildcommands { path.join(QtRoot, "bin", "lrelease") .. " %{file.relpath}"  .. " -qm " .. path.join(LocationDir, "bin", "%{file.basename}.qm") }
+
 --[[
 rule "qrc"
   display "qrc"
@@ -96,7 +104,10 @@ workspace "Project"
   project "app"
     kind "ConsoleApp"
     targetname("app")
-    files {path.join(Root, "src", "**.cpp"), path.join(Root, "src", "**.h"), path.join(Root, "src", "**.ui"), path.join(Root, "data", "**.qrc")}
+    files { path.join(Root, "src", "**.cpp"), path.join(Root, "src", "**.h") } -- src
+    files { path.join(Root, "src", "**.ui") } -- ui
+    files { path.join(Root, "data", "**.qrc") } -- resources
+    files { path.join(Root, "ts", "**.ts") } -- translations
 
     includedirs(path.join(Root, "src"))
 
@@ -111,6 +122,7 @@ workspace "Project"
     defines{"QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB"}
     links{"Qt5Core", "Qt5Gui", "Qt5Widgets"}
 
+    rules { "translation" }
     rules { "uic" }
     -- rules { "qrc" } -- compilebuildoutputs isn't supported with rules
 
