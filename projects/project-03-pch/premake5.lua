@@ -28,6 +28,11 @@ if _ACTION == "codeblocks" then
 	-- Fine to have it in (other) IDEs anyway.
 end
 
+	filter "configurations:Debug"
+		defines { "DEBUG" }
+	filter "configurations:Release"
+		defines { "RELEASE" }
+
 	-- source files are different as msvc drop all code before #include "pch.h"
 	-- and so avoid the check for gcc/clang
 	filter "action:vs* or toolset:msc*"
