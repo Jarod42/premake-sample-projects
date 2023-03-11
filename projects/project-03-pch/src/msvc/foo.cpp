@@ -4,4 +4,4 @@
 // "portable" way is to include pch fist anyway
 // non-msvc will look for corresponding gch
 
-#include "../content/foo.cpp"
+#include "../content/foo.content"

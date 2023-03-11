@@ -6,4 +6,4 @@
 # include "pch.h"
 #endif
 
-#include "../content/foo.cpp"
+#include "../content/foo.content"

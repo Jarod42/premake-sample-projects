@@ -1,3 +1,6 @@
+#ifndef MAIN_CONTENT
+#define MAIN_CONTENT
+
 #ifndef FOR_PCH_AND_NOT_PCH
 # error "defines not shared between pch and non pch files"
 #endif
@@ -15,3 +18,5 @@ int main()
 {
 	foo();
 }
+
+#endif
