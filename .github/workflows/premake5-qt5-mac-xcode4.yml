@@ -1,0 +1,83 @@
+name: premake5-qt5-mac-xcode4
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/project-*/**'
+      - '.github/workflows/premake5-qt5-mac-xcode4.yml'
+      - '!**/*.md'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_xcode4'
+      - 'submodules/premake-qt'
+
+  pull_request:
+    paths:
+      - 'projects/project-*/**'
+      - '.github/workflows/premake5-qt5-mac-xcode4.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_xcode4'
+      - 'submodules/premake-qt'
+
+jobs:
+  mac:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: checkout premake5
+      uses: actions/checkout@v3
+      with:
+          repository: premake/premake-core
+          path: premake-build
+
+    - name: Build premake5
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak osx CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+
+    - name: add premake qt module
+      run: |
+        echo "require 'submodules/premake-qt/qt'" >> premake-system.lua
+
+    - name: Installing Qt5.15.0 macos
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '5.15.0'
+        cache: true
+        cache-key-prefix: 'qt-action-5.15.0_macos'
+
+    - name: set path
+      run: |
+         echo PATH=$PATH:`pwd`
+         echo PATH=$PATH:`pwd` >> $GITHUB_ENV
+         echo QT_DIR=$Qt5_Dir
+         echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
+
+    #- name: install libxkbcommon-x11-0 # display dependency
+    #  run: sudo apt-get install libxkbcommon-x11-0
+
+    - name: test projects default(clang)
+      run: |
+        # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
+        ./test_projects.sh premake5 projects-qt xcode4 #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+
+    - name: test projects gcc
+      run: |
+        # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
+        ./test_projects.sh premake5 projects-qt xcode4 --cc=gcc #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+
+    - name: test projects clang
+      run: |
+        # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
+        ./test_projects.sh premake5 projects-qt xcode4 --cc=clang #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
