@@ -47,7 +47,7 @@ function exec_windows
 # build executable from different generator.
 function run_cmake
 {
-  cmake -DCMAKE_BUILD_TYPE=Release . && make app && exec_unix
+  cmake -DCMAKE_BUILD_TYPE=Release . && cmake --build . --target app && exec_unix
   return $?
 }
 
