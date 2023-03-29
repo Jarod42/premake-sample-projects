@@ -40,7 +40,7 @@ rule "translation"
   buildmessage 'lrelease %{file.relpath} -qm bin/%{file.basename}.qm'
   --buildinputs { "%{file.relpath}" }
   buildoutputs { path.join(LocationDir, "bin", "%{file.basename}.qm") }
-  buildcommands { "{MKDIR} bin", path.join(QtRoot, "bin", "lrelease") .. " %{file.relpath}"  .. " -qm " .. path.join(LocationDir, "bin", "%{file.basename}.qm") }
+  buildcommands { "{MKDIR} bin", path.join(QtRoot, "bin", "lrelease") .. " %{file.relpath}"  .. " -qm " .. path.join("bin", "%{file.basename}.qm") }
 
 --[[
 rule "qrc"
