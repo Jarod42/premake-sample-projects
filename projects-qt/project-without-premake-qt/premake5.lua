@@ -26,47 +26,49 @@ if QtRoot == nil or QtRoot == "" then
   exit(1)
 end
 
+local function lrelease_command()
+  buildmessage 'lrelease %{file.relpath} -qm bin/%{file.basename}.qm'
+  buildoutputs { path.join(LocationDir, "bin", "%{file.basename}.qm") }
+  buildcommands { "{MKDIR} bin", path.join(QtRoot, "bin", "lrelease") .. " %{file.relpath}"  .. " -qm " .. path.join("bin", "%{file.basename}.qm") }
+end
+
+local function moc_command()
+  buildmessage "moc -o moc_%{file.basename}.cpp %{file.relpath}"
+  buildoutputs { path.join(LocationDir, "obj", "moc_%{file.basename}.cpp") }
+  buildcommands { path.join(QtRoot, "bin", "moc") .. " -o " .. path.join("obj", "moc_%{file.basename}.cpp") .. " %{file.relpath}" }
+  compilebuildoutputs "on"
+end
+
+local function rcc_command()
+  buildmessage 'rcc -o obj/qrc_%{file.basename}.cpp %{file.relpath}'
+  --buildinputs { "%{file.relpath}" } -- extra dependencies: content of <file>..</file>
+  buildoutputs { path.join(LocationDir, "obj", "qrc_%{file.basename}.cpp") }
+  buildcommands { path.join(QtRoot, "bin", "rcc") .. " -name %{file.basename} -no-compress %{file.relpath} -o " .. path.join("obj", "qrc_%{file.basename}.cpp") }
+  compilebuildoutputs "on"
+end
+
+local function uic_command()
+  buildmessage 'uic -o obj/ui_%{file.basename}.h %{file.relpath}'
+  buildoutputs { path.join(LocationDir, "obj", "ui_%{file.basename}.h") }
+  buildcommands { path.join(QtRoot, "bin", "uic") .. " -o " .. path.join("obj", "ui_%{file.basename}.h") .. " %{file.relpath}" }
+end
+
 rule "uic"
   display "uic"
   fileextension ".ui"
-  buildmessage 'uic -o obj/ui_%{file.basename}.h %{file.relpath}'
-  --buildinputs { "%{file.relpath}" }
-  buildoutputs { path.join(LocationDir, "obj", "ui_%{file.basename}.h") }
-  buildcommands { path.join(QtRoot, "bin", "uic") .. " -o " .. path.join("obj", "ui_%{file.basename}.h") .. " %{file.relpath}" }
+  uic_command()
 
 rule "translation"
   display "qt translation"
   fileextension ".ts"
-  buildmessage 'lrelease %{file.relpath} -qm bin/%{file.basename}.qm'
-  --buildinputs { "%{file.relpath}" }
-  buildoutputs { path.join(LocationDir, "bin", "%{file.basename}.qm") }
-  buildcommands { "{MKDIR} bin", path.join(QtRoot, "bin", "lrelease") .. " %{file.relpath}"  .. " -qm " .. path.join("bin", "%{file.basename}.qm") }
+  lrelease_command()
 
 --[[
 rule "qrc"
   display "qrc"
   fileextension ".qrc"
-  buildmessage 'rcc -o obj/%{file.basename}.cpp %{file.relpath}'
-  --buildinputs { "%{file.relpath}" } -- extra dependencies: content of <file>..</file>
-  buildoutputs { path.join(LocationDir, "obj", "qrc_%{file.basename}.cpp") }
-  buildcommands { path.join(QtRoot, "bin", "rcc") .. " -name %{file.basename} -no-compress %{file.relpath} -o " .. path.join("obj", "qrc_%{file.basename}.cpp") }
-  -- compilebuildoutputs "on" -- unsupported
+  rcc_command() -- compilebuildoutputs "on" -- unsupported
 --]]
-
-local function moc_command()
-	buildmessage "moc -o moc_%{file.basename}.cpp %{file.relpath}"
-	buildoutputs { path.join(LocationDir, "obj", "moc_%{file.basename}.cpp") }
-	buildcommands { path.join(QtRoot, "bin", "moc") .. " -o " .. path.join("obj", "moc_%{file.basename}.cpp") .. " %{file.relpath}" }
-	compilebuildoutputs "on"
-end
-
-local function rcc_command()
-	buildmessage 'rcc -o obj/qrc_%{file.basename}.cpp %{file.relpath}'
-	--buildinputs { "%{file.relpath}" } -- extra dependencies: content of <file>..</file>
-	buildoutputs { path.join(LocationDir, "obj", "qrc_%{file.basename}.cpp") }
-	buildcommands { path.join(QtRoot, "bin", "rcc") .. " -name %{file.basename} -no-compress %{file.relpath} -o " .. path.join("obj", "qrc_%{file.basename}.cpp") }
-	compilebuildoutputs "on"
-end
 
 workspace "Project"
   location ( LocationDir )
@@ -122,12 +124,23 @@ workspace "Project"
     defines{"QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB"}
     links{"Qt5Core", "Qt5Gui", "Qt5Widgets"}
 
+if _ACTION == "gmake" then
+    filter "files:**.ts"
+      lrelease_command()
+
+    filter "files:**.ui"
+      uic_command()
+
+    filter {}
+else
     rules { "translation" }
     rules { "uic" }
+end
+
     -- rules { "qrc" } -- compilebuildoutputs isn't supported with rules
-
     filter "files:**.qrc"
-			rcc_command()
+      rcc_command()
 
+    -- Have to list manually files to moc
     filter "files:src/ui/EditorDialog.h"
-			moc_command()
+      moc_command()
