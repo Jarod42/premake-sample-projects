@@ -56,7 +56,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |basic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |moc|:heavy_check_mark:|:x:[^gmake2_qt_issue]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:[^codeblocks_custom_build]|:heavy_check_mark:|:heavy_check_mark:|
 |qrc|:heavy_check_mark:|:x:[^gmake2_qt_issue]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:[^codeblocks_custom_build]|:heavy_check_mark:|:heavy_check_mark:|
-|ts |:x:|:x:[^gmake2_qt_issue]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x:|:heavy_check_mark:|
+|ts |:heavy_check_mark:|:x:[^gmake2_qt_issue]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|
 |uic|:heavy_check_mark:|:x:[^gmake2_qt_issue]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
 
