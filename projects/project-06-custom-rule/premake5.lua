@@ -7,6 +7,7 @@ end
 local LocationDir = path.join(Root, "solution", _ACTION)
 
 rule "myrule"
+	location(LocationDir)
 	display "My custom rule"
 	fileextension ".in"
 

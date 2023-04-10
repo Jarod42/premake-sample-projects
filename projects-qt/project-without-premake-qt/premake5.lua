@@ -54,17 +54,20 @@ local function uic_command()
 end
 
 rule "uic"
+  location ( LocationDir )
   display "uic"
   fileextension ".ui"
   uic_command()
 
 rule "translation"
+  location ( LocationDir )
   display "qt translation"
   fileextension ".ts"
   lrelease_command()
 
 --[[
 rule "qrc"
+  location ( LocationDir )
   display "qrc"
   fileextension ".qrc"
   rcc_command() -- compilebuildoutputs "on" -- unsupported
