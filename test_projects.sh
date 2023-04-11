@@ -193,4 +193,13 @@ if [[ $ko_projects != "" ]]
 then
   echo "KO:"$ko_projects | tr ';' '\n'
 fi
+
+# list generated files. Ideally they should only be in .gitignore list
+git_status_count=`git status -s | wc -l`
+if [ $git_status_count != 0 ]
+then
+  echo "Extra files:"
+  git status -s
+fi
+
 exit $res
