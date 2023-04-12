@@ -17,11 +17,14 @@ workspace "Project"
 
 project "app"
 	kind "ConsoleApp"
+	cppdialect "C++11"
 
 	files { path.join(Root, "src/main.cpp"), path.join(Root, "src/custom.cpp") }
-
 	defines "GENERAL"
-
+	filter {"configurations:Debug"}
+		defines "DEBUG"
+	filter {"configurations:Release"}
+		defines "RELEASE"
 	filter { "files:src/custom.cpp" }
 		defines "CUSTOM"
-		undefines "GENERAL"
+		cppdialect "C++17"
