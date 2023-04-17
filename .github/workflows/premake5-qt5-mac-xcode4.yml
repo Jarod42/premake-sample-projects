@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'projects/project-*/**'
+      - 'projects-qt/project-*/**'
       - '.github/workflows/premake5-qt5-mac-xcode4.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
@@ -14,12 +14,12 @@ on:
 
   pull_request:
     paths:
-      - 'projects/project-*/**'
+      - 'projects-qt/project-*/**'
       - '.github/workflows/premake5-qt5-mac-xcode4.yml'
       - '!**/*.md'
-      - '!projects/**/unsupported_by_*'
+      - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects/**/unsupported_by_xcode4'
+      - 'projects-qt/**/unsupported_by_xcode4'
       - 'submodules/premake-qt'
 
 jobs:
