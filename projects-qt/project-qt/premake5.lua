@@ -37,6 +37,16 @@ workspace "Project"
   end
   qtprefix "Qt5"
 
+  qtlreleaseargs { "-nounfinished" }
+
+  qtqmgenerateddir "%{cfg.targetdir}"
+  if _ACTION == "gmake" or _ACTION == "gmake2" or _ACTION == "codeblocks" then
+    -- qrelease doesn't create intermediate directory
+    -- and those actions don't create sub-directories neither for custombuild
+    -- So do it as pre-build step
+    prebuildcommands { "{MKDIR} %{cfg.qtqmgenerateddir}" }
+  end
+
   filter "configurations:Debug"
     targetsuffix "d"
     optimize "Off"
@@ -65,7 +75,10 @@ workspace "Project"
   project "app"
     kind "ConsoleApp"
     targetname("app")
-    files {path.join(Root, "src", "**.cpp"), path.join(Root, "src", "**.h"), path.join(Root, "src", "**.ui"), path.join(Root, "data", "**.qrc")}
+    files { path.join(Root, "src", "**.cpp"), path.join(Root, "src", "**.h") } -- src files
+    files { path.join(Root, "src", "**.ui") }   -- ui files
+    files { path.join(Root, "data", "**.qrc") } -- resource files
+    files { path.join(Root, "ts", "**.ts") }    -- translation files
 
     includedirs(path.join(Root, "src"))
 

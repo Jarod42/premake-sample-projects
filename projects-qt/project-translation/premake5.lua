@@ -37,13 +37,12 @@ workspace "Project"
   end
   qtprefix "Qt5"
 
-  --qtqmgenerateddir "%{prj.location}/bin"
   qtlreleaseargs { "-nounfinished" }
 
   qtqmgenerateddir "%{cfg.targetdir}"
   if _ACTION == "gmake" or _ACTION == "gmake2" or _ACTION == "codeblocks" then
     -- qrelease doesn't create intermediate directory
-    -- and those actions doe't create sub-directories neither for custombuild
+    -- and those actions don't create sub-directories neither for custombuild
     -- So do it as pre-build step
     prebuildcommands { "{MKDIR} %{cfg.qtqmgenerateddir}" }
   end

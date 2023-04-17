@@ -1,5 +1,6 @@
 #include <QApplication>
 #include <QFile>
+#include <QTranslator>
 
 #include "ui/EditorDialog.h"
 
@@ -18,6 +19,15 @@ int main(int argc, char* argv[])
         return -1;
     }
     QApplication app(argc, argv);
+
+    QTranslator frTranslator;
+    // executable and qm files are in bin/Release
+    if (!frTranslator.load("app_fr.qm", QCoreApplication::applicationDirPath()))
+    {
+        return -2;
+    }
+    app.installTranslator(&frTranslator);
+
     EditorDialog dialog;
 
     dialog.ui->label->setText("");
@@ -25,7 +35,7 @@ int main(int argc, char* argv[])
     emit dialog.test_signal();
     if (dialog.ui->label->text() != "hello world")
     {
-        return -2;
+        return -3;
     }
     if (argc == 1)  // Do nothing in test mode
     {
