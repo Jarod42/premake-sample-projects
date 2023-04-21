@@ -88,7 +88,19 @@ function run_ninja
     return $?
   else
     ninja app_Release && exec_unix
-    return $?
+    res=$?
+    if [[ $res != 0 ]]
+    then
+      return $res
+    fi
+    next_build=`ninja app_Release`
+    if [[ "$next_build" != "ninja: no work to do." ]]
+    then
+      echo "next build should have nothing to do:"
+      ninja app_Release
+      res=1
+    fi
+    return $res
   fi
 }
 
