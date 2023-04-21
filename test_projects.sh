@@ -173,7 +173,18 @@ do
     continue
   fi
   echo $project
-  rm -Rf $project/solution/$action
+  rm -Rf $project/*solution/$action
+  if [ -e $project/pre-$premake.lua ]
+  then
+    $premake --file=$project/pre-$premake.lua $action $options
+    if [ $? != 0 ]
+    then
+      res=1
+      echo $project" KO (pre-phase)"
+      ko_projects=$ko_projects"; "$project
+      continue
+    fi
+  fi
   $premake --file=$project/$premake.lua $action $options
   if [ $? != 0 ]
   then
