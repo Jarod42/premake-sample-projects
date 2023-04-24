@@ -33,7 +33,7 @@ function exec_mac
 
 function exec_unix
 {
-  echo DYLD_LIBRARY_PATH: $DYLD_LIBRARY_PATH
+  echo LD_LIBRARY_PATH: $LD_LIBRARY_PATH
   LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./bin/Release QT_DEBUG_PLUGINS=1 ./bin/Release/app
   return $?
 }
