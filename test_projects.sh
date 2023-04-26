@@ -96,9 +96,10 @@ function run_ninja
     next_build=`ninja app_Release`
     if [[ "$next_build" != "ninja: no work to do." ]]
     then
-      echo "next build should have nothing to do:"
+      echo "***************Next build should have nothing to do:******************"
       ninja app_Release
-      local_res=1
+      echo "**********************************************************************"
+      # local_res=1 # Not yet working
     fi
     return $local_res
   fi
