@@ -33,6 +33,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |`kind "None"`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x:|:heavy_check_mark:|
 |Pch|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
+|[`Prelinkcommand`](https://premake.github.io/docs/buildoptions)|:heavy_check_mark:[^prelink_as_prebuild]|:heavy_check_mark:[^prelink_as_prebuild]|:x:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:(Fixed)[^prelink_as_prebuild]|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_custom_build][^codeblocks_fileconfig_per_config]|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |custom rule|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark: (Fixed)|:heavy_check_mark:|
 |per-file config |:x:|:heavy_check_mark:|:x:|:x:|:x:|:x:|:x:[^codeblocks_fileconfig_per_config]|:x:|:heavy_check_mark:|
@@ -63,6 +64,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [^objdir_extra]: premake appends extra `$(configName)/$(AppName)`.
 [^deprecated_sysincludedirs]: `sysincludirs` has been deprecated by `externalincludedirs`.
 [^cmake_objdir]: cmake doesn't allow to specify `objdir`.
+[^prelink_as_prebuild]: prelinkcommands is done just after prebuildcommand and not between just before link (i.e after objects creation)
 [^codeblocks_custom_build]: Code::Blocks doesn't support generation of linkable cpp files from header files.
 [^codeblocks_fileconfig_per_config]: Code::Blocks doesn't support rules/custom builds which are different by configuration (Using [Tokens](https://premake.github.io/docs/Tokens) might allow to bypass that restriction).
 [^xcode4_includedirsafter_issue]: Reported issue: https://github.com/premake/premake-core/issues/2062
