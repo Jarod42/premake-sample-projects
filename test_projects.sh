@@ -167,6 +167,7 @@ res=0
 cd $projects_root
 for project in project-*
 do
+  echo "*********************************** "$project" ************************************"
   if [ ! -e $project/$premake.lua -o -e $project/unsupported_by_$action ]
   then
     echo $project" Skipped"
