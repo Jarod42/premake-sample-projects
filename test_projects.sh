@@ -93,13 +93,16 @@ function run_ninja
     then
       return $local_res
     fi
-    next_build=`ninja app_Release`
-    if [[ "$next_build" != "ninja: no work to do." ]]
+    if [[ ! -e "../../has_permanent_out_of_date_step" ]] # pre/post build is unconditionally run
     then
-      echo "***************Next build should have nothing to do:******************"
-      ninja app_Release
-      echo "**********************************************************************"
-      # local_res=1 # Not yet working
+      next_build=`ninja app_Release`
+      if [[ "$next_build" != "ninja: no work to do." ]]
+      then
+        echo "--- Next build should have nothing to do ---"
+        ninja app_Release
+        echo "----------"
+        local_res=1
+      fi
     fi
     return $local_res
   fi
