@@ -84,7 +84,7 @@ function run_ninja
   echo "OS: "$OS
   if [[ $OS =~ Win* ]]
   then
-    cmd /c "ninja app_Release && exec_windows"
+    ninja app_Release && exec_windows
     return $?
   else
     ninja app_Release && exec_unix
