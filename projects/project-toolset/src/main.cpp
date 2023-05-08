@@ -31,7 +31,7 @@
 #endif
 
 #ifdef EXPECTED_MSC
-# if defined(_MSC_VER)
+# if !defined(_MSC_VER)
 #  error "expected msc compiler"
 # endif
 #endif
