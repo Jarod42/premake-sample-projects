@@ -27,27 +27,26 @@ project "app"
 		prebuildmessage "clean objs"
 		prebuildcommands {
 			"{MKDIR} %{cfg.objdir}",
-			"{RMDIR} %{cfg.objdir}"
+			"{RMDIR} %[%{!cfg.objdir}]"
 		}
 
 		postbuildmessage "clean objs" 
 		postbuildcommands {
-			"{RMDIR} %{cfg.objdir}" 
+			"{RMDIR} %[%{!cfg.objdir}]" 
 		}
 	filter{}
 --]]
 	prelinkmessage "count objs"
   filter{"action:vs*"}
 		prelinkcommands {
-			"{MKDIR} %{cfg.targetdir}",
-			"{MKDIR} %{cfg.objdir}",
-			'"../../script/count.bat" %{cfg.buildcfg}'
+			"{MKDIR} %[%{!cfg.targetdir}]",
+			"{MKDIR} %[%{!cfg.objdir}]",
+			'%[script/count.bat] %{cfg.buildcfg}'
 		}
 	filter{"action:not vs*"}
 		prelinkcommands {
-			"{MKDIR} %{cfg.targetdir}",
-			"{MKDIR} %{cfg.objdir}",
-			"../../script/count.sh %{cfg.buildcfg}"
+			"{MKDIR} %[%{!cfg.targetdir}]",
+			"{MKDIR} %[%{!cfg.objdir}]",
+			"%[script/count.sh] %{cfg.buildcfg}"
 		}
 	filter{}
-

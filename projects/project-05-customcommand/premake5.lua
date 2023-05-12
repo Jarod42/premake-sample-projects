@@ -24,5 +24,5 @@ project "app"
 		buildmessage "copy %{file.relpath} %{file.basename}"
 		--buildinputs { "%{file.relpath}" }
 		buildoutputs { path.join(LocationDir, "%{file.basename}") }
-		buildcommands { "{COPYFILE} %{file.relpath} %{file.basename}" } -- paths relative to project dir
+		buildcommands { "{COPYFILE} %[%{!file.abspath}] %[%{!sln.location}/%{file.basename}]" }
 		compilebuildoutputs "on"

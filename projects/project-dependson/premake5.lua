@@ -28,5 +28,9 @@ project "create_header"
 	files {path.join(Root, "src", "dummy.cpp")}
 
 	prebuildmessage "copy header.h.in into header.h"
+if _ACTION == "xcode4" then -- %[path] not supported
 	prebuildcommands { "{COPYFILE} " .. path.getrelative(LocationDir, path.join(Root, "src", "header.h.in")) .. " header.h" }
+else
+	prebuildcommands { "{COPYFILE} %[src/header.h.in] %[%{!sln.location}/header.h]" }
+end
 

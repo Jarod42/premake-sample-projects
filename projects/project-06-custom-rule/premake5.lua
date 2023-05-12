@@ -20,10 +20,14 @@ rule "myrule"
 		value = 1
 	}
 
-	buildmessage 'custom rule %{file.relpath} %{file.basename}'
+	buildmessage 'custom rule: {copy} %{file.relpath} %{file.basename}'
 	--buildinputs { "%{file.relpath}" }
 	buildoutputs { path.join(LocationDir, "%{file.basename}") }
+if "vs2000" <= _ACTION and _ACTION <= "vs3000" then -- %[path] unsupported
 	buildcommands { "{COPYFILE} %{file.relpath} %{file.basename}" }
+else
+	buildcommands { "{COPYFILE} %[%{!file.abspath}] %[%{!sln.location}/%{file.basename}]" }
+end
 
 workspace "Project"
 	location(LocationDir)

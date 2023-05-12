@@ -22,10 +22,10 @@ project "app"
 	includedirs {LocationDir}
 
 	prebuildmessage "copy header.h.in into header.h"
-	prebuildcommands { "{COPYFILE} " .. path.getrelative(LocationDir, path.join(Root, "src", "header.h.in")) .. " header.h" }
+	prebuildcommands { "{COPYFILE} %[src/header.h.in] %[%{!sln.location}/header.h]" }
 
 	prelinkmessage "copy data/text.txt"
-	prelinkcommands { "{COPYFILE} " .. path.getrelative(LocationDir, path.join(Root, "data/text.txt")) .. " text.txt" }
+	prelinkcommands { "{COPYFILE} %[data/text.txt] %[%{!sln.location}/text.txt]" }
 
 	postbuildmessage "move app2 into app"
-	postbuildcommands { "{MOVE} bin/%{cfg.buildcfg}/app2%{cfg.targetextension} bin/%{cfg.buildcfg}/app%{cfg.targetextension}" }
+	postbuildcommands { "{MOVE} %[%{!cfg.targetdir}/app2%{cfg.targetextension}] %[%{!cfg.targetdir}/app%{cfg.targetextension}]" }
