@@ -35,8 +35,9 @@ jobs:
     - name: checkout premake5
       uses: actions/checkout@v3
       with:
-        repository: premake/premake-core
+        repository: Jarod42/premake-core
         path: premake-build
+        ref: shell-commandline
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1.3
@@ -63,18 +64,18 @@ jobs:
 #      run: |
 #        #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
 #        echo $PATH
-#        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja
+#        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja--shell=posix
 #      shell: bash
 
     - name: test projects msc-v143 # Visual Studio 2022
       run: |
         #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
         echo $PATH
-        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja --cc=msc-v143
+        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja --cc=msc-v143  --shell=posix
       shell: bash
 
 #    - name: test projects gcc
 #      run: |
 #        echo $PATH
-#        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja --cc=gcc
+#        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja --cc=gcc  --shell=posix
 #      shell: bash
