@@ -1,4 +1,4 @@
-## project-qt:
+## project-01-simple:
 
 Minimal Qt5 project (check only include).
 
