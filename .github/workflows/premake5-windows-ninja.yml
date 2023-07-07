@@ -59,19 +59,19 @@ jobs:
     - name: Add cl.exe to PATH # microsoft/setup-msbuild doesn't add it :(
       uses: ilammy/msvc-dev-cmd@v1
 
-    - name: test projects default(msc-v142) # Visual Studio 2019 (version mismatch is not that important, only cl.exe is called)
-      run: |
-        #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
-        echo $PATH
-        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects ninja
-      shell: bash
-
-#    - name: test projects msc-v143 # Visual Studio 2022
+#    - name: test projects default(msc-v142) # Visual Studio 2019 (version mismatch is not that important, only cl.exe is called)
 #      run: |
 #        #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
 #        echo $PATH
-#        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects ninja --cc=msc-v143
+#        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects ninja
 #      shell: bash
+
+    - name: test projects msc-v143 # Visual Studio 2022
+      run: |
+        #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+        echo $PATH
+        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects ninja --cc=msc-v143
+      shell: bash
 
 #    - name: test projects gcc
 #      run: |
