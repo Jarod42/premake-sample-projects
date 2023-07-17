@@ -1,0 +1,65 @@
+name: premake5-windows-codelite
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/project-*/**'
+      - 'codelite/**'
+      - '.github/workflows/premake5-windows-codelite.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_codelite'
+
+  pull_request:
+    paths:
+      - 'projects/project-*/**'
+      - 'codelite/**'
+      - '.github/workflows/premake5-windows-codelite.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_codelite'
+
+jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: checkout premake5
+      uses: actions/checkout@v4
+      with:
+        repository: Jarod42/premake-core
+        path: premake-build
+        ref: codelite-msc
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Build premake5
+      run: |
+        $vcvarall_path = vswhere -find VC\Auxiliary\Build\vcvarsall.bat
+        cmd.exe /c "call ""$vcvarall_path"" x86_amd64 && cd premake-build && nmake -f Bootstrap.mak MSDEV=vs2022 windows-msbuild PLATFORM=Win32 CONFIG=release && cp bin/release/premake5.exe ../"
+
+    - name: install codelite
+      timeout-minutes: 5 # Ensure silent mode is correct (no blocking dialog)
+      run: |
+        curl --output codelite-setup.exe https://downloads.codelite.org/downloads.php?windows_weekly_64
+        # curl --output codelite-setup.exe https://downloads.codelite.org/downloads.php?windows_64
+        ./codelite-setup.exe /SILENT /SP- /SUPPRESSMSGBOXES /NOICONS /NORESTART
+        Add-Content $env:GITHUB_PATH "c:\Program Files\CodeLite"
+
+# needed?
+#    - name: Add cl.exe to PATH # microsoft/setup-msbuild doesn't add it :(
+#      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: test projects msc-v143 # Visual Studio 2022
+      run: |
+        #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+        echo $PATH
+        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects codelite --cc=msc-v143
+      shell: bash

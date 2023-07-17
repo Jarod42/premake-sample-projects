@@ -151,6 +151,363 @@
       <LinkerOption Name="-pg">Profile code when executed</LinkerOption>
       <LinkerOption Name="-s">Remove all symbol table and relocation information from the executable</LinkerOption>
     </Compiler>
+    <Compiler Name="Visual C++ 22 (x86)" GenerateDependenciesFiles="no" ReadObjectsListFromFile="yes" ObjectNameIdenticalToFileName="no" CompilerFamily="Visual C++" IsDefault="no">
+      <InstallationPath>
+        <![CDATA[C:\Program Files\Microsoft Visual Studio\2022\Enterprise]]>
+      </InstallationPath>
+      <Switch Name="ArchiveOutput" Value="/OUT:"/>
+      <Switch Name="Debug" Value="/Zi "/>
+      <Switch Name="Include" Value="/I"/>
+      <Switch Name="Library" Value=" "/>
+      <Switch Name="LibraryPath" Value="/LIBPATH:"/>
+      <Switch Name="Object" Value="/Fo"/>
+      <Switch Name="Output" Value="/OUT:"/>
+      <Switch Name="PreprocessOnly" Value="/P /Fi:"/>
+      <Switch Name="Preprocessor" Value="/D"/>
+      <Switch Name="Source" Value=""/>
+      <Tool Name="AR" Value="lib.exe /nologo"/>
+      <Tool Name="AS" Value="ml.exe /nologo"/>
+      <Tool Name="CC" Value="cl.exe /nologo /TC /FC"/>
+      <Tool Name="CXX" Value="cl.exe /nologo /TP /FC"/>
+      <Tool Name="LinkerName" Value="link.exe /nologo"/>
+      <Tool Name="MAKE" Value="&quot;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat&quot; x86 &gt; nul &amp;&amp; nmake.exe /nologo"/>
+      <Tool Name="ResourceCompiler" Value="rc.exe /nologo"/>
+      <Tool Name="SharedObjectLinkerName" Value="link.exe /nologo /DLL"/>
+      <File Extension="c" CompilationLine="$(CC) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="c++" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cc" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cpp" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cxx" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="m" CompilationLine="$(CXX) -x objective-c $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="mm" CompilationLine="$(CXX) -x objective-c++ $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="rc" CompilationLine="$(RcCompilerName) $(RcCmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(RcIncludePath) &quot;$(FileFullPath)&quot;" Kind="1"/>
+      <File Extension="s" CompilationLine="$(AS) &quot;$(FileFullPath)&quot; $(ASFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) -I$(IncludePath)" Kind="0"/>
+      <LinkLine ProjectType="Dynamic Library" Pattern="$(SharedObjectLinkerName) $(OutputSwitch)$(OutputFile) $(Objects) $(LibPath) $(Libs) $(LinkOptions)" PatternWithFile="$(SharedObjectLinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)"/>
+      <LinkLine ProjectType="Executable" Pattern="$(LinkerName) $(OutputSwitch)$(OutputFile) $(Objects) $(LibPath) $(Libs) $(LinkOptions)" PatternWithFile="$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)"/>
+      <LinkLine ProjectType="Static Library" Pattern="$(AR) $(ArchiveOutputSwitch)$(OutputFile) $(Objects)" PatternWithFile="$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList)"/>
+      <Option Name="ObjectSuffix" Value=".obj"/>
+      <Option Name="DependSuffix" Value=""/>
+      <Option Name="PreprocessSuffix" Value=".i"/>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="2" ColumnIndex="-1">^windres: ([a-zA-Z:]{0,2}[ a-zA-Z\\.0-9_/\+\-]+) *:([0-9]+): syntax error</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="3" ColumnIndex="-1">(^[a-zA-Z\\.0-9 _/\:\+\-]+ *)(\()([0-9]+)(\))( \: )(error)</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(LINK : fatal error)</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(NMAKE : fatal error)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="3" ColumnIndex="-1">(^[a-zA-Z\\.0-9 _/\:\+\-]+ *)(\()([0-9]+)(\))( \: )(warning)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">([a-z_A-Z]*\.obj)( : warning)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(cl : Command line warning)</Pattern>
+      <GlobalIncludePath>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\include;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\ATLMFC\include;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\VS\include;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt</GlobalIncludePath>
+      <GlobalLibPath>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\ATLMFC\lib\x86;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\lib\x86;C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\ucrt\x86;C:\Program Files (x86)\Windows Kits\10\\lib\10.0.22000.0\\um\x86</GlobalLibPath>
+      <PathVariable>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE;$PATH</PathVariable>
+      <CompilerOption Name="/EHa">Enable C++ Exceptions with SEH exception</CompilerOption>
+      <CompilerOption Name="/EHs">Enable C++ Exceptions with Extern C functions</CompilerOption>
+      <CompilerOption Name="/EHsc">Enable C++ Exceptions with SEH and Extern C functions</CompilerOption>
+      <CompilerOption Name="/FS">Forces writes to the program database (PDB) file to be serialized through MSPDBSRV.EXE</CompilerOption>
+      <CompilerOption Name="/GA">Optimizes code for Windows application</CompilerOption>
+      <CompilerOption Name="/GL">Enables whole program optimization</CompilerOption>
+      <CompilerOption Name="/Gm">Enables minimal rebuild</CompilerOption>
+      <CompilerOption Name="/Gy">Enables function-level linking</CompilerOption>
+      <CompilerOption Name="/MD">Causes the application to use the multithread-specific and DLL-specific version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MDd">Causes the application to use the debug multithread-specific and DLL-specific version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MP">Compiles multiple source files by using multiple processes</CompilerOption>
+      <CompilerOption Name="/MT">Causes the application to use the multithread, static version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MTd">Causes the application to use the debug multithread, static version of the run-time library</CompilerOption>
+      <CompilerOption Name="/O1">Creates small code</CompilerOption>
+      <CompilerOption Name="/O2">Creates fast code</CompilerOption>
+      <CompilerOption Name="/Od">Disables optimization</CompilerOption>
+      <CompilerOption Name="/Oi">Generates intrinsic functions</CompilerOption>
+      <CompilerOption Name="/Ox">Uses maximum optimization</CompilerOption>
+      <CompilerOption Name="/W0">Disables all warnings</CompilerOption>
+      <CompilerOption Name="/W1">Displays level 1 (severe) warnings</CompilerOption>
+      <CompilerOption Name="/W2">Displays level 1 and level 2 (significant) warnings</CompilerOption>
+      <CompilerOption Name="/W3">Displays level 1, level 2 and level 3 (production quality) warnings</CompilerOption>
+      <CompilerOption Name="/W4">Displays level 1, level 2, and level 3 warnings, and all level 4 (informational) warnings that are not turned off by default</CompilerOption>
+      <CompilerOption Name="/WX">Treats all compiler warnings as errors</CompilerOption>
+      <CompilerOption Name="/Wall">Displays all warnings displayed by /W4 and all other warnings that /W4 does not include</CompilerOption>
+      <CompilerOption Name="/Z7">Produces an .obj file containing full symbolic debugging information for use with the debugger</CompilerOption>
+      <CompilerOption Name="/ZI">Produces a program database, as described above, in a format that supports the Edit and Continue feature</CompilerOption>
+      <CompilerOption Name="/Zi">Produces a program database (PDB) that contains type information and symbolic debugging information for use with the debugger</CompilerOption>
+      <CompilerOption Name="/Zs">Checks syntax only</CompilerOption>
+      <CompilerOption Name="/c">Compiles without linking</CompilerOption>
+      <CompilerOption Name="/errorReport:none">Reports about internal compiler errors will not be collected or sent to Microsoft</CompilerOption>
+      <CompilerOption Name="/errorReport:prompt">Prompts you to send a report when you receive an internal compiler error</CompilerOption>
+      <CompilerOption Name="/sdl">Enables additional security features and warnings</CompilerOption>
+      <CompilerOption Name="/std:c++14">Enable C++14 features</CompilerOption>
+      <CompilerOption Name="/std:c++17">Enable C++17 features</CompilerOption>
+      <CompilerOption Name="/std:c++20">Enable C++20 features</CompilerOption>
+      <CompilerOption Name="/std:c++latest">Enable latest C++ features</CompilerOption>
+      <CompilerOption Name="/std:c11">Enable C11 features</CompilerOption>
+      <CompilerOption Name="/w">Disables all compiler warnings</CompilerOption>
+      <LinkerOption Name="/DEBUG">Creates debugging information</LinkerOption>
+      <LinkerOption Name="/DYNAMICBASE">Use address space layout randomization</LinkerOption>
+      <LinkerOption Name="/DYNAMICBASE:NO">Don't use address space layout randomizatio</LinkerOption>
+      <LinkerOption Name="/ERRORREPORT:NONE">Reports about internal compiler errors will not be collected or sent to Microsoft</LinkerOption>
+      <LinkerOption Name="/ERRORREPORT:PROMPT">Prompts you to send a report when you receive an internal compiler error</LinkerOption>
+      <LinkerOption Name="/INCREMENTAL">Enables incremental linking</LinkerOption>
+      <LinkerOption Name="/INCREMENTAL:NO">Disables incremental linking</LinkerOption>
+      <LinkerOption Name="/LARGEADDRESSAWARE">Tells the compiler that the application supports addresses larger than two gigabytes</LinkerOption>
+      <LinkerOption Name="/LARGEADDRESSAWARE:NO">Tells the compiler that the application does not support addresses larger than two gigabytes</LinkerOption>
+      <LinkerOption Name="/LTCG:INCREMENTAL">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:NOSTATUS">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:OFF">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:STATUS">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/MACHINE:X64">Specifies the target platform</LinkerOption>
+      <LinkerOption Name="/MACHINE:X86">Specifies the target platform</LinkerOption>
+      <LinkerOption Name="/NOENTRY">Creates a resource-only DLL</LinkerOption>
+      <LinkerOption Name="/NXCOMPAT">Specify Compatibility with Data Execution Prevention</LinkerOption>
+      <LinkerOption Name="/NXCOMPAT:NO">Specify Compatibility with Data Execution Prevention</LinkerOption>
+      <LinkerOption Name="/OPT:ICF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:LBR">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOICF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOLBR">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOREF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:REF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/PROFILE">Produces an output file that can be used with the Performance Tools profiler</LinkerOption>
+      <LinkerOption Name="/SAFESEH">Image has Safe Exception Handlers</LinkerOption>
+      <LinkerOption Name="/SAFESEH:NO">Image does not have Safe Exception Handler</LinkerOption>
+      <LinkerOption Name="/SUBSYSTEM:CONSOLE">Tells the operating system how to run the .exe file</LinkerOption>
+      <LinkerOption Name="/SUBSYSTEM:WINDOWS">Tells the operating system how to run the .exe file</LinkerOption>
+      <LinkerOption Name="/VERBOSE">Prints linker progress messages</LinkerOption>
+      <LinkerOption Name="/WX">Treats linker warnings as errors</LinkerOption>
+      <LinkerOption Name="/WX:NO">Do not treats linker warnings as errors</LinkerOption>
+    </Compiler>
+    <Compiler Name="Visual C++ 22 (x64)" GenerateDependenciesFiles="no" ReadObjectsListFromFile="yes" ObjectNameIdenticalToFileName="no" CompilerFamily="Visual C++" IsDefault="no">
+      <InstallationPath>
+        <![CDATA[C:\Program Files\Microsoft Visual Studio\2022\Enterprise]]>
+      </InstallationPath>
+      <Switch Name="ArchiveOutput" Value="/OUT:"/>
+      <Switch Name="Debug" Value="/Zi "/>
+      <Switch Name="Include" Value="/I"/>
+      <Switch Name="Library" Value=" "/>
+      <Switch Name="LibraryPath" Value="/LIBPATH:"/>
+      <Switch Name="Object" Value="/Fo"/>
+      <Switch Name="Output" Value="/OUT:"/>
+      <Switch Name="PreprocessOnly" Value="/P /Fi:"/>
+      <Switch Name="Preprocessor" Value="/D"/>
+      <Switch Name="Source" Value=""/>
+      <Tool Name="AR" Value="lib.exe /nologo"/>
+      <Tool Name="AS" Value="ml.exe /nologo"/>
+      <Tool Name="CC" Value="cl.exe /nologo /TC /FC"/>
+      <Tool Name="CXX" Value="cl.exe /nologo /TP /FC"/>
+      <Tool Name="LinkerName" Value="link.exe /nologo"/>
+      <Tool Name="MAKE" Value="&quot;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat&quot; x64 &gt; nul &amp;&amp; nmake.exe /nologo"/>
+      <Tool Name="ResourceCompiler" Value="rc.exe /nologo"/>
+      <Tool Name="SharedObjectLinkerName" Value="link.exe /nologo /DLL"/>
+      <File Extension="c" CompilationLine="$(CC) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="c++" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cc" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cpp" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cxx" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="m" CompilationLine="$(CXX) -x objective-c $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="mm" CompilationLine="$(CXX) -x objective-c++ $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="rc" CompilationLine="$(RcCompilerName) $(RcCmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(RcIncludePath) &quot;$(FileFullPath)&quot;" Kind="1"/>
+      <File Extension="s" CompilationLine="$(AS) &quot;$(FileFullPath)&quot; $(ASFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) -I$(IncludePath)" Kind="0"/>
+      <LinkLine ProjectType="Dynamic Library" Pattern="$(SharedObjectLinkerName) $(OutputSwitch)$(OutputFile) $(Objects) $(LibPath) $(Libs) $(LinkOptions)" PatternWithFile="$(SharedObjectLinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)"/>
+      <LinkLine ProjectType="Executable" Pattern="$(LinkerName) $(OutputSwitch)$(OutputFile) $(Objects) $(LibPath) $(Libs) $(LinkOptions)" PatternWithFile="$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)"/>
+      <LinkLine ProjectType="Static Library" Pattern="$(AR) $(ArchiveOutputSwitch)$(OutputFile) $(Objects)" PatternWithFile="$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList)"/>
+      <Option Name="ObjectSuffix" Value=".obj"/>
+      <Option Name="DependSuffix" Value=""/>
+      <Option Name="PreprocessSuffix" Value=".i"/>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="2" ColumnIndex="-1">^windres: ([a-zA-Z:]{0,2}[ a-zA-Z\\.0-9_/\+\-]+) *:([0-9]+): syntax error</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="3" ColumnIndex="-1">(^[a-zA-Z\\.0-9 _/\:\+\-]+ *)(\()([0-9]+)(\))( \: )(error)</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(LINK : fatal error)</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(NMAKE : fatal error)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="3" ColumnIndex="-1">(^[a-zA-Z\\.0-9 _/\:\+\-]+ *)(\()([0-9]+)(\))( \: )(warning)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">([a-z_A-Z]*\.obj)( : warning)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(cl : Command line warning)</Pattern>
+      <GlobalIncludePath>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\include;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\ATLMFC\include;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\VS\include;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt</GlobalIncludePath>
+      <GlobalLibPath>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\ATLMFC\lib\x64;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\lib\x64;C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\ucrt\x64;C:\Program Files (x86)\Windows Kits\10\\lib\10.0.22000.0\\um\x64</GlobalLibPath>
+      <PathVariable>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE;$PATH</PathVariable>
+      <CompilerOption Name="/EHa">Enable C++ Exceptions with SEH exception</CompilerOption>
+      <CompilerOption Name="/EHs">Enable C++ Exceptions with Extern C functions</CompilerOption>
+      <CompilerOption Name="/EHsc">Enable C++ Exceptions with SEH and Extern C functions</CompilerOption>
+      <CompilerOption Name="/FS">Forces writes to the program database (PDB) file to be serialized through MSPDBSRV.EXE</CompilerOption>
+      <CompilerOption Name="/GA">Optimizes code for Windows application</CompilerOption>
+      <CompilerOption Name="/GL">Enables whole program optimization</CompilerOption>
+      <CompilerOption Name="/Gm">Enables minimal rebuild</CompilerOption>
+      <CompilerOption Name="/Gy">Enables function-level linking</CompilerOption>
+      <CompilerOption Name="/MD">Causes the application to use the multithread-specific and DLL-specific version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MDd">Causes the application to use the debug multithread-specific and DLL-specific version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MP">Compiles multiple source files by using multiple processes</CompilerOption>
+      <CompilerOption Name="/MT">Causes the application to use the multithread, static version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MTd">Causes the application to use the debug multithread, static version of the run-time library</CompilerOption>
+      <CompilerOption Name="/O1">Creates small code</CompilerOption>
+      <CompilerOption Name="/O2">Creates fast code</CompilerOption>
+      <CompilerOption Name="/Od">Disables optimization</CompilerOption>
+      <CompilerOption Name="/Oi">Generates intrinsic functions</CompilerOption>
+      <CompilerOption Name="/Ox">Uses maximum optimization</CompilerOption>
+      <CompilerOption Name="/W0">Disables all warnings</CompilerOption>
+      <CompilerOption Name="/W1">Displays level 1 (severe) warnings</CompilerOption>
+      <CompilerOption Name="/W2">Displays level 1 and level 2 (significant) warnings</CompilerOption>
+      <CompilerOption Name="/W3">Displays level 1, level 2 and level 3 (production quality) warnings</CompilerOption>
+      <CompilerOption Name="/W4">Displays level 1, level 2, and level 3 warnings, and all level 4 (informational) warnings that are not turned off by default</CompilerOption>
+      <CompilerOption Name="/WX">Treats all compiler warnings as errors</CompilerOption>
+      <CompilerOption Name="/Wall">Displays all warnings displayed by /W4 and all other warnings that /W4 does not include</CompilerOption>
+      <CompilerOption Name="/Z7">Produces an .obj file containing full symbolic debugging information for use with the debugger</CompilerOption>
+      <CompilerOption Name="/ZI">Produces a program database, as described above, in a format that supports the Edit and Continue feature</CompilerOption>
+      <CompilerOption Name="/Zi">Produces a program database (PDB) that contains type information and symbolic debugging information for use with the debugger</CompilerOption>
+      <CompilerOption Name="/Zs">Checks syntax only</CompilerOption>
+      <CompilerOption Name="/c">Compiles without linking</CompilerOption>
+      <CompilerOption Name="/errorReport:none">Reports about internal compiler errors will not be collected or sent to Microsoft</CompilerOption>
+      <CompilerOption Name="/errorReport:prompt">Prompts you to send a report when you receive an internal compiler error</CompilerOption>
+      <CompilerOption Name="/sdl">Enables additional security features and warnings</CompilerOption>
+      <CompilerOption Name="/std:c++14">Enable C++14 features</CompilerOption>
+      <CompilerOption Name="/std:c++17">Enable C++17 features</CompilerOption>
+      <CompilerOption Name="/std:c++20">Enable C++20 features</CompilerOption>
+      <CompilerOption Name="/std:c++latest">Enable latest C++ features</CompilerOption>
+      <CompilerOption Name="/std:c11">Enable C11 features</CompilerOption>
+      <CompilerOption Name="/w">Disables all compiler warnings</CompilerOption>
+      <LinkerOption Name="/DEBUG">Creates debugging information</LinkerOption>
+      <LinkerOption Name="/DYNAMICBASE">Use address space layout randomization</LinkerOption>
+      <LinkerOption Name="/DYNAMICBASE:NO">Don't use address space layout randomizatio</LinkerOption>
+      <LinkerOption Name="/ERRORREPORT:NONE">Reports about internal compiler errors will not be collected or sent to Microsoft</LinkerOption>
+      <LinkerOption Name="/ERRORREPORT:PROMPT">Prompts you to send a report when you receive an internal compiler error</LinkerOption>
+      <LinkerOption Name="/INCREMENTAL">Enables incremental linking</LinkerOption>
+      <LinkerOption Name="/INCREMENTAL:NO">Disables incremental linking</LinkerOption>
+      <LinkerOption Name="/LARGEADDRESSAWARE">Tells the compiler that the application supports addresses larger than two gigabytes</LinkerOption>
+      <LinkerOption Name="/LARGEADDRESSAWARE:NO">Tells the compiler that the application does not support addresses larger than two gigabytes</LinkerOption>
+      <LinkerOption Name="/LTCG:INCREMENTAL">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:NOSTATUS">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:OFF">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:STATUS">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/MACHINE:X64">Specifies the target platform</LinkerOption>
+      <LinkerOption Name="/MACHINE:X86">Specifies the target platform</LinkerOption>
+      <LinkerOption Name="/NOENTRY">Creates a resource-only DLL</LinkerOption>
+      <LinkerOption Name="/NXCOMPAT">Specify Compatibility with Data Execution Prevention</LinkerOption>
+      <LinkerOption Name="/NXCOMPAT:NO">Specify Compatibility with Data Execution Prevention</LinkerOption>
+      <LinkerOption Name="/OPT:ICF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:LBR">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOICF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOLBR">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOREF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:REF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/PROFILE">Produces an output file that can be used with the Performance Tools profiler</LinkerOption>
+      <LinkerOption Name="/SAFESEH">Image has Safe Exception Handlers</LinkerOption>
+      <LinkerOption Name="/SAFESEH:NO">Image does not have Safe Exception Handler</LinkerOption>
+      <LinkerOption Name="/SUBSYSTEM:CONSOLE">Tells the operating system how to run the .exe file</LinkerOption>
+      <LinkerOption Name="/SUBSYSTEM:WINDOWS">Tells the operating system how to run the .exe file</LinkerOption>
+      <LinkerOption Name="/VERBOSE">Prints linker progress messages</LinkerOption>
+      <LinkerOption Name="/WX">Treats linker warnings as errors</LinkerOption>
+      <LinkerOption Name="/WX:NO">Do not treats linker warnings as errors</LinkerOption>
+    </Compiler>
+    <Compiler Name="Visual C++" GenerateDependenciesFiles="no" ReadObjectsListFromFile="yes" ObjectNameIdenticalToFileName="no" CompilerFamily="Visual C++" IsDefault="no">
+      <InstallationPath>
+        <![CDATA[C:\Program Files\Microsoft Visual Studio\2022\Enterprise]]>
+      </InstallationPath>
+      <Switch Name="ArchiveOutput" Value="/OUT:"/>
+      <Switch Name="Debug" Value="/Zi "/>
+      <Switch Name="Include" Value="/I"/>
+      <Switch Name="Library" Value=" "/>
+      <Switch Name="LibraryPath" Value="/LIBPATH:"/>
+      <Switch Name="Object" Value="/Fo"/>
+      <Switch Name="Output" Value="/OUT:"/>
+      <Switch Name="PreprocessOnly" Value="/P /Fi:"/>
+      <Switch Name="Preprocessor" Value="/D"/>
+      <Switch Name="Source" Value=""/>
+      <Tool Name="AR" Value="lib.exe /nologo"/>
+      <Tool Name="AS" Value="ml.exe /nologo"/>
+      <Tool Name="CC" Value="cl.exe /nologo /TC /FC"/>
+      <Tool Name="CXX" Value="cl.exe /nologo /TP /FC"/>
+      <Tool Name="LinkerName" Value="link.exe /nologo"/>
+      <Tool Name="MAKE" Value="&quot;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat&quot; x86 &gt; nul &amp;&amp; nmake.exe /nologo"/>
+      <Tool Name="ResourceCompiler" Value="rc.exe /nologo"/>
+      <Tool Name="SharedObjectLinkerName" Value="link.exe /nologo /DLL"/>
+      <File Extension="c" CompilationLine="$(CC) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="c++" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cc" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cpp" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="cxx" CompilationLine="$(CXX) $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="m" CompilationLine="$(CXX) -x objective-c $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="mm" CompilationLine="$(CXX) -x objective-c++ $(SourceSwitch) &quot;$(FileFullPath)&quot; $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(IncludePath)" Kind="0"/>
+      <File Extension="rc" CompilationLine="$(RcCompilerName) $(RcCmpOptions) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) $(RcIncludePath) &quot;$(FileFullPath)&quot;" Kind="1"/>
+      <File Extension="s" CompilationLine="$(AS) &quot;$(FileFullPath)&quot; $(ASFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/$(ObjectName)$(ObjectSuffix) -I$(IncludePath)" Kind="0"/>
+      <LinkLine ProjectType="Dynamic Library" Pattern="$(SharedObjectLinkerName) $(OutputSwitch)$(OutputFile) $(Objects) $(LibPath) $(Libs) $(LinkOptions)" PatternWithFile="$(SharedObjectLinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)"/>
+      <LinkLine ProjectType="Executable" Pattern="$(LinkerName) $(OutputSwitch)$(OutputFile) $(Objects) $(LibPath) $(Libs) $(LinkOptions)" PatternWithFile="$(LinkerName) $(OutputSwitch)$(OutputFile) @$(ObjectsFileList) $(LibPath) $(Libs) $(LinkOptions)"/>
+      <LinkLine ProjectType="Static Library" Pattern="$(AR) $(ArchiveOutputSwitch)$(OutputFile) $(Objects)" PatternWithFile="$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList)"/>
+      <Option Name="ObjectSuffix" Value=".obj"/>
+      <Option Name="DependSuffix" Value=""/>
+      <Option Name="PreprocessSuffix" Value=".i"/>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="2" ColumnIndex="-1">^windres: ([a-zA-Z:]{0,2}[ a-zA-Z\\.0-9_/\+\-]+) *:([0-9]+): syntax error</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="3" ColumnIndex="-1">(^[a-zA-Z\\.0-9 _/\:\+\-]+ *)(\()([0-9]+)(\))( \: )(error)</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(LINK : fatal error)</Pattern>
+      <Pattern Name="Error" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(NMAKE : fatal error)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="3" ColumnIndex="-1">(^[a-zA-Z\\.0-9 _/\:\+\-]+ *)(\()([0-9]+)(\))( \: )(warning)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">([a-z_A-Z]*\.obj)( : warning)</Pattern>
+      <Pattern Name="Warning" FileNameIndex="1" LineNumberIndex="1" ColumnIndex="-1">(cl : Command line warning)</Pattern>
+      <GlobalIncludePath>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\include;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\ATLMFC\include;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\VS\include;C:\Program Files (x86)\Windows Kits\10\include\10.0.22000.0\ucrt;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\um;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\shared;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\winrt;C:\Program Files (x86)\Windows Kits\10\\include\10.0.22000.0\\cppwinrt</GlobalIncludePath>
+      <GlobalLibPath>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\ATLMFC\lib\x86;C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.36.32532\lib\x86;C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\ucrt\x86;C:\Program Files (x86)\Windows Kits\10\\lib\10.0.22000.0\\um\x86</GlobalLibPath>
+      <PathVariable>C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE;$PATH</PathVariable>
+      <CompilerOption Name="/EHa">Enable C++ Exceptions with SEH exception</CompilerOption>
+      <CompilerOption Name="/EHs">Enable C++ Exceptions with Extern C functions</CompilerOption>
+      <CompilerOption Name="/EHsc">Enable C++ Exceptions with SEH and Extern C functions</CompilerOption>
+      <CompilerOption Name="/FS">Forces writes to the program database (PDB) file to be serialized through MSPDBSRV.EXE</CompilerOption>
+      <CompilerOption Name="/GA">Optimizes code for Windows application</CompilerOption>
+      <CompilerOption Name="/GL">Enables whole program optimization</CompilerOption>
+      <CompilerOption Name="/Gm">Enables minimal rebuild</CompilerOption>
+      <CompilerOption Name="/Gy">Enables function-level linking</CompilerOption>
+      <CompilerOption Name="/MD">Causes the application to use the multithread-specific and DLL-specific version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MDd">Causes the application to use the debug multithread-specific and DLL-specific version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MP">Compiles multiple source files by using multiple processes</CompilerOption>
+      <CompilerOption Name="/MT">Causes the application to use the multithread, static version of the run-time library</CompilerOption>
+      <CompilerOption Name="/MTd">Causes the application to use the debug multithread, static version of the run-time library</CompilerOption>
+      <CompilerOption Name="/O1">Creates small code</CompilerOption>
+      <CompilerOption Name="/O2">Creates fast code</CompilerOption>
+      <CompilerOption Name="/Od">Disables optimization</CompilerOption>
+      <CompilerOption Name="/Oi">Generates intrinsic functions</CompilerOption>
+      <CompilerOption Name="/Ox">Uses maximum optimization</CompilerOption>
+      <CompilerOption Name="/W0">Disables all warnings</CompilerOption>
+      <CompilerOption Name="/W1">Displays level 1 (severe) warnings</CompilerOption>
+      <CompilerOption Name="/W2">Displays level 1 and level 2 (significant) warnings</CompilerOption>
+      <CompilerOption Name="/W3">Displays level 1, level 2 and level 3 (production quality) warnings</CompilerOption>
+      <CompilerOption Name="/W4">Displays level 1, level 2, and level 3 warnings, and all level 4 (informational) warnings that are not turned off by default</CompilerOption>
+      <CompilerOption Name="/WX">Treats all compiler warnings as errors</CompilerOption>
+      <CompilerOption Name="/Wall">Displays all warnings displayed by /W4 and all other warnings that /W4 does not include</CompilerOption>
+      <CompilerOption Name="/Z7">Produces an .obj file containing full symbolic debugging information for use with the debugger</CompilerOption>
+      <CompilerOption Name="/ZI">Produces a program database, as described above, in a format that supports the Edit and Continue feature</CompilerOption>
+      <CompilerOption Name="/Zi">Produces a program database (PDB) that contains type information and symbolic debugging information for use with the debugger</CompilerOption>
+      <CompilerOption Name="/Zs">Checks syntax only</CompilerOption>
+      <CompilerOption Name="/c">Compiles without linking</CompilerOption>
+      <CompilerOption Name="/errorReport:none">Reports about internal compiler errors will not be collected or sent to Microsoft</CompilerOption>
+      <CompilerOption Name="/errorReport:prompt">Prompts you to send a report when you receive an internal compiler error</CompilerOption>
+      <CompilerOption Name="/sdl">Enables additional security features and warnings</CompilerOption>
+      <CompilerOption Name="/std:c++14">Enable C++14 features</CompilerOption>
+      <CompilerOption Name="/std:c++17">Enable C++17 features</CompilerOption>
+      <CompilerOption Name="/std:c++20">Enable C++20 features</CompilerOption>
+      <CompilerOption Name="/std:c++latest">Enable latest C++ features</CompilerOption>
+      <CompilerOption Name="/std:c11">Enable C11 features</CompilerOption>
+      <CompilerOption Name="/w">Disables all compiler warnings</CompilerOption>
+      <LinkerOption Name="/DEBUG">Creates debugging information</LinkerOption>
+      <LinkerOption Name="/DYNAMICBASE">Use address space layout randomization</LinkerOption>
+      <LinkerOption Name="/DYNAMICBASE:NO">Don't use address space layout randomizatio</LinkerOption>
+      <LinkerOption Name="/ERRORREPORT:NONE">Reports about internal compiler errors will not be collected or sent to Microsoft</LinkerOption>
+      <LinkerOption Name="/ERRORREPORT:PROMPT">Prompts you to send a report when you receive an internal compiler error</LinkerOption>
+      <LinkerOption Name="/INCREMENTAL">Enables incremental linking</LinkerOption>
+      <LinkerOption Name="/INCREMENTAL:NO">Disables incremental linking</LinkerOption>
+      <LinkerOption Name="/LARGEADDRESSAWARE">Tells the compiler that the application supports addresses larger than two gigabytes</LinkerOption>
+      <LinkerOption Name="/LARGEADDRESSAWARE:NO">Tells the compiler that the application does not support addresses larger than two gigabytes</LinkerOption>
+      <LinkerOption Name="/LTCG:INCREMENTAL">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:NOSTATUS">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:OFF">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/LTCG:STATUS">Specifies link-time code generation</LinkerOption>
+      <LinkerOption Name="/MACHINE:X64">Specifies the target platform</LinkerOption>
+      <LinkerOption Name="/MACHINE:X86">Specifies the target platform</LinkerOption>
+      <LinkerOption Name="/NOENTRY">Creates a resource-only DLL</LinkerOption>
+      <LinkerOption Name="/NXCOMPAT">Specify Compatibility with Data Execution Prevention</LinkerOption>
+      <LinkerOption Name="/NXCOMPAT:NO">Specify Compatibility with Data Execution Prevention</LinkerOption>
+      <LinkerOption Name="/OPT:ICF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:LBR">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOICF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOLBR">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:NOREF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/OPT:REF">Controls LINK optimizations</LinkerOption>
+      <LinkerOption Name="/PROFILE">Produces an output file that can be used with the Performance Tools profiler</LinkerOption>
+      <LinkerOption Name="/SAFESEH">Image has Safe Exception Handlers</LinkerOption>
+      <LinkerOption Name="/SAFESEH:NO">Image does not have Safe Exception Handler</LinkerOption>
+      <LinkerOption Name="/SUBSYSTEM:CONSOLE">Tells the operating system how to run the .exe file</LinkerOption>
+      <LinkerOption Name="/SUBSYSTEM:WINDOWS">Tells the operating system how to run the .exe file</LinkerOption>
+      <LinkerOption Name="/VERBOSE">Prints linker progress messages</LinkerOption>
+      <LinkerOption Name="/WX">Treats linker warnings as errors</LinkerOption>
+      <LinkerOption Name="/WX:NO">Do not treats linker warnings as errors</LinkerOption>
+    </Compiler>
   </Compilers>
   <BuildSystem Name="GNU makefile for g++/gcc" ToolPath="mingw32-make.exe" Options="-f" Jobs="2" Active="no"/>
   <BuildSystem Name="CMake" ToolPath="" Options="" Jobs="" Active="no"/>
