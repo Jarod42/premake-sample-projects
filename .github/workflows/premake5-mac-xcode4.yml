@@ -45,10 +45,10 @@ jobs:
         rm -Rf premake-build
 
     - name: test projects default(clang)
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects xcode4
+      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects xcode4
 
     - name: test projects gcc
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects xcode4 --cc=gcc
+      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects xcode4 --cc=gcc
 
     - name: test projects clang
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects xcode4 --cc=clang
+      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects xcode4 --cc=clang

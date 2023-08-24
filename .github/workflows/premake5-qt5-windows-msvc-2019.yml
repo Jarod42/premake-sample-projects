@@ -60,5 +60,5 @@ jobs:
 
     - name: test projects
       run: |
-        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects-qt vs2019 --qt-root=$Qt5_Dir
+        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects-qt vs2019 --qt-root=$Qt5_Dir
       shell: bash

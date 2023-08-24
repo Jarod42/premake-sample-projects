@@ -70,14 +70,14 @@ jobs:
     - name: test projects default(clang)
       run: |
         # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        ./test_projects.sh premake5 projects-qt xcode4 #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+        python3 ./test_projects.py premake5 projects-qt xcode4 #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
 
     - name: test projects gcc
       run: |
         # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        ./test_projects.sh premake5 projects-qt xcode4 --cc=gcc #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+        python3 ./test_projects.py premake5 projects-qt xcode4 --cc=gcc #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
 
     - name: test projects clang
       run: |
         # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        ./test_projects.sh premake5 projects-qt xcode4 --cc=clang #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+        python3 ./test_projects.py premake5 projects-qt xcode4 --cc=clang #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64

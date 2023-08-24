@@ -45,10 +45,10 @@ jobs:
     - name: test projects (default=msc)
       run: |
         #"C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
-        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects vs2019
+        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects vs2019
       shell: bash
 
     - name: test projects (clang)
       run: |
-        PATH=$PATH:`pwd` ./test_projects.sh premake5 projects vs2019 --cc=clang
+        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects vs2019 --cc=clang
       shell: bash
