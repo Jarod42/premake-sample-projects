@@ -106,10 +106,10 @@ if __name__ == "__main__":
 	action = sys.argv[3]
 	options = sys.argv[4:]
 
-	print('premake', premake)
-	print('project_root', project_root)
+	print('premake:', premake)
+	print('project_root:', project_root)
 	print('action', action)
-	print('options', options)
+	print('options:', options)
 
 	if premake != 'premake4' and premake != 'premake5':
 		print('Invalid argument, should be premake4 or premake5')
@@ -161,15 +161,16 @@ if __name__ == "__main__":
 		os.chdir(os.path.join(project_dir, 'solution', action))
 		ret = run_action()
 		if ret == 0:
+			print('execute app')
 			ret = exec_os()
 			if ret == 0:
 				print(project, 'OK', flush=True)
 			else:
 				print(project, 'KO', ret, flush=True)
-				ko_projects.append(project, 'Execution')
+				ko_projects.append(project, ' Execution')
 		else:
 			print(project, 'KO', ret, flush=True)
-			ko_projects.append(project + 'Generation')
+			ko_projects.append(project + ' Generation')
 	
 		os.chdir(oldcwd)
 
