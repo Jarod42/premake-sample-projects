@@ -43,10 +43,10 @@ jobs:
       run: xvfb-run -a codelite --version || exit 0 # codelite --version returns -1
 
     - name: test projects default(clang)
-      run: ./test_projects.sh premake4 projects codelite
+      run: python3 ./test_projects.py premake4 projects codelite
 
     - name: test projects gcc
-      run: ./test_projects.sh premake4 projects codelite --cc=gcc
+      run: python3 ./test_projects.py premake4 projects codelite --cc=gcc
 
     - name: test projects clang
-      run: ./test_projects.sh premake4 projects codelite --cc=clang
+      run: python3 ./test_projects.py premake4 projects codelite --cc=clang

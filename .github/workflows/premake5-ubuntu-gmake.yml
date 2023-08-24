@@ -46,10 +46,10 @@ jobs:
       run: make --version
 
     - name: test projects default(gcc)
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects gmake
+      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects gmake
 
     - name: test projects gcc
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects gmake --cc=gcc
+      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects gmake --cc=gcc
 
     - name: test projects clang
-      run: PATH=$PATH:`pwd` ./test_projects.sh premake5 projects gmake --cc=clang
+      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects gmake --cc=clang
