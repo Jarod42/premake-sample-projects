@@ -68,9 +68,12 @@ def run_ninja():
 		return 1
 	return 0
 
-
 def run_make():
 	return subprocess.run(['make', 'app', 'config=release']).returncode
+
+def run_qmake():
+	subprocess.run(['qmake', '-makefile', 'app/app.pro'])
+	return subprocess.run(['make', 'bin/Release/app']).returncode
 
 def run_vs():
 	return subprocess.run(['msbuild.exe', '/property:Configuration=Release', 'Project.sln']).returncode
@@ -90,6 +93,8 @@ def select_action_runner(action):
 		return run_make
 	elif action == 'ninja':
 		return run_ninja
+	elif action == 'qmake':
+		return run_qmake
 	elif action in ['vs2005', 'vs2008', 'vs2010', 'vs2012', 'vs2013', 'vs2015', 'vs2017', 'vs2019', 'vs2022']:
 		return run_vs
 	elif action == 'xcode4':
