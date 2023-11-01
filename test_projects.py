@@ -167,7 +167,7 @@ if __name__ == "__main__":
 				print(project, 'OK', flush=True)
 			else:
 				print(project, 'KO', ret, flush=True)
-				ko_projects.append(project, ' Execution')
+				ko_projects.append(project + ' Execution')
 		else:
 			print(project, 'KO', ret, flush=True)
 			ko_projects.append(project + ' Generation')
