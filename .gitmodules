@@ -7,6 +7,9 @@
 [submodule "submodules/premake-ninja"]
 	path = submodules/premake-ninja
 	url = https://github.com/jimon/premake-ninja.git
+[submodule "submodules/premake-qmake"]
+	path = submodules/premake-qmake
+	url = https://github.com/Jarod42/premake-qmake.git
 [submodule "submodules/premake-qt"]
 	path = submodules/premake-qt
 	url = https://github.com/Jarod42/premake-qt.git
