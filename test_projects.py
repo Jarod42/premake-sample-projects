@@ -72,8 +72,13 @@ def run_make():
 	return subprocess.run(['make', 'app', 'config=release']).returncode
 
 def run_qmake():
-	subprocess.run(['qmake', '-makefile', 'app/app.pro'])
-	return subprocess.run(['make', 'bin/Release/app']).returncode
+	subprocess.run(['qmake', '-makefile', 'Project.pro'])
+	#print('------- Makefile --------', flush=True)
+	#ret = subprocess.run(['cat', 'Makefile'], capture_output=True)
+	#print(ret.stdout.decode())
+	#print('---------------', flush=True)
+
+	return subprocess.run(['make', 'sub-app-all']).returncode
 
 def run_vs():
 	return subprocess.run(['msbuild.exe', '/property:Configuration=Release', 'Project.sln']).returncode
