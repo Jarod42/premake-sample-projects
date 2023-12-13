@@ -39,7 +39,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |custom build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_custom_build][^codeblocks_fileconfig_per_config]|:heavy_check_mark: (Fixed)|:heavy_check_mark:|:x:|
 |custom rule|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark: (Fixed)|:heavy_check_mark:|:x:|
 |per-file config |:x:|:heavy_check_mark:|:x:|:x:|:x:|:x:|:x:[^codeblocks_fileconfig_per_config]|:x:|:heavy_check_mark:|:x:|
-|`buildaction "Copy"` |:grey_question:|:grey_question:|:grey_question:|:grey_question:|:grey_question:|:grey_question:|:grey_question:|:grey_question:|:grey_question:|:grey_question:|
+|`buildaction "Copy"` |:x:|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x:|:x:|:x:|:x:|
 |`buildaction "None"` |:x:[^buildaction_none]|:x:[^buildaction_none]|:x:[^buildaction_none]|:heavy_check_mark:|:heavy_check_mark:|:x:[^buildaction_none]|:x:|:x:|:heavy_check_mark:|:x:|
 |`flags {"ExcludeFromBuild"}` |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|
 |`toolset "clang"` |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|:heavy_check_mark:|:grey_question:|
