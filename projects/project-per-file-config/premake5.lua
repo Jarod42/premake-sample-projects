@@ -28,3 +28,5 @@ project "app"
 	filter { "files:src/custom.cpp" }
 		defines "CUSTOM"
 		cppdialect "C++17"
+	filter { "toolset:msc*" }
+		buildoptions { "/Zc:__cplusplus" } -- else __cplusplus would be 199711L
