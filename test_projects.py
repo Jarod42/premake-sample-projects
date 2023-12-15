@@ -141,7 +141,7 @@ if __name__ == "__main__":
 		project = os.path.basename(project_dir)
 		print('***********************************', project, '************************************', flush=True)
 		premake_lua = os.path.join(project_dir, premake + '.lua')
-		if not os.path.isfile(premake_lua) or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action)):
+		if not os.path.isfile(premake_lua) or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action)) or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action + '_' + platform.system().lower())):
 			print(project, "skipped", flush=True)
 			skipped_projects.append(project)
 			continue
