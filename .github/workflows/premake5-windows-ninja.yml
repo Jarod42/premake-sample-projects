@@ -28,12 +28,12 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: recursive
 
     - name: checkout premake5
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: Jarod42/premake-core
         path: premake-build
@@ -48,7 +48,7 @@ jobs:
         cmd.exe /c "call ""$vcvarall_path"" x86_amd64 && cd premake-build && nmake -f Bootstrap.mak MSDEV=vs2022 windows-msbuild PLATFORM=Win32 CONFIG=release && cp bin/release/premake5.exe ../"
 
     - name: install ninja
-      uses: seanmiddleditch/gha-setup-ninja@v3
+      uses: seanmiddleditch/gha-setup-ninja@v4
 
     - name: ninja --version
       run: ninja --version
