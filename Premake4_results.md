@@ -2,7 +2,7 @@
 
 ||gmake|Codelite|CodeBlocks|
 |:---|:---:|:---:|:---:|
-||![Premake4 ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake4-ubuntu-gmake/badge.svg)|![Premake4 ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake4-ubuntu-codelite/badge.svg)|![Premake4 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/workflows/premake4-ubuntu-codeblocks/badge.svg)|
+||![Premake4 ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake4-ubuntu-gmake.yml/badge.svg)|![Premake4 ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake4-ubuntu-codelite.yml/badge.svg)|![Premake4 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake4-ubuntu-codeblocks.yml/badge.svg)|
 |[`includedirs`](https://premake.github.io/docs/includedirs)| :heavy_check_mark: |:heavy_check_mark:|:heavy_check_mark:|
 |[`defines`](https://premake.github.io/docs/defines)| :heavy_check_mark: |:heavy_check_mark:|:heavy_check_mark:|
 |[`buildoptions`](https://premake.github.io/docs/buildoptions)| :heavy_check_mark: |:heavy_check_mark:|:heavy_check_mark:|
