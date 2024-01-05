@@ -5,6 +5,21 @@ import shutil
 import subprocess
 import sys
 
+if sys.version_info >= (3, 11):
+	from contextlib import chdir
+else:
+	class chdir:
+		"""Context manager for changing the current working directory"""
+		def __init__(self, newPath):
+			self.newPath = os.path.expanduser(newPath)
+
+		def __enter__(self):
+			self.savedPath = os.getcwd()
+			os.chdir(self.newPath)
+
+		def __exit__(self, etype, value, traceback):
+			os.chdir(self.savedPath)
+
 def usage():
 	print('test_project (premake4|premake5) project-root action [args]')
 	sys.exit(-1)
@@ -159,7 +174,13 @@ if __name__ == "__main__":
 				print(project, 'KO (prephase)', flush=True)
 				ko_projects.append(project + ' (prephase)')
 				continue
-		
+			with chdir(os.path.join(project_dir, 'external_solution', action)):
+				ret = run_action()
+			if ret != 0:
+				print(project, 'KO', ret, flush=True)
+				ko_projects.append(project + ' Generation (prephase)')
+				continue
+
 		print('run:', [premake, '--file=' + premake_lua, action] + options, flush=True)
 		ret = subprocess.run([premake, '--file=' + premake_lua, action] + options)
 		if ret.returncode != 0:
@@ -167,22 +188,19 @@ if __name__ == "__main__":
 			ko_projects.append(project + ' (premake)')
 			continue
 
-		oldcwd = os.getcwd()
-		os.chdir(os.path.join(project_dir, 'solution', action))
-		ret = run_action()
-		if ret == 0:
-			print('execute app')
-			ret = exec_os()
+		with chdir(os.path.join(project_dir, 'solution', action)):
+			ret = run_action()
 			if ret == 0:
-				print(project, 'OK', flush=True)
+				print('execute app')
+				ret = exec_os()
+				if ret == 0:
+					print(project, 'OK', flush=True)
+				else:
+					print(project, 'KO', ret, flush=True)
+					ko_projects.append(project + ' Execution')
 			else:
 				print(project, 'KO', ret, flush=True)
-				ko_projects.append(project + ' Execution')
-		else:
-			print(project, 'KO', ret, flush=True)
-			ko_projects.append(project + ' Generation')
-	
-		os.chdir(oldcwd)
+				ko_projects.append(project + ' Generation')
 
 	print ('*********************************** Summary ***********************************', flush=True)
 
