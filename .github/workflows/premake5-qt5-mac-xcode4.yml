@@ -10,6 +10,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_xcode4'
+      - 'projects-qt/**/unsupported_by_premake5_xcode4'
       - 'submodules/premake-qt'
 
   pull_request:
@@ -20,6 +21,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_xcode4'
+      - 'projects-qt/**/unsupported_by_premake5_xcode4'
       - 'submodules/premake-qt'
 
 jobs:

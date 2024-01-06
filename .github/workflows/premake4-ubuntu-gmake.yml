@@ -10,6 +10,7 @@ on:
       - '!projects/**/unsupported_by_*'
       - '!**/premake5.lua'
       - 'projects/**/unsupported_by_gmake'
+      - 'projects/**/unsupported_by_premake4_gmake'
 
   pull_request:
     paths:
@@ -19,6 +20,7 @@ on:
       - '!projects/**/unsupported_by_*'
       - '!**/premake5.lua'
       - 'projects/**/unsupported_by_gmake'
+      - 'projects/**/unsupported_by_premake4_gmake'
 
 jobs:
   linux:

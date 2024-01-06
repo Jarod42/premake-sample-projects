@@ -11,6 +11,7 @@ on:
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects/**/unsupported_by_codeblocks'
+      - 'projects/**/unsupported_by_premake5_codeblocks'
       - 'submodules/premake-codeblocks'
 
   pull_request:
@@ -22,6 +23,7 @@ on:
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects/**/unsupported_by_codeblocks'
+      - 'projects/**/unsupported_by_premake5_codeblocks'
       - 'submodules/premake-codeblocks'
 
 jobs:

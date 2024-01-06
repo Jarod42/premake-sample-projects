@@ -10,6 +10,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_ninja'
+      - 'projects-qt/**/unsupported_by_premake5_ninja'
       - 'submodules/premake-ninja'
       - 'submodules/premake-qt'
 
@@ -21,6 +22,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_ninja'
+      - 'projects-qt/**/unsupported_by_premake5_ninja'
       - 'submodules/premake-ninja'
       - 'submodules/premake-qt'
 

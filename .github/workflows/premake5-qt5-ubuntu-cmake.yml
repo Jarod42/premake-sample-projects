@@ -10,6 +10,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_cmake'
+      - 'projects-qt/**/unsupported_by_premake5_cmake'
       - 'submodules/premake-cmake'
       - 'submodules/premake-qt'
 
@@ -21,6 +22,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_cmake'
+      - 'projects-qt/**/unsupported_by_premake5_cmake'
       - 'submodules/premake-cmake'
       - 'submodules/premake-qt'
 

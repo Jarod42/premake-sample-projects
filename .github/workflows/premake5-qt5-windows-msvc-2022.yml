@@ -10,6 +10,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_vs2022'
+      - 'projects-qt/**/unsupported_by_premake5_vs2022'
       - 'submodules/premake-qt'
 
   pull_request:
@@ -20,6 +21,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_vs2022'
+      - 'projects-qt/**/unsupported_by_premake5_vs2022'
       - 'submodules/premake-qt'
 
 jobs:

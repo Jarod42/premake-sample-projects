@@ -11,6 +11,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_codelite'
+      - 'projects-qt/**/unsupported_by_premake5_codelite'
       - 'submodules/premake-codelite'
       - 'submodules/premake-qt'
 
@@ -23,6 +24,7 @@ on:
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_codelite'
+      - 'projects-qt/**/unsupported_by_premake5_codelite'
       - 'submodules/premake-codelite'
       - 'submodules/premake-qt'
 

@@ -10,6 +10,7 @@ on:
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects/**/unsupported_by_cmake'
+      - 'projects/**/unsupported_by_premake5_cmake'
       - 'submodules/premake-cmake'
 
   pull_request:
@@ -20,6 +21,7 @@ on:
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
       - 'projects/**/unsupported_by_cmake'
+      - 'projects/**/unsupported_by_premake5_cmake'
       - 'submodules/premake-cmake'
 
 jobs:

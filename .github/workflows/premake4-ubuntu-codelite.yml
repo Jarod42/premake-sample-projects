@@ -11,6 +11,7 @@ on:
       - '!projects/**/unsupported_by_*'
       - '!**/premake5.lua'
       - 'projects/**/unsupported_by_codelite'
+      - 'projects/**/unsupported_by_premake4_codelite'
 
   pull_request:
     paths:
@@ -21,6 +22,7 @@ on:
       - '!projects/**/unsupported_by_*'
       - '!**/premake5.lua'
       - 'projects/**/unsupported_by_codelite'
+      - 'projects/**/unsupported_by_premake4_codelite'
 
 jobs:
   linux:
