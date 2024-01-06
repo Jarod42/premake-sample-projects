@@ -11,3 +11,4 @@
 |`kind "StaticLib"`|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |Pch|:heavy_check_mark:|:x:|:heavy_check_mark:|
 |Pre/post build|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|Duplicated source filename|:x:|:heavy_check_mark:|:heavy_check_mark:|
