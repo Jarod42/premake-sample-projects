@@ -30,18 +30,18 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         submodules: recursive
 
     - name: checkout premake5
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         repository: premake/premake-core
         path: premake-build
 
     - name: Add msbuild to PATH
-      uses: microsoft/setup-msbuild@v1.1.3
+      uses: microsoft/setup-msbuild@v2
 
     - name: Build premake5
       run: |
