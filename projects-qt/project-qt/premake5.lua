@@ -1,3 +1,5 @@
+require '../../submodules/premake-qt/qt'
+
 local Root = path.getabsolute(".")
 
 newoption {
@@ -10,7 +12,7 @@ if (_ACTION == nil) then
   return
 end
 
-local LocationDir = path.join(Root, "solution", _ACTION)
+local LocationDir = path.join(Root, "solution/%{_ACTION}")
 local qt = premake.extensions.qt
 
 if _OPTIONS["qt-root"] ~= nil then
@@ -57,7 +59,7 @@ workspace "Project"
   filter "configurations:Release"
     optimize "On"
     symbols "Off"
-    defines "NDEBUG"
+    defines { "NDEBUG", "QT_NO_DEBUG" }
 
   filter "system:windows"
     defines "WIN32"
@@ -75,11 +77,11 @@ workspace "Project"
   project "app"
     kind "ConsoleApp"
     targetname("app")
-    files { path.join(Root, "src", "**.cpp"), path.join(Root, "src", "**.h") } -- src files
-    files { path.join(Root, "src", "**.ui") }   -- ui files
-    files { path.join(Root, "data", "**.qrc") } -- resource files
-    files { path.join(Root, "ts", "**.ts") }    -- translation files
+    files { "src/**.cpp", "src/**.h" } -- src files
+    files "src/**.ui"   -- ui files
+    files "data/**.qrc" -- resource files
+    files "ts/**.ts"    -- translation files
 
-    includedirs(path.join(Root, "src"))
+    includedirs "src"
 
     qtmodules { "core", "gui", "widgets" }

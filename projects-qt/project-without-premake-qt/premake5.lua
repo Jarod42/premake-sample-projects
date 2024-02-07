@@ -10,7 +10,7 @@ if (_ACTION == nil) then
   return
 end
 
-local LocationDir = path.join(Root, "solution", _ACTION)
+local LocationDir = path.join(Root, "solution/%{_ACTION}")
 
 if _OPTIONS["qt-root"] ~= nil then
   QtRoot = path.normalize(_OPTIONS["qt-root"])
@@ -106,7 +106,7 @@ workspace "Project"
   filter "configurations:Release"
     optimize "On"
     symbols "Off"
-    defines "NDEBUG"
+    defines { "NDEBUG", "QT_NO_DEBUG" }
 
   filter "system:windows"
     defines "WIN32"
@@ -124,12 +124,12 @@ workspace "Project"
   project "app"
     kind "ConsoleApp"
     targetname("app")
-    files { path.join(Root, "src", "**.cpp"), path.join(Root, "src", "**.h") } -- src
-    files { path.join(Root, "src", "**.ui") } -- ui
-    files { path.join(Root, "data", "**.qrc") } -- resources
-    files { path.join(Root, "ts", "**.ts") } -- translations
+    files { "src/**.cpp", "src/**.h" } -- src
+    files "src/**.ui"   -- ui
+    files "data/**.qrc" -- resources
+    files "ts/**.ts"    -- translations
 
-    includedirs(path.join(Root, "src"))
+    includedirs "src"
 
     includedirs(path.join(LocationDir, "obj")) -- for generated files from ui
 
@@ -139,8 +139,8 @@ workspace "Project"
     externalincludedirs(path.join(QtRoot, "include", "QtWidgets"))
     libdirs(path.join(QtRoot, "lib"))
 
-    defines{"QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB"}
-    links{"Qt5Core", "Qt5Gui", "Qt5Widgets"}
+    defines {"QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB"}
+    links {"Qt5Core", "Qt5Gui", "Qt5Widgets"}
 
 if _ACTION == "gmake" then
     filter "files:**.ts"

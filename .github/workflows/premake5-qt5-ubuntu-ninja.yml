@@ -64,10 +64,6 @@ jobs:
       run: |
         echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
 
-    - name: add premake qt module
-      run: |
-        echo "require 'submodules/premake-qt/qt'" >> premake-system.lua
-
     - name: Installing Qt5.15.0 ubuntu
       uses: jurplel/install-qt-action@v3
       with:
