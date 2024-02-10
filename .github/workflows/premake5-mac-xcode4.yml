@@ -35,7 +35,8 @@ jobs:
     - name: checkout premake5
       uses: actions/checkout@v4
       with:
-          repository: premake/premake-core
+          repository: Jarod42/premake-core
+          ref: xcode_id
           path: premake-build
 
     - name: Build premake5
