@@ -1,0 +1,80 @@
+name: premake5-qt5-ubuntu-qmake
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects-qt/project-*/**'
+      - '.github/workflows/premake5-qt5-ubuntu-qmake.yml'
+      - '!**/*.md'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_qmake'
+      - 'projects-qt/**/unsupported_by_premake5_qmake'
+      - 'submodules/premake-qmake'
+      - 'submodules/premake-qt'
+
+  pull_request:
+    paths:
+      - 'projects-qt/project-*/**'
+      - '.github/workflows/premake5-qt5-ubuntu-qmake.yml'
+      - '!**/*.md'
+      - '!projects-qt/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects-qt/**/unsupported_by_qmake'
+      - 'projects-qt/**/unsupported_by_premake5_qmake'
+      - 'submodules/premake-qmake'
+      - 'submodules/premake-qt'
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: checkout premake5
+      uses: actions/checkout@v4
+      with:
+          repository: premake/premake-core
+          path: premake-build
+
+    - name: Build premake5
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak linux CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+
+    - name: add premake qmake module
+      run: |
+        echo "require 'submodules/premake-qmake/qmake'" >> premake-system.lua
+
+    - name: Installing Qt5.15.0 ubuntu
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '5.15.0'
+        cache: true
+        cache-key-prefix: 'qt-action-5.15.0_ubuntu'
+
+    - name: test qmake
+      run: qmake --version
+
+    - name: set path
+      run: |
+         echo PATH=$PATH:`pwd`
+         echo PATH=$PATH:`pwd` >> $GITHUB_ENV
+         echo QT_DIR=$Qt5_Dir
+         echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
+
+    - name: install libxkbcommon-x11-0 # display dependency
+      run: sudo apt-get install libxkbcommon-x11-0
+
+    - name: test projects default(gcc)
+      timeout-minutes: 5 # tends to not stop properly in case of failure
+      run: | # fake X-server as Qt widget requires displays :/
+        xvfb-run -a python3 ./test_projects.py premake5 projects-qt qmake

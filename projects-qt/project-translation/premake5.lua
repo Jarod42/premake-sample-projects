@@ -31,7 +31,9 @@ workspace "Project"
   objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
   targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
 
+if _ACTION ~= "qmake" then
   qt.enable()
+end
   qtuseexternalinclude ( true )
 
   if (QtRoot ~= nil and QtRoot ~= "") then
