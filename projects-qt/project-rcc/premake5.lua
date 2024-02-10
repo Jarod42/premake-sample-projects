@@ -34,9 +34,10 @@ workspace "Project"
   qt.enable()
   qtuseexternalinclude ( true )
 
-  -- This action doesn't support custom build different by configuration
+  -- codeblocks doesn't support custom build different by configuration
   -- as generated files in obj/Debug or obj/Release
-  filter "action:codeblocks"
+  -- xcode4 action has bug with generated file with same name, but different location
+  filter "action:codeblocks or xcode4"
     qtgenerateddir (path.join(LocationDir, "obj")) 
   filter {}
 
