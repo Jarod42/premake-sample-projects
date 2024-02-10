@@ -53,17 +53,18 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |[`sanitize {"Address"}`](https://premake.github.io/docs/sanitize) |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:(Fixed)|:heavy_check_mark:|:grey_question:|
 |Duplicated source filename|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|
 
-#### Library modules:
-- [premake-qt module](https://github.com/dcourtois/premake-qt)
+#### Qt's projects:
+- using [premake-qt module](https://github.com/dcourtois/premake-qt) for all generators but qmake[^qmake_premake_qt_incompatible].
+- with [Module qmake](https://github.com/Jarod42/premake-qmake) (fixed fork)
 
 ||gmake|gmake2|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake[^qmake_premake_qt_incompatible]|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 ||![qt gmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-gmake.yml/badge.svg)|![qt gmake2 badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-gmake2.yml/badge.svg)|![qt Codelite badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-codelite.yml/badge.svg)|![qt msvc badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-windows-msvc-2019.yml/badge.svg)|![qt msvc badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-windows-msvc-2022.yml/badge.svg)|![qt xcode badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-mac-xcode4.yml/badge.svg)|![qt codeblocks badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-codeblocks.yml/badge.svg)|![qt cmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-cmake.yml/badge.svg)|![qt ninja badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-ninja.yml/badge.svg)|![qt qmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-qmake.yml/badge.svg)|
-|basic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:[^qmake_premake_qt_incompatible]|
-|moc|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:x:[^qmake_premake_qt_incompatible]|
-|qrc|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:x:[^qmake_premake_qt_incompatible]|
-|ts |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:x:[^qmake_premake_qt_incompatible]|
-|uic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:[^qmake_premake_qt_incompatible]|
+|basic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|moc|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|qrc|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|ts |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:x:|
+|uic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
 
 [^untested_by_ci]: Not tested by the CI even if projects uses them.
@@ -76,4 +77,4 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [^codeblocks_fileconfig_per_config]: Code::Blocks doesn't support rules/custom builds which are different by configuration (Using [Tokens](https://premake.github.io/docs/Tokens) might allow to bypass that restriction).
 [^xcode4_includedirsafter_issue]: Reported issue: https://github.com/premake/premake-core/issues/2062
 [^xcode4_forceincludes_issue]: Reported issue: https://github.com/premake/premake-core/issues/1769
-[^qmake_premake_qt_incompatible]: They both defines the same api `qtmodules`
+[^qmake_premake_qt_incompatible]: qmake handles Qt natively, so premake-qt is not enabled.
