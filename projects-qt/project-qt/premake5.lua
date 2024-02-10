@@ -34,6 +34,12 @@ workspace "Project"
   qt.enable()
   qtuseexternalinclude ( true )
 
+  -- This action doesn't support custom build different by configuration
+  -- as generated files in obj/Debug or obj/Release
+  filter "action:codeblocks"
+    qtgenerateddir (path.join(LocationDir, "obj")) 
+  filter {}
+
   if (QtRoot ~= nil and QtRoot ~= "") then
     qtpath(QtRoot)
   end
