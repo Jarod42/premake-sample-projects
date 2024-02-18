@@ -58,7 +58,7 @@ def run_cmake():
 	if ret.returncode != 0:
 		print('CMake first stage fails', flush=True)
 		return ret.returncode
-	return subprocess.run(['cmake', '--build', '.', '--target', 'app']).returncode
+	return subprocess.run(['cmake', '--build', '.', '--target', 'app', '--config', 'Release']).returncode
 
 def run_codeblocks():
 	# require X11/graphical terminal :-/
