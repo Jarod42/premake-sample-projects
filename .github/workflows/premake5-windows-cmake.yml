@@ -1,0 +1,59 @@
+name: premake5-windows-cmake
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/project-*/**'
+      - '.github/workflows/premake5-windows-cmake.yml'
+      - '.github/actions/install-premake5/action.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_cmake'
+      - 'projects/**/unsupported_by_cmake_windows'
+      - 'projects/**/unsupported_by_premake5_cmake'
+      - 'submodules/premake-cmake'
+
+  pull_request:
+    paths:
+      - 'projects/project-*/**'
+      - '.github/workflows/premake5-windows-cmake.yml'
+      - '.github/actions/install-premake5/action.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_cmake'
+      - 'projects/**/unsupported_by_cmake_windows'
+      - 'projects/**/unsupported_by_premake5_cmake'
+      - 'submodules/premake-cmake'
+
+jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: install premake5
+      uses: ./.github/actions/install-premake5
+      with:
+          msdev: vs2022
+          repository: premake/premake-core
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: cmake --version
+      run: cmake --version
+
+    - name: add premake cmake module
+      run: |
+        echo "require 'submodules/premake-cmake/cmake'" >> premake-system.lua
+
+    - name: test projects
+      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects cmake --shell=posix
+      shell: bash
