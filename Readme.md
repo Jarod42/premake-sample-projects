@@ -15,7 +15,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 
 ||gmake|gmake2|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-||![Premake5 ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-gmake.yml/badge.svg)|![Premake5 ubuntu gmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-gmake2.yml/badge.svg)|![Premake5 ubuntu codelite badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-codelite.yml/badge.svg)|![Premake5 windows msvc badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-msvc-2019.yml/badge.svg)|![Premake5 windows msvc badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-msvc-2022.yml/badge.svg)|![Premake5 windows msvc badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-mac-xcode4.yml/badge.svg)|![Premake5 ubuntu codeblocks badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-codeblocks.yml/badge.svg)|![Premake5 ubuntu cmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-cmake.yml/badge.svg)|![Premake5 ubuntu ninja badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-ninja.yml/badge.svg)![Premake5 window ninja badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-ninja.yml/badge.svg)|![Premake5 ubuntu qmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-qmake.yml/badge.svg)|
+||![Premake5 ubuntu gmake badge][1]|![Premake5 ubuntu gmake badge][2]|![Premake5 ubuntu codelite badge][3]|![Premake5 windows msvc badge][4]|![Premake5 windows msvc badge][5]|![Premake5 mac_xcode4 badge][6]|![Premake5 ubuntu codeblocks badge][7]|![Premake5 ubuntu cmake badge][8]|![Premake5 ubuntu ninja badge][9]![Premake5 window ninja badge][10]|![Premake5 ubuntu qmake badge][11]|
 |[`location`](https://premake.github.io/docs/location)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^project_location]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|
 |[`targetdir`](https://premake.github.io/docs/targetdir)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |[`targetname`](https://premake.github.io/docs/targetname)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
@@ -59,13 +59,35 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 
 ||gmake|gmake2|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake[^qmake_premake_qt_incompatible]|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-||![qt gmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-gmake.yml/badge.svg)|![qt gmake2 badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-gmake2.yml/badge.svg)|![qt Codelite badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-codelite.yml/badge.svg)|![qt msvc badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-windows-msvc-2019.yml/badge.svg)|![qt msvc badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-windows-msvc-2022.yml/badge.svg)|![qt xcode badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-mac-xcode4.yml/badge.svg)|![qt codeblocks badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-codeblocks.yml/badge.svg)|![qt cmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-cmake.yml/badge.svg)|![qt ninja badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-ninja.yml/badge.svg)|![qt qmake badge](https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-qmake.yml/badge.svg)|
+||![qt gmake badge][12]|![qt gmake2 badge][13]|![qt Codelite badge][14]|![qt msvc badge][15]|![qt msvc badge][16]|![qt xcode badge][17]|![qt codeblocks badge][18]|![qt cmake badge][19]|![qt ninja badge][20]|![qt qmake badge][21]|
 |basic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |moc|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |qrc|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |ts |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:x:|
 |uic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
+[1]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-gmake.yml/badge.svg
+[2]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-gmake2.yml/badge.svg
+[3]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-codelite.yml/badge.svg
+[4]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-msvc-2019.yml/badge.svg
+[5]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-msvc-2022.yml/badge.svg
+[6]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-mac-xcode4.yml/badge.svg
+[7]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-codeblocks.yml/badge.svg
+[8]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-cmake.yml/badge.svg
+[9]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-ninja.yml/badge.svg
+[10]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-ninja.yml/badge.svg
+[11]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-qmake.yml/badge.svg
+
+[12]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-gmake.yml/badge.svg
+[13]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-gmake2.yml/badge.svg
+[14]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-codelite.yml/badge.svg
+[15]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-windows-msvc-2019.yml/badge.svg
+[16]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-windows-msvc-2022.yml/badge.svg
+[17]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-mac-xcode4.yml/badge.svg
+[18]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-codeblocks.yml/badge.svg
+[19]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-cmake.yml/badge.svg
+[20]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-ninja.yml/badge.svg
+[21]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-qmake.yml/badge.svg
 
 [^untested_by_ci]: Not tested by the CI even if projects uses them.
 [^project_location]: project location != workspace/solution location unsupported though.
