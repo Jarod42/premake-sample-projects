@@ -1,0 +1,65 @@
+name: premake5-windows-gmake2
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/project-*/**'
+      - '.github/workflows/premake5-windows-gmake2.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_gmake2'
+      - 'projects/**/unsupported_by_gmake2_windows'
+      - 'projects/**/unsupported_by_premake5_gmake2'
+      - 'submodules/premake-gmake2'
+
+  pull_request:
+    paths:
+      - 'projects/project-*/**'
+      - '.github/workflows/premake5-windows-gmake2.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_gmake2'
+      - 'projects/**/unsupported_by_gmake2_windows'
+      - 'projects/**/unsupported_by_premake5_gmake2'
+      - 'submodules/premake-gmake2'
+
+jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: checkout premake5
+      uses: actions/checkout@v4
+      with:
+        repository: premake/premake-core
+        path: premake-build
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Build premake5
+      run: |
+        $vcvarall_path = vswhere -find VC\Auxiliary\Build\vcvarsall.bat
+        cmd.exe /c "call ""$vcvarall_path"" x86_amd64 && cd premake-build && nmake -f Bootstrap.mak MSDEV=vs2022 windows-msbuild PLATFORM=Win32 CONFIG=release && cp bin/release/premake5.exe ../"
+
+    - name: test projects
+      run: |
+        echo $PATH
+        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects gmake2 --shell=posix
+      shell: bash
+
+    - name: test projects
+      run: |
+        echo %PATH%
+        set PATH=%PATH%;`pwd`
+        python3 ./test_projects.py premake5 projects gmake2
+      shell: cmd
+
