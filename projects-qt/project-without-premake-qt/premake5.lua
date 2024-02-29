@@ -29,17 +29,10 @@ end
 local function lrelease_command()
   buildmessage 'lrelease %{file.relpath} -qm bin/%{file.basename}.qm'
   buildoutputs { path.join(LocationDir, "bin", "%{file.basename}.qm") }
-if "vs2000" < _ACTION and _ACTION <= "vs3000" then -- %[path] not supported in rule
-  buildcommands {
-    "{MKDIR} bin",
-    path.join(QtRoot, "bin", "lrelease") .. " %{file.relpath}"  .. " -qm " .. path.join("bin", "%{file.basename}.qm")
-  }
-else
   buildcommands {
     "{MKDIR} %[%{!sln.location}/bin]",
     path.join(QtRoot, "bin", "lrelease") .. " %[%{!file.abspath}] -qm %[%{!sln.location}/bin/%{file.basename}.qm]"
   }
-end
 end
 
 local function moc_command()
@@ -60,12 +53,7 @@ end
 local function uic_command()
   buildmessage 'uic -o obj/ui_%{file.basename}.h %{file.relpath}'
   buildoutputs { path.join(LocationDir, "obj", "ui_%{file.basename}.h") }
-
-if "vs2000" < _ACTION and _ACTION <= "vs3000" then -- %[path] not supported in rule
-  buildcommands { path.join(QtRoot, "bin", "uic") .. " -o " .. path.join("obj", "ui_%{file.basename}.h") .. " %{file.relpath}" }
-else
   buildcommands { path.join(QtRoot, "bin", "uic") .. " -o %[%{!sln.location}/obj/ui_%{file.basename}.h] %[%{!file.abspath}]" }
-end
 end
 
 rule "uic"
