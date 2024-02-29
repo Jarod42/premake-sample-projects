@@ -1,0 +1,11 @@
+#include <iostream>
+#include <filesystem>
+
+int main(int argc, char* argv[])
+{
+	if (std::filesystem::exists(std::filesystem::path(argv[0]).parent_path() / "main.cpp.in")) {
+		std::cerr << "main.cpp.in found" << std::endl;
+		return -1;
+	}
+	return 0;
+}
