@@ -9,6 +9,9 @@ try
 {
 	if (argc < 3 || (argc - 3) % 4 != 0) {
 		std::cerr << "Wrong number of args" << std::endl;
+		for(int i = 0; i != argc; ++i) {
+			std::cerr << i << ":" << argv[i] << std::endl;
+		}
 		return 1;
 	}
 	const std::filesystem::path outputdir = argv[1];
