@@ -56,10 +56,9 @@ jobs:
         PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects gmake2 --shell=posix
       shell: bash
 
-    - name: test projects
-      run: |
-        echo %PATH%
-        set PATH=%PATH%;`pwd`
-        python3 ./test_projects.py premake5 projects gmake2
-      shell: cmd
-
+#    - name: test projects
+#      run: |
+#        echo %PATH%
+#        set PATH=%PATH%;`pwd`
+#        python3 ./test_projects.py premake5 projects gmake2
+#      shell: cmd
