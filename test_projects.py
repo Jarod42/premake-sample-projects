@@ -96,6 +96,15 @@ def run_qmake():
 	return subprocess.run(['make', 'sub-app-all']).returncode
 
 def run_vs():
+	if os.path.isfile('packages.config'): # visual studio calls nuget, but not msbuild
+		nuget_cmd = ['nuget', 'install', 'packages.config', '-OutputDirectory', 'packages']
+		print(nuget_cmd)
+		ret = subprocess.run(nuget_cmd)
+		if ret.returncode != 0:
+			print(ret.stdout.decode())
+			print(ret.stderr.decode(), flush=True)
+			return 1
+
 	return subprocess.run(['msbuild.exe', '/property:Configuration=Release', 'Project.sln']).returncode
 
 def run_xcode4():
