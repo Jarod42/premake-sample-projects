@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "solution", _ACTION)
+local LocationDir = "solution/%{_ACTION}"
 
 workspace "Project"
 	location(LocationDir)
@@ -12,14 +10,13 @@ workspace "Project"
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
-	targetname("app")
 	startproject "app"
 
 project "app"
 	kind "ConsoleApp"
 	targetname "app"
 
-	files { path.join(Root, "src/app/main.cpp") }
+	files { "src/app/main.cpp" }
 
 	linkgroups "On" -- Ideally, we should check there are errors with "Off" for linker(toolset) requiring linksgroup (ld (gcc)).
 	libdirs { "%{cfg.targetdir}" }
@@ -35,34 +32,34 @@ project "LibraryA"
 	kind "StaticLib"
 	targetname "LibA"
 
-	files { path.join(Root, "src/libA/*.cpp") }
+	files { "src/libA/*.cpp" }
 
 project "LibraryB"
 	kind "staticLib"
 	targetname "LibB"
 
-	files { path.join(Root, "src/libB/*.cpp") }
+	files { "src/libB/*.cpp" }
 
 project "LibraryC"
 	kind "StaticLib"
 	targetname "LibC"
 
-	files { path.join(Root, "src/libC/*.cpp") }
+	files { "src/libC/*.cpp" }
 
 project "LibraryD"
 	kind "staticLib"
 	targetname "LibD"
 
-	files { path.join(Root, "src/libD/*.cpp") }
+	files { "src/libD/*.cpp" }
 
 project "LibraryE"
 	kind "StaticLib"
 	targetname "LibE"
 
-	files { path.join(Root, "src/libE/*.cpp") }
+	files { "src/libE/*.cpp" }
 
 project "LibraryF"
 	kind "staticLib"
 	targetname "LibF"
 
-	files { path.join(Root, "src/libF/*.cpp") }
+	files { "src/libF/*.cpp" }

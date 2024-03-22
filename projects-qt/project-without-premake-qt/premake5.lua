@@ -1,5 +1,3 @@
-local Root = path.getabsolute(".")
-
 newoption {
   trigger = "qt-root",
   value = "path",
@@ -10,7 +8,7 @@ if (_ACTION == nil) then
   return
 end
 
-local LocationDir = path.join(Root, "solution/%{_ACTION}")
+local LocationDir = "solution/%{_ACTION}"
 
 if _OPTIONS["qt-root"] ~= nil then
   QtRoot = path.normalize(_OPTIONS["qt-root"])
@@ -90,20 +88,20 @@ workspace "Project"
     targetsuffix "d"
     optimize "Off"
     symbols "On"
-    defines "DEBUG"
+    defines { "DEBUG" }
   filter "configurations:Release"
     optimize "On"
     symbols "Off"
     defines { "NDEBUG", "QT_NO_DEBUG" }
 
   filter "system:windows"
-    defines "WIN32"
+    defines { "WIN32" }
 
   filter "system:linux"
     pic "On"
 
   filter "toolset:msc*"
-    architecture ("x86_64") -- installed qt is for 64 bits
+    architecture "x86_64" -- installed qt is for 64 bits
     buildoptions {"/Zc:__cplusplus", "/permissive-" } -- required by Qt6
 
   filter {}
@@ -111,13 +109,13 @@ workspace "Project"
   startproject "app"
   project "app"
     kind "ConsoleApp"
-    targetname("app")
+    targetname "app"
     files { "src/**.cpp", "src/**.h" } -- src
-    files "src/**.ui"   -- ui
-    files "data/**.qrc" -- resources
-    files "ts/**.ts"    -- translations
+    files { "src/**.ui" }   -- ui
+    files { "data/**.qrc" } -- resources
+    files { "ts/**.ts" }    -- translations
 
-    includedirs "src"
+    includedirs { "src" }
 
     includedirs(path.join(LocationDir, "obj")) -- for generated files from ui
 

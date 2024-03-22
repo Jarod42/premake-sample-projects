@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "solution/", _ACTION)
+local LocationDir = "solution/%{_ACTION}"
 
 workspace "Project"
 	location(LocationDir)
@@ -19,6 +17,6 @@ workspace "Project"
 
 project "app"
 	kind "ConsoleApp"
-	targetname("app")
+	targetname "app"
 
-	files "src/main.cpp"
+	files { "src/main.cpp" }

@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "solution/", _ACTION)
+local LocationDir = "solution/%{_ACTION}"
 
 workspace "Project"
 	location(LocationDir)
@@ -12,14 +10,14 @@ workspace "Project"
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
-	targetname("app")
 	startproject "app"
 
 project "app"
 	kind "ConsoleApp"
+	targetname "app"
 	cppdialect "C++11"
 
-	files { path.join(Root, "src/main.cpp"), path.join(Root, "src/custom.cpp") }
+	files { "src/main.cpp", "src/custom.cpp" }
 	defines "GENERAL"
 	filter {"configurations:Debug"}
 		defines "DEBUG"

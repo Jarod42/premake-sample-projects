@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "solution", _ACTION)
+local LocationDir = "solution/%{_ACTION}"
 
 rule "myrule"
 	location(LocationDir)
@@ -31,11 +29,12 @@ workspace "Project"
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
-	targetname("app")
 	startproject "app"
 
 project "app"
 	kind "ConsoleApp"
+	targetname "app"
+
 	rules { "myrule" }
 	filter "action:vs*"
 		myruleVars { copy = "cmd"}
@@ -43,6 +42,5 @@ project "app"
 		myruleVars { copy = "posix"}
 	filter {}
 
-	files {path.join(Root, "src", "main.cpp"), path.join(Root, "src", "main.h.in")}
+	files { "src/main.cpp", "src/main.h.in" }
 	includedirs {LocationDir}
-

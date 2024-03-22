@@ -1,7 +1,5 @@
 require '../../submodules/premake-qt/qt'
 
-local Root = path.getabsolute(".")
-
 newoption {
   trigger = "qt-root",
   value = "path",
@@ -12,7 +10,7 @@ if (_ACTION == nil) then
   return
 end
 
-local LocationDir = path.join(Root, "solution/%{_ACTION}")
+local LocationDir = "solution/%{_ACTION}"
 local qt = premake.extensions.qt
 
 if _OPTIONS["qt-root"] ~= nil then
@@ -43,7 +41,7 @@ workspace "Project"
     targetsuffix "d"
     optimize "Off"
     symbols "On"
-    defines "DEBUG"
+    defines { "DEBUG" }
     qtsuffix "d"
 
   filter "configurations:Release"
@@ -52,10 +50,10 @@ workspace "Project"
     defines { "NDEBUG", "QT_NO_DEBUG" }
 
   filter "system:windows"
-    defines "WIN32"
+    defines { "WIN32" }
 
   filter "toolset:msc*"
-    architecture ("x86_64") -- installed qt is for 64 bits
+    architecture "x86_64" -- installed qt is for 64 bits
     buildoptions {"/Zc:__cplusplus", "/permissive-" } -- required by Qt6
 
   filter "toolset:not msc*"
@@ -66,9 +64,9 @@ workspace "Project"
   startproject "app"
   project "app"
     kind "ConsoleApp"
-    targetname("app")
-    files "src/main.cpp"
+    targetname "app"
+    files { "src/main.cpp" }
 
-    includedirs "src"
+    includedirs { "src" }
 
     qtmodules { "core" }

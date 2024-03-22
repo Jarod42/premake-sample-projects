@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "solution", _ACTION)
+local LocationDir = "solution/%{_ACTION}"
 
 workspace "Project"
 	location(LocationDir)
@@ -12,20 +10,19 @@ workspace "Project"
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
-	targetname("app")
 	startproject "app"
 
 project "app"
 	kind "ConsoleApp"
+	targetname "app"
 
-	files {path.join(Root, "src/main.cpp")}
+	files { "src/main.cpp" }
 
-	sysincludedirs {path.join(Root, "src/sysinclude")}
-	includedirs {path.join(Root, "src/include")}
+	sysincludedirs { "src/sysinclude" }
+	includedirs { "src/include" }
 
 	defines "MACRO"
 	defines "MACRO2=2"
-
 
 	filter "toolset:gcc or toolset:clang"
 		buildoptions {'-DRETURN="return"'}

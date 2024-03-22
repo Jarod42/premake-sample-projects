@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "external_solution", _ACTION)
+local LocationDir = "external_solution/%{_ACTION}"
 
 workspace "Project"
 	location(LocationDir)
@@ -27,14 +25,14 @@ project "externalStaticLib"
 	kind "StaticLib"
 	language "C++"
 	targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
-	targetname("externalStaticLib")
+	targetname "externalStaticLib"
 
 	files { "src/staticlib/**" }
 
 project "externalSharedLib"
 	kind "SharedLib"
 	language "C++"
-	targetdir("solution/%{_ACTION}/bin/%{cfg.buildcfg}")
-	targetname("externalSharedLib")
+	targetdir "solution/%{_ACTION}/bin/%{cfg.buildcfg}"
+	targetname "externalSharedLib"
 
 	files { "src/sharedlib/**" }

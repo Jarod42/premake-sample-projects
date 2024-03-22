@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "solution", _ACTION)
+local LocationDir = "solution/%{_ACTION}"
 
 workspace "Project"
 	location(LocationDir)
@@ -19,15 +17,15 @@ project "generator"
 	kind "ConsoleApp"
 	targetname "generator"
 
-	files {path.join(Root, "src/generator/main.cpp")}
+	files { "src/generator/main.cpp" }
 
 group "GroupName"
 project "app"
 	kind "ConsoleApp"
-	targetname("app")
+	targetname "app"
 
-	files {path.join(Root, "src/app/main.cpp")}
-	files {path.join(Root, "src/app/token.in")} -- have custom rule
+	files { "src/app/main.cpp" }
+	files { "src/app/token.in" } -- have custom rule
 	dependson {"generator"}
 
 -- Regular premake scripts won't need the following
@@ -38,9 +36,9 @@ local function addCustomCommand(fcfg, options)
 	local configset = premake.configset
 	local field = premake.field
 
-	configset.store(fcfg._cfgset, field.get("buildmessage"),  options.message)
+	configset.store(fcfg._cfgset, field.get("buildmessage"), options.message)
 	configset.store(fcfg._cfgset, field.get("buildcommands"), options.commands)
-	configset.store(fcfg._cfgset, field.get("buildoutputs"),  options.outputs)
+	configset.store(fcfg._cfgset, field.get("buildoutputs"), options.outputs)
 end
 
 -- Our function to display token expanded (which might be `$(generator_var)` ) with their internal premake value

@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "solution", _ACTION)
+local LocationDir = "solution/%{_ACTION}"
 
 workspace "Project"
 	location(LocationDir)
@@ -12,16 +10,16 @@ workspace "Project"
 
 	objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
 	targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
-	targetname("app")
 	startproject "app"
 
 project "app"
 	kind "ConsoleApp"
+	targetname "app"
 
 	files {
-		path.join(Root, "src/main.cpp"),
-		path.join(Root, "src/includedirsafter/header.h"), -- should be included
-		path.join(Root, "src/includedirsafter/vector")    -- won't be included
+		"src/main.cpp",
+		"src/includedirsafter/header.h", -- should be included
+		"src/includedirsafter/vector"    -- won't be included
 	}
 
 	-- gcc's/clang's include order is:
@@ -38,6 +36,6 @@ project "app"
 	-- - system include directory
 	-- - externalincludedirs
 
-	-- includedirs {path.join(Root, "src/includedirsafter")}         -- would be problematic for clang, gcc, msc (for #include <vector>)
-	-- externalincludedirs {path.join(Root, "src/includedirsafter")} -- would be problematic for clang, gcc (for #include <vector>)
-	includedirsafter {path.join(Root, "src/includedirsafter")}
+	-- includedirs { "src/includedirsafter" }         -- would be problematic for clang, gcc, msc (for #include <vector>)
+	-- externalincludedirs { "src/includedirsafter" } -- would be problematic for clang, gcc (for #include <vector>)
+	includedirsafter { "src/includedirsafter" }

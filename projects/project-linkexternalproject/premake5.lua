@@ -1,10 +1,8 @@
-local Root = path.getabsolute(".")
-
 if (_ACTION == nil) then
 	return
 end
 
-local LocationDir = path.join(Root, "solution", _ACTION)
+local LocationDir = "solution/%{_ACTION}"
 
 workspace "Project"
 	location(LocationDir)
@@ -20,6 +18,6 @@ project "app"
 
 	files { "src/app/main.cpp" }
 
-	libdirs{path.join("external_solution", _ACTION, "bin", "%{cfg.buildcfg}")}
-	libdirs{path.join(LocationDir, "bin", "%{cfg.buildcfg}")}
-	links {"externalStaticLib", "externalSharedLib"}
+	libdirs{ "external_solution/%{_ACTION}/bin/%{cfg.buildcfg}" }
+	libdirs{ path.join(LocationDir, "bin/%{cfg.buildcfg}") }
+	links { "externalStaticLib", "externalSharedLib" }
