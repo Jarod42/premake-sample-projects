@@ -1,0 +1,6 @@
+<RCC>
+  <qresource>
+    <file>qml_class.qml</file>
+    <file>qml_class2.qml</file>
+  </qresource>
+</RCC>
