@@ -33,7 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        qt-version: ['5.15.0', '6.0.4']
+        qt-version: ['6.1.0', '6.7.0']
 
     steps:
     - name: Checkout
@@ -61,3 +61,25 @@ jobs:
       run: |
         PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects-qt vs2022 --qt-root=$QT_ROOT_DIR --qt-version=${{ matrix.qt-version }}
       shell: bash
+
+    - name: list Qt
+      run: |
+        ls D:/a/premake-sample-projects/Qt/${{matrix.qt-version}}/msvc2019_64
+      shell: bash
+
+    - name: Upload Qt
+      uses: actions/upload-artifact@v4
+      with:
+        name: Qt${{matrix.qt-version}}_win64_msvc2019_lib
+        path: |
+          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}/msvc2019_64/lib/**
+
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}\msvc2019_64\bin\**
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}\msvc2019_64\doc\**
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}\msvc2019_64\include\**
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}/msvc2019_64/lib/**
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}/msvc2019_64/mkspec/**
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}/msvc2019_64/phrasebooks/**
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}/msvc2019_64/plugins/**
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}/msvc2019_64/qml/**
+#          D:\a\premake-sample-projects\Qt\${{matrix.qt-version}}/msvc2019_64/translation/**
