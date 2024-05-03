@@ -14,7 +14,7 @@
 #  define CURRENT_COMPILER "GNUC " strinfigy(__GNUC__) "." strinfigy(__GNUC_MINOR__)
 # endif
 #else
-#  define CURRENT_COMPILER "Unknowed compiler"
+#  define CURRENT_COMPILER "Unknown compiler"
 #endif
 
 
@@ -36,7 +36,11 @@
 # endif
 #endif
 
+extern "C" const char* get_c_compiler_name();
+
 int main()
 {
-	std::cout << CURRENT_COMPILER << std::endl;
+	std::cout << "C++: " << CURRENT_COMPILER << std::endl;
+	std::cout << "C: " << get_c_compiler_name() << std::endl;
+
 }

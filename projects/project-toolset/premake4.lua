@@ -18,7 +18,7 @@ solution "Project"
 project "app"
 	kind "ConsoleApp"
 
-	files {path.join(Root, "src/main.cpp")}
+	files { "src/main.cpp", "src/file.c" }
 
 if _OPTIONS.cc == "gcc" or _OPTIONS.cc == "mingw" then
 	  defines "EXPECTED_GCC"

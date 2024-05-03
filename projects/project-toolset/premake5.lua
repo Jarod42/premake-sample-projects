@@ -16,7 +16,7 @@ project "app"
 	kind "ConsoleApp"
 	targetname "app"
 
-	files { "src/main.cpp" }
+	files { "src/main.cpp", "src/file.c" }
 
 	filter "options:cc=gcc* or cc=mingw*"
 		defines { "EXPECTED_GCC" }
