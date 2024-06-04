@@ -6,6 +6,7 @@ on:
     paths:
       - 'projects-qt/project-*/**'
       - '.github/workflows/premake5-qt5-windows-msvc-2019.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -17,6 +18,7 @@ on:
     paths:
       - 'projects-qt/project-*/**'
       - '.github/workflows/premake5-qt5-windows-msvc-2019.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -34,19 +36,14 @@ jobs:
       with:
         submodules: recursive
 
-    - name: checkout premake5
-      uses: actions/checkout@v4
+    - name: install premake5
+      uses: ./.github/actions/install-premake5
       with:
-        repository: premake/premake-core
-        path: premake-build
+          msdev: vs2019
+          repository: premake/premake-core
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
-
-    - name: Build premake5
-      run: |
-        $vcvarall_path = vswhere -find VC\Auxiliary\Build\vcvarsall.bat
-        cmd.exe /c "call ""$vcvarall_path"" x86_amd64 && cd premake-build && nmake -f Bootstrap.mak MSDEV=vs2019 windows-msbuild PLATFORM=Win32 CONFIG=release && cp bin/release/premake5.exe ../"
 
     - name: Installing Qt - 5.15.0 win64_msvc2019_64
       uses: jurplel/install-qt-action@v3

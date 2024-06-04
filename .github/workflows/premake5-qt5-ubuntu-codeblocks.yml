@@ -7,6 +7,7 @@ on:
       - 'projects-qt/project-*/**'
       - 'codeblocks/**'
       - '.github/workflows/premake5-qt5-ubuntu-codeblocks.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -20,6 +21,7 @@ on:
       - 'projects-qt/project-*/**'
       - 'codeblocks/**'
       - '.github/workflows/premake5-qt5-ubuntu-codeblocks.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -41,19 +43,10 @@ jobs:
     - name: apt-get update
       run: sudo apt-get update -y
 
-    - name: checkout premake5
-      uses: actions/checkout@v4
+    - name: install premake5
+      uses: ./.github/actions/install-premake5
       with:
           repository: premake/premake-core
-          path: premake-build
-    - name: Build premake5
-      run: |
-        cd premake-build
-        make -f Bootstrap.mak linux CONFIG=release
-        cp bin/release/premake5 ../
-        cd ..
-        rm -Rf premake-build
-        echo `pwd` >> $GITHUB_PATH
 
     - name: add premake codeblocks module
       run: |
@@ -76,10 +69,11 @@ jobs:
 
     - name: set path
       run: |
-         echo PATH=$PATH:`pwd`
-         echo PATH=$PATH:`pwd` >> $GITHUB_ENV
-         echo QT_DIR=$Qt5_Dir
-         echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
+        echo `pwd` >> $GITHUB_PATH
+        echo PATH=$PATH:`pwd`
+        echo PATH=$PATH:`pwd` >> $GITHUB_ENV
+        echo QT_DIR=$Qt5_Dir
+        echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
 
     - name: install libxkbcommon-x11-0 # display dependency
       run: sudo apt-get install libxkbcommon-x11-0

@@ -6,6 +6,7 @@ on:
     paths:
       - 'projects-qt/project-*/**'
       - '.github/workflows/premake5-qt5-ubuntu-ninja.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -18,6 +19,7 @@ on:
     paths:
       - 'projects-qt/project-*/**'
       - '.github/workflows/premake5-qt5-ubuntu-ninja.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -36,19 +38,10 @@ jobs:
       with:
         submodules: recursive
 
-    - name: checkout premake5
-      uses: actions/checkout@v4
+    - name: install premake5
+      uses: ./.github/actions/install-premake5
       with:
           repository: premake/premake-core
-          path: premake-build
-
-    - name: Build premake5
-      run: |
-        cd premake-build
-        make -f Bootstrap.mak linux CONFIG=release
-        cp bin/release/premake5 ../
-        cd ..
-        rm -Rf premake-build
 
     - name: apt-get update
       run: sudo apt-get update -y

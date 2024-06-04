@@ -1,0 +1,53 @@
+name: 'Install premake5'
+description: 'Install premake5'
+inputs:
+  repository:
+    description: 'premake repository'
+    required: false
+    default: 'premake/premake-core'
+  ref:
+    description: 'The branch, tag or SHA to checkout'
+    required: false
+    default: ''
+  msdev:
+    description: 'one of vs2019 or vs2022'
+    required: false
+    default: 'vs2022'
+
+runs:
+  using: "composite"
+  steps:
+
+    - name: checkout premake5
+      uses: actions/checkout@v4
+      with:
+          repository: ${{ inputs.repository }}
+          ref: ${{ inputs.ref }}
+          path: premake-build
+
+    - name: Build premake5
+      if: runner.os == 'Linux'
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak linux CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+      shell: bash
+
+    - name: Build premake5
+      if: runner.os == 'macOS'
+      run: |
+        cd premake-build
+        make -f Bootstrap.mak osx CONFIG=release
+        cp bin/release/premake5 ../
+        cd ..
+        rm -Rf premake-build
+      shell: bash
+
+    - name: Build premake5
+      if: runner.os == 'Windows' # 2019 or 2022
+      run: |
+        $vcvarall_path = vswhere -find VC\Auxiliary\Build\vcvarsall.bat
+        cmd.exe /c "call ""$vcvarall_path"" x86_amd64 && cd premake-build && nmake -f Bootstrap.mak MSDEV=${{ inputs.msdev }} windows-msbuild PLATFORM=Win32 CONFIG=release && cp bin/release/premake5.exe ../"
+      shell: powershell

@@ -7,6 +7,7 @@ on:
       - 'projects/project-*/**'
       - 'codeblocks/**'
       - '.github/workflows/premake5-ubuntu-codeblocks.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -19,6 +20,7 @@ on:
       - 'projects/project-*/**'
       - 'codeblocks/**'
       - '.github/workflows/premake5-ubuntu-codeblocks.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -39,19 +41,10 @@ jobs:
     - name: apt-get update
       run: sudo apt-get update -y
 
-    - name: checkout premake5
-      uses: actions/checkout@v4
+    - name: install premake5
+      uses: ./.github/actions/install-premake5
       with:
           repository: premake/premake-core
-          path: premake-build
-    - name: Build premake5
-      run: |
-        cd premake-build
-        make -f Bootstrap.mak linux CONFIG=release
-        cp bin/release/premake5 ../
-        cd ..
-        rm -Rf premake-build
-        echo `pwd` >> $GITHUB_PATH
 
     - name: add premake codeblocks module
       run: |
@@ -64,6 +57,10 @@ jobs:
       run: |
         mkdir -p ~/.config/codeblocks
         cp codeblocks/default.conf ~/.config/codeblocks/
+
+    - name: Set path
+      run: |
+        echo `pwd` >> $GITHUB_PATH
 
     - name: test projects default(gcc)
       timeout-minutes: 5 # tends to not stop properly in case of failure

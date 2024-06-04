@@ -6,6 +6,7 @@ on:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-windows-ninja.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -18,6 +19,7 @@ on:
     paths:
       - 'projects/project-*/**'
       - '.github/workflows/premake5-windows-ninja.yml'
+      - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
@@ -36,19 +38,13 @@ jobs:
       with:
         submodules: recursive
 
-    - name: checkout premake5
-      uses: actions/checkout@v4
+    - name: install premake5
+      uses: ./.github/actions/install-premake5
       with:
-        repository: premake/premake-core
-        path: premake-build
+          repository: premake/premake-core
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
-
-    - name: Build premake5
-      run: |
-        $vcvarall_path = vswhere -find VC\Auxiliary\Build\vcvarsall.bat
-        cmd.exe /c "call ""$vcvarall_path"" x86_amd64 && cd premake-build && nmake -f Bootstrap.mak MSDEV=vs2022 windows-msbuild PLATFORM=Win32 CONFIG=release && cp bin/release/premake5.exe ../"
 
     - name: install ninja
       uses: seanmiddleditch/gha-setup-ninja@v4
