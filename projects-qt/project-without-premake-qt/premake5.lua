@@ -4,6 +4,14 @@ newoption {
   description = "path of qt root (contains lib/libQt5Core.a include/Qt5Core bin)"
 }
 
+newoption {
+  trigger = "qt-version",
+  value = "version",
+  allowed = { {"Qt5", "Qt5 (Default)"}, {"Qt6", "Qt6"} },
+  description = "Version of Qt",
+  default = "Qt5"
+}
+
 if (_ACTION == nil) then
   return
 end
@@ -126,7 +134,11 @@ workspace "Project"
     libdirs(path.join(QtRoot, "lib"))
 
     defines {"QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB"}
+if _OPTIONS["qt-version"] == "Qt5" then
     links {"Qt5Core", "Qt5Gui", "Qt5Widgets"}
+else
+    links {"Qt6Core", "Qt6Gui", "Qt6Widgets"}
+end
 
 if _ACTION == "gmake" then
     filter "files:**.ts"
