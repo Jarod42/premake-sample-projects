@@ -61,8 +61,8 @@ jobs:
       run: |
          echo PATH=$PATH:`pwd`
          echo PATH=$PATH:`pwd` >> $GITHUB_ENV
-         echo QT_DIR=$Qt5_Dir
-         echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
+         echo QT_DIR=$QT_ROOT_DIR 
+         echo QT_DIR=$QT_ROOT_DIR  >> $GITHUB_ENV
 
     - name: install libxkbcommon-x11-0 # display dependency
       run: sudo apt-get install libxkbcommon-x11-0
