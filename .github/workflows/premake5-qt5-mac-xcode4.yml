@@ -28,7 +28,7 @@ on:
 
 jobs:
   mac:
-    runs-on: macos-12
+    runs-on: macos-latest
 
     steps:
     - name: Checkout
@@ -41,12 +41,12 @@ jobs:
       with:
           repository: premake/premake-core
 
-    - name: Installing Qt5.15.0 macos
+    - name: Installing Qt5.15.2 macos
       uses: jurplel/install-qt-action@v4
       with:
-        version: '5.15.0'
+        version: '5.15.2'
         cache: true
-        cache-key-prefix: 'qt-action-5.15.0_macos'
+        cache-key-prefix: 'qt-action@v4-Qt5.15.2_macos14'
 
     - name: set path
       run: |
