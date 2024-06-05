@@ -46,7 +46,7 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Installing Qt - 5.15.0 win64_msvc2019_64
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
         version: '5.15.0'
         arch: win64_msvc2019_64

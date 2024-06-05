@@ -48,7 +48,7 @@ jobs:
         echo "require 'submodules/premake-qmake/qmake'" >> premake-system.lua
 
     - name: Installing Qt5.15.0 ubuntu
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
         version: '5.15.0'
         cache: true
