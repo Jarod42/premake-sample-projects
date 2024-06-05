@@ -1,11 +1,11 @@
-name: premake5-qt5-mac-xcode4
+name: premake5-qt-mac-xcode4
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'projects-qt/project-*/**'
-      - '.github/workflows/premake5-qt5-mac-xcode4.yml'
+      - '.github/workflows/premake5-qt-mac-xcode4.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
@@ -17,7 +17,7 @@ on:
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
-      - '.github/workflows/premake5-qt5-mac-xcode4.yml'
+      - '.github/workflows/premake5-qt-mac-xcode4.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
@@ -30,6 +30,15 @@ jobs:
   mac:
     runs-on: macos-12
 
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - qt-version: '5.15.0'
+            qt-major-version: 'Qt5'
+          - qt-version: '6.0.4'
+            qt-major-version: 'Qt6'
+
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -41,12 +50,12 @@ jobs:
       with:
           repository: premake/premake-core
 
-    - name: Installing Qt5.15.0 macos
+    - name: Installing Qt${{matrix.qt-version}} macos
       uses: jurplel/install-qt-action@v4
       with:
-        version: '5.15.0'
+        version: ${{matrix.qt-version}}
         cache: true
-        cache-key-prefix: 'qt-action-5.15.0_macos'
+        cache-key-prefix: 'qt-action@4-Qt${{matrix.qt-version}}_macos'
 
     - name: set path
       run: |
@@ -61,14 +70,14 @@ jobs:
     - name: test projects default(clang)
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-major-version }}
 
     - name: test projects gcc
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 --cc=gcc #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-major-version }} --cc=gcc
 
     - name: test projects clang
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 --cc=clang #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-major-version }} --cc=clang

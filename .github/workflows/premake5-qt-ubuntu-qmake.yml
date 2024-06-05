@@ -1,36 +1,45 @@
-name: premake5-qt5-ubuntu-ninja
+name: premake5-qt-ubuntu-qmake
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'projects-qt/project-*/**'
-      - '.github/workflows/premake5-qt5-ubuntu-ninja.yml'
+      - '.github/workflows/premake5-qt-ubuntu-qmake.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects-qt/**/unsupported_by_ninja'
-      - 'projects-qt/**/unsupported_by_premake5_ninja'
-      - 'submodules/premake-ninja'
+      - 'projects-qt/**/unsupported_by_qmake'
+      - 'projects-qt/**/unsupported_by_premake5_qmake'
+      - 'submodules/premake-qmake'
       - 'submodules/premake-qt'
 
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
-      - '.github/workflows/premake5-qt5-ubuntu-ninja.yml'
+      - '.github/workflows/premake5-qt-ubuntu-qmake.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects-qt/**/unsupported_by_ninja'
-      - 'projects-qt/**/unsupported_by_premake5_ninja'
-      - 'submodules/premake-ninja'
+      - 'projects-qt/**/unsupported_by_qmake'
+      - 'projects-qt/**/unsupported_by_premake5_qmake'
+      - 'submodules/premake-qmake'
       - 'submodules/premake-qt'
 
 jobs:
   linux:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - qt-version: '5.15.0'
+            qt-major-version: 'Qt5'
+          - qt-version: '6.0.4'
+            qt-major-version: 'Qt6'
 
     steps:
     - name: Checkout
@@ -43,26 +52,19 @@ jobs:
       with:
           repository: premake/premake-core
 
-    - name: apt-get update
-      run: sudo apt-get update -y
-
-    - name: apt-get install ninja-build
+    - name: add premake qmake module
       run: |
-        sudo apt-get install -y ninja-build
+        echo "require 'submodules/premake-qmake/qmake'" >> premake-system.lua
 
-    - name: ninja --version
-      run: ninja --version
-
-    - name: add premake ninja module
-      run: |
-        echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
-
-    - name: Installing Qt5.15.0 ubuntu
+    - name: Installing Qt${{matrix.qt-version}} ubuntu
       uses: jurplel/install-qt-action@v4
       with:
-        version: '5.15.0'
+        version: ${{matrix.qt-version}}
         cache: true
-        cache-key-prefix: 'qt-action-5.15.0_ubuntu'
+        cache-key-prefix: 'qt-action@v4-Qt${{matrix.qt-version}}_ubuntu'
+
+    - name: test qmake
+      run: qmake --version
 
     - name: set path
       run: |
@@ -77,5 +79,4 @@ jobs:
     - name: test projects default(gcc)
       timeout-minutes: 5 # tends to not stop properly in case of failure
       run: | # fake X-server as Qt widget requires displays :/
-        # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        xvfb-run -a python3 ./test_projects.py premake5 projects-qt ninja #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
+        xvfb-run -a python3 ./test_projects.py premake5 projects-qt qmake --qt-version=${{ matrix.qt-major-version }}

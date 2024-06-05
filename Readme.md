@@ -80,16 +80,16 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [11]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-ninja.yml/badge.svg
 [12]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-qmake.yml/badge.svg
 
-[13]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-gmake.yml/badge.svg
-[14]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-gmake2.yml/badge.svg
-[15]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-codelite.yml/badge.svg
-[16]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-windows-msvc-2019.yml/badge.svg
-[17]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-windows-msvc-2022.yml/badge.svg
-[18]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-mac-xcode4.yml/badge.svg
-[19]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-codeblocks.yml/badge.svg
-[20]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-cmake.yml/badge.svg
-[21]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-ninja.yml/badge.svg
-[22]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt5-ubuntu-qmake.yml/badge.svg
+[13]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-gmake.yml/badge.svg
+[14]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-gmake2.yml/badge.svg
+[15]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-codelite.yml/badge.svg
+[16]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-windows-msvc-2019.yml/badge.svg
+[17]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-windows-msvc-2022.yml/badge.svg
+[18]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-mac-xcode4.yml/badge.svg
+[19]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-codeblocks.yml/badge.svg
+[20]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-cmake.yml/badge.svg
+[21]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-ninja.yml/badge.svg
+[22]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-qmake.yml/badge.svg
 
 [^untested_by_ci]: Not tested by the CI even if projects uses them.
 [^project_location]: project location != workspace/solution location unsupported though.

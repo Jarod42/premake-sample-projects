@@ -1,11 +1,11 @@
-name: premake5-qt5-windows-msvc-2019
+name: premake5-qt-windows-msvc-2019
 
 on:
   workflow_dispatch:
   push:
     paths:
       - 'projects-qt/project-*/**'
-      - '.github/workflows/premake5-qt5-windows-msvc-2019.yml'
+      - '.github/workflows/premake5-qt-windows-msvc-2019.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
@@ -17,7 +17,7 @@ on:
   pull_request:
     paths:
       - 'projects-qt/project-*/**'
-      - '.github/workflows/premake5-qt5-windows-msvc-2019.yml'
+      - '.github/workflows/premake5-qt-windows-msvc-2019.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
@@ -29,6 +29,15 @@ on:
 jobs:
   windows:
     runs-on: windows-2019
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - qt-version: '5.15.0'
+            qt-major-version: 'Qt5'
+          - qt-version: '6.0.4'
+            qt-major-version: 'Qt6'
 
     steps:
     - name: Checkout
@@ -45,15 +54,15 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
 
-    - name: Installing Qt - 5.15.0 win64_msvc2019_64
+    - name: Installing Qt - ${{matrix.qt-version}} win64_msvc2019_64
       uses: jurplel/install-qt-action@v4
       with:
-        version: '5.15.0'
+        version: ${{matrix.qt-version}}
         arch: win64_msvc2019_64
         cache: true
-        cache-key-prefix: 'qt-action-5.15.0_win64_msvc2019_64'
+        cache-key-prefix: 'qt-action@v4-Qt${{matrix.qt-version}}_win64_msvc2019_64'
 
     - name: test projects
       run: |
-        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects-qt vs2019 --qt-root=$QT_ROOT_DIR 
+        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects-qt vs2019 --qt-root=$QT_ROOT_DIR --qt-version=${{ matrix.qt-major-version }}
       shell: bash
