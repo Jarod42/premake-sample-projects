@@ -48,7 +48,7 @@ jobs:
         echo "require 'submodules/premake-qmake/qmake'" >> premake-system.lua
 
     - name: Installing Qt5.15.0 ubuntu
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
         version: '5.15.0'
         cache: true
@@ -61,8 +61,8 @@ jobs:
       run: |
          echo PATH=$PATH:`pwd`
          echo PATH=$PATH:`pwd` >> $GITHUB_ENV
-         echo QT_DIR=$Qt5_Dir
-         echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
+         echo QT_DIR=$QT_ROOT_DIR 
+         echo QT_DIR=$QT_ROOT_DIR  >> $GITHUB_ENV
 
     - name: install libxkbcommon-x11-0 # display dependency
       run: sudo apt-get install libxkbcommon-x11-0

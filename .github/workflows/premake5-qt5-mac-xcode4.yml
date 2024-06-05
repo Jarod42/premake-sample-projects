@@ -42,7 +42,7 @@ jobs:
           repository: premake/premake-core
 
     - name: Installing Qt5.15.0 macos
-      uses: jurplel/install-qt-action@v3
+      uses: jurplel/install-qt-action@v4
       with:
         version: '5.15.0'
         cache: true
@@ -52,23 +52,23 @@ jobs:
       run: |
          echo PATH=$PATH:`pwd`
          echo PATH=$PATH:`pwd` >> $GITHUB_ENV
-         echo QT_DIR=$Qt5_Dir
-         echo QT_DIR=$Qt5_Dir >> $GITHUB_ENV
+         echo QT_DIR=$QT_ROOT_DIR 
+         echo QT_DIR=$QT_ROOT_DIR  >> $GITHUB_ENV
 
     #- name: install libxkbcommon-x11-0 # display dependency
     #  run: sudo apt-get install libxkbcommon-x11-0
 
     - name: test projects default(clang)
       run: |
-        # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
+        # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
         python3 ./test_projects.py premake5 projects-qt xcode4 #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
 
     - name: test projects gcc
       run: |
-        # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
+        # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
         python3 ./test_projects.py premake5 projects-qt xcode4 --cc=gcc #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
 
     - name: test projects clang
       run: |
-        # Cannot use environment variable ($Qt5_Dir) in command line, so use environment variable (QT_DIR) or its hardcoded value
+        # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
         python3 ./test_projects.py premake5 projects-qt xcode4 --cc=clang #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
