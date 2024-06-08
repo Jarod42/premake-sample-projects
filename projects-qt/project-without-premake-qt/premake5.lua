@@ -31,6 +31,8 @@ if QtRoot == nil or QtRoot == "" then
   exit(1)
 end
 
+local qt_buildtool_path = iif(premake.checkVersion(_OPTIONS["qt-version"], "<6.1.0") or os.target() == premake.WINDOWS, path.join(QtRoot, "bin"), path.join(QtRoot, "libexec"))
+
 local function lrelease_command()
   buildmessage 'lrelease %{file.relpath} -qm bin/%{file.basename}.qm'
   buildoutputs { path.join(LocationDir, "bin", "%{file.basename}.qm") }
@@ -43,7 +45,7 @@ end
 local function moc_command()
   buildmessage "moc -o moc_%{file.basename}.cpp %{file.relpath}"
   buildoutputs { path.join(LocationDir, "obj", "moc_%{file.basename}.cpp") }
-  buildcommands { path.join(QtRoot, "bin", "moc") .. " -o %[%{!sln.location}/obj/moc_%{file.basename}.cpp]" .. " %[%{!file.abspath}]" }
+  buildcommands { path.join(qt_buildtool_path, "moc") .. " -o %[%{!sln.location}/obj/moc_%{file.basename}.cpp]" .. " %[%{!file.abspath}]" }
   compilebuildoutputs "on"
 end
 
@@ -51,14 +53,14 @@ local function rcc_command()
   buildmessage 'rcc -o obj/qrc_%{file.basename}.cpp %{file.relpath}'
   --buildinputs { "%{file.relpath}" } -- extra dependencies: content of <file>..</file>
   buildoutputs { path.join(LocationDir, "obj", "qrc_%{file.basename}.cpp") }
-  buildcommands { path.join(QtRoot, "bin", "rcc") .. " -name %{file.basename} -no-compress %[%{!file.abspath}] -o %[%{!sln.location}/obj/qrc_%{file.basename}.cpp]" }
+  buildcommands { path.join(qt_buildtool_path, "rcc") .. " -name %{file.basename} -no-compress %[%{!file.abspath}] -o %[%{!sln.location}/obj/qrc_%{file.basename}.cpp]" }
   compilebuildoutputs "on"
 end
 
 local function uic_command()
   buildmessage 'uic -o obj/ui_%{file.basename}.h %{file.relpath}'
   buildoutputs { path.join(LocationDir, "obj", "ui_%{file.basename}.h") }
-  buildcommands { path.join(QtRoot, "bin", "uic") .. " -o %[%{!sln.location}/obj/ui_%{file.basename}.h] %[%{!file.abspath}]" }
+  buildcommands { path.join(qt_buildtool_path, "uic") .. " -o %[%{!sln.location}/obj/ui_%{file.basename}.h] %[%{!file.abspath}]" }
 end
 
 rule "uic"
