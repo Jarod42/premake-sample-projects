@@ -6,6 +6,14 @@ newoption {
   description = "path of qt root (contains lib/libQt5Core.a include/Qt5Core bin)"
 }
 
+newoption {
+  trigger = "qt-version",
+  value = "version",
+  allowed = { {"Qt5", "Qt5 (Default)"}, {"Qt6", "Qt6"} },
+  description = "Version of Qt",
+  default = "Qt5"
+}
+
 if (_ACTION == nil) then
   return
 end
@@ -42,7 +50,7 @@ workspace "Project"
   if (QtRoot ~= nil and QtRoot ~= "") then
     qtpath(QtRoot)
   end
-  qtprefix "Qt5"
+  qtprefix ( _OPTIONS["qt-version"] )
 
   filter "configurations:Debug"
     targetsuffix "d"
