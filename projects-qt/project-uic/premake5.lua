@@ -9,9 +9,8 @@ newoption {
 newoption {
   trigger = "qt-version",
   value = "version",
-  allowed = { {"Qt5", "Qt5 (Default)"}, {"Qt6", "Qt6"} },
   description = "Version of Qt",
-  default = "Qt5"
+  default = "5.15.0"
 }
 
 if (_ACTION == nil) then
@@ -37,7 +36,8 @@ workspace "Project"
   objdir(path.join(LocationDir, "obj")) -- premake adds $(configName)/$(AppName)
   targetdir(path.join(LocationDir, "bin/%{cfg.buildcfg}"))
 
-  qt.enable()
+  qt.enable(string.sub(_OPTIONS["qt-version"], 1, 1))
+  qtversion(_OPTIONS["qt-version"])
   qtuseexternalinclude ( true )
 
   -- codeblocks doesn't support custom build different by configuration
@@ -50,7 +50,6 @@ workspace "Project"
   if (QtRoot ~= nil and QtRoot ~= "") then
     qtpath(QtRoot)
   end
-  qtprefix ( _OPTIONS["qt-version"] )
 
   filter "configurations:Debug"
     targetsuffix "d"

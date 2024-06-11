@@ -7,9 +7,8 @@ newoption {
 newoption {
   trigger = "qt-version",
   value = "version",
-  allowed = { {"Qt5", "Qt5 (Default)"}, {"Qt6", "Qt6"} },
   description = "Version of Qt",
-  default = "Qt5"
+  default = "5.15.0"
 }
 
 if (_ACTION == nil) then
@@ -134,10 +133,12 @@ workspace "Project"
     libdirs(path.join(QtRoot, "lib"))
 
     defines {"QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB"}
-if _OPTIONS["qt-version"] == "Qt5" then
+if premake.checkVersion(_OPTIONS["qt-version"], ">=5 <6") then
     links {"Qt5Core", "Qt5Gui", "Qt5Widgets"}
-else
+elseif premake.checkVersion(_OPTIONS["qt-version"], ">=6 <7") then
     links {"Qt6Core", "Qt6Gui", "Qt6Widgets"}
+else
+    premake.error("Not supported QtVersion " .. _OPTIONS["qt-version"])
 end
 
 if _ACTION == "gmake" then

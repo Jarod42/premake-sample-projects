@@ -33,11 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - qt-version: '5.15.0'
-            qt-major-version: 'Qt5'
-          - qt-version: '6.0.4'
-            qt-major-version: 'Qt6'
+        qt-version: ['5.15.0', '6.0.4']
 
     steps:
     - name: Checkout
@@ -75,4 +71,4 @@ jobs:
       run: | # fake X-server as Qt widget requires displays :/
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
         #--qt-root=/home/runner/work/premake-sample-projects/Qt/5.15.0/gcc_64
-        xvfb-run -a python3 ./test_projects.py premake5 projects-qt gmake2 --qt-version=${{ matrix.qt-major-version }}
+        xvfb-run -a python3 ./test_projects.py premake5 projects-qt gmake2 --qt-version=${{ matrix.qt-version }}

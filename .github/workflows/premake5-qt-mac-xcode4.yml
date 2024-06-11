@@ -33,11 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - qt-version: '5.15.0'
-            qt-major-version: 'Qt5'
-          - qt-version: '6.0.4'
-            qt-major-version: 'Qt6'
+        qt-version: ['5.15.0', '6.0.4']
 
     steps:
     - name: Checkout
@@ -70,14 +66,14 @@ jobs:
     - name: test projects default(clang)
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-major-version }}
+        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-version }}
 
     - name: test projects gcc
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-major-version }} --cc=gcc
+        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-version }} --cc=gcc
 
     - name: test projects clang
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-major-version }} --cc=clang
+        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-version }} --cc=clang

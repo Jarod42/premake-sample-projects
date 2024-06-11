@@ -33,11 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - qt-version: '5.15.0'
-            qt-major-version: 'Qt5'
-          - qt-version: '6.0.4'
-            qt-major-version: 'Qt6'
+        qt-version: ['5.15.0', '6.0.4']
 
     steps:
     - name: Checkout
@@ -64,5 +60,5 @@ jobs:
 
     - name: test projects
       run: |
-        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects-qt vs2019 --qt-root=$QT_ROOT_DIR --qt-version=${{ matrix.qt-major-version }}
+        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects-qt vs2019 --qt-root=$QT_ROOT_DIR --qt-version=${{ matrix.qt-version }}
       shell: bash
