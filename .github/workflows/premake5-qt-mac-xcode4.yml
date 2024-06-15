@@ -33,7 +33,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        qt-version: ['5.15.0', '6.0.4']
+        qt-version: ['5.15.0', '6.0.4', '6.1.0', '6.7.0']
 
     steps:
     - name: Checkout
@@ -55,10 +55,11 @@ jobs:
 
     - name: set path
       run: |
-         echo PATH=$PATH:`pwd`
-         echo PATH=$PATH:`pwd` >> $GITHUB_ENV
-         echo QT_DIR=$QT_ROOT_DIR 
-         echo QT_DIR=$QT_ROOT_DIR  >> $GITHUB_ENV
+        echo PATH=$PATH:`pwd`
+        echo PATH=$PATH:`pwd` >> $GITHUB_ENV
+        echo QT_DIR=$QT_ROOT_DIR 
+        echo QT_DIR=$QT_ROOT_DIR  >> $GITHUB_ENV
+        find $QT_ROOT_DIR -name "*moc*"
 
     #- name: install libxkbcommon-x11-0 # display dependency
     #  run: sudo apt-get install libxkbcommon-x11-0
