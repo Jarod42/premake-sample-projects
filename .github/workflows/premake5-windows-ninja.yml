@@ -47,7 +47,7 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: install ninja
-      uses: seanmiddleditch/gha-setup-ninja@v4
+      uses: seanmiddleditch/gha-setup-ninja@v5
 
     - name: ninja --version
       run: ninja --version
