@@ -29,4 +29,4 @@ project "app"
 		-- seems codelite has issue with semi column in buildoptions
 
 	filter "toolset:msc*"
-		buildoptions {'/D RETURN="return"'}
+		buildoptions {'/D "RETURN=return"'}
