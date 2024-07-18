@@ -56,10 +56,10 @@ jobs:
       run: qmake --version
 
     - name: test projects default(gcc)
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects qmake
+      run: python3 ./test_projects.py premake5 projects qmake --scripts=`pwd`
 
     - name: test projects gcc
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects qmake --cc=gcc
+      run: python3 ./test_projects.py premake5 projects qmake --scripts=`pwd` --cc=gcc
 
     - name: test projects clang
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects qmake --cc=clang
+      run: python3 ./test_projects.py premake5 projects qmake --scripts=`pwd` --cc=clang

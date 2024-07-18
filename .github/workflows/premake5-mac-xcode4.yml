@@ -40,10 +40,10 @@ jobs:
           repository: premake/premake-core
 
     - name: test projects default(clang)
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects xcode4
+      run: python3 ./test_projects.py premake5 projects xcode4
 
     - name: test projects gcc
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects xcode4 --cc=gcc
+      run: python3 ./test_projects.py premake5 projects xcode4 --cc=gcc
 
     - name: test projects clang
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects xcode4 --cc=clang
+      run: python3 ./test_projects.py premake5 projects xcode4 --cc=clang

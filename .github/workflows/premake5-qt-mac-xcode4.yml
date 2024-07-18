@@ -53,13 +53,10 @@ jobs:
         cache: true
         cache-key-prefix: 'qt-action@4-Qt${{matrix.qt-version}}_macos'
 
-    - name: set path
+    - name: set environment variable
       run: |
-        echo PATH=$PATH:`pwd`
-        echo PATH=$PATH:`pwd` >> $GITHUB_ENV
         echo QT_DIR=$QT_ROOT_DIR 
         echo QT_DIR=$QT_ROOT_DIR  >> $GITHUB_ENV
-        find $QT_ROOT_DIR -name "*moc*"
 
     #- name: install libxkbcommon-x11-0 # display dependency
     #  run: sudo apt-get install libxkbcommon-x11-0
@@ -67,14 +64,14 @@ jobs:
     - name: test projects default(clang)
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-version }}
+        python3 ./test_projects.py premake5 projects-qt xcode4 --scripts=`pwd` --qt-version=${{ matrix.qt-version }}
 
     - name: test projects gcc
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-version }} --cc=gcc
+        python3 ./test_projects.py premake5 projects-qt xcode4 --scripts=`pwd` --qt-version=${{ matrix.qt-version }} --cc=gcc
 
     - name: test projects clang
       run: |
         # Cannot use environment variable ($QT_ROOT_DIR ) in command line, so use environment variable (QT_DIR) or its hardcoded value
-        python3 ./test_projects.py premake5 projects-qt xcode4 --qt-version=${{ matrix.qt-version }} --cc=clang
+        python3 ./test_projects.py premake5 projects-qt xcode4 --scripts=`pwd` --qt-version=${{ matrix.qt-version }} --cc=clang

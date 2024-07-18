@@ -55,5 +55,5 @@ jobs:
         echo "require 'submodules/premake-cmake/cmake'" >> premake-system.lua
 
     - name: test projects
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects cmake --shell=posix
+      run: python3 ./test_projects.py premake5 projects cmake --scripts=`pwd` --shell=posix
       shell: bash

@@ -62,10 +62,8 @@ jobs:
     - name: test qmake
       run: qmake --version
 
-    - name: set path
+    - name: set environment variable
       run: |
-         echo PATH=$PATH:`pwd`
-         echo PATH=$PATH:`pwd` >> $GITHUB_ENV
          echo QT_DIR=$QT_ROOT_DIR 
          echo QT_DIR=$QT_ROOT_DIR  >> $GITHUB_ENV
 
@@ -75,4 +73,4 @@ jobs:
     - name: test projects default(gcc)
       timeout-minutes: 5 # tends to not stop properly in case of failure
       run: | # fake X-server as Qt widget requires displays :/
-        xvfb-run -a python3 ./test_projects.py premake5 projects-qt qmake --qt-version=${{ matrix.qt-version }}
+        xvfb-run -a python3 ./test_projects.py premake5 projects-qt qmake --scripts=`pwd` --qt-version=${{ matrix.qt-version }}

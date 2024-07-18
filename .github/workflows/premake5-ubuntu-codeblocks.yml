@@ -58,21 +58,17 @@ jobs:
         mkdir -p ~/.config/codeblocks
         cp codeblocks/default.conf ~/.config/codeblocks/
 
-    - name: Set path
-      run: |
-        echo `pwd` >> $GITHUB_PATH
-
     - name: test projects default(gcc)
       timeout-minutes: 5 # tends to not stop properly in case of failure
       run: | # fake X-server as codeblocks requires displays :/
-        xvfb-run -a python3 ./test_projects.py premake5 projects codeblocks
+        xvfb-run -a python3 ./test_projects.py premake5 projects codeblocks --scripts=`pwd`
 
     - name: test projects gcc
       timeout-minutes: 5 # tends to not stop properly in case of failure
       run: | # fake X-server as codeblocks requires displays :/
-        xvfb-run -a python3 ./test_projects.py premake5 projects codeblocks --cc=gcc
+        xvfb-run -a python3 ./test_projects.py premake5 projects codeblocks --scripts=`pwd` --cc=gcc
 
     - name: test projects clang
       timeout-minutes: 5 # tends to not stop properly in case of failure
       run: | # fake X-server as codeblocks requires displays :/
-        xvfb-run -a python3 ./test_projects.py premake5 projects codeblocks --cc=clang
+        xvfb-run -a python3 ./test_projects.py premake5 projects codeblocks --scripts=`pwd` --cc=clang

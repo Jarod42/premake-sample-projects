@@ -62,19 +62,16 @@ jobs:
 #    - name: test projects default(msc-v142) # Visual Studio 2019 (version mismatch is not that important, only cl.exe is called)
 #      run: |
 #        #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
-#        echo $PATH
-#        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja--shell=posix
+#        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --shell=posix
 #      shell: bash
 
     - name: test projects msc-v143 # Visual Studio 2022
       run: |
         #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
-        echo $PATH
-        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja --cc=msc-v143  --shell=posix
+        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=msc-v143  --shell=posix
       shell: bash
 
 #    - name: test projects gcc
 #      run: |
-#        echo $PATH
-#        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja --cc=gcc  --shell=posix
+#        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=gcc  --shell=posix
 #      shell: bash

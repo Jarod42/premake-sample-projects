@@ -59,5 +59,5 @@ jobs:
 
     - name: test projects
       run: |
-        PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects-qt vs2022 --qt-root=$QT_ROOT_DIR --qt-version=${{ matrix.qt-version }}
+        python3 ./test_projects.py premake5 projects-qt vs2022 --scripts=`pwd` --qt-root=$QT_ROOT_DIR --qt-version=${{ matrix.qt-version }}
       shell: bash

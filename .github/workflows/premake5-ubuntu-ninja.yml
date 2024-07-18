@@ -56,10 +56,10 @@ jobs:
         echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
 
     - name: test projects default(gcc)
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja
+      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd`
 
     - name: test projects gcc
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja --cc=gcc
+      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=gcc
 
     - name: test projects clang
-      run: PATH=$PATH:`pwd` python3 ./test_projects.py premake5 projects ninja --cc=clang
+      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=clang
