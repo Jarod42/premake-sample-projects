@@ -168,6 +168,7 @@ if __name__ == "__main__":
 		if (not os.path.isfile(premake_lua)
 			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action))
 			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action + '_' + platform.system().lower()))
+			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action + ''.join(options)))
 			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + premake + '_' + action))
 			):
 			print(project, "skipped", flush=True)
