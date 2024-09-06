@@ -3,7 +3,7 @@ if (_ACTION == nil) then
 end
 
 local LocationDir = "solution/%{_ACTION}"
-local ProjectLocationDir = "project-solution/%{_ACTION}"
+local ProjectLocationDir = "project-solution/subdir/%{_ACTION}"
 
 workspace "Project"
 	language "c++"
@@ -21,6 +21,7 @@ project "app"
 	targetname "app"
 
 	files { "src/app/main.cpp" }
+	includedirs { 'src/staticlib' }
 	links {"staticLib"}
 
 project "staticLib"

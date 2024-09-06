@@ -1,4 +1,4 @@
-void staticLibFunction();
+#include "lib.h"
 
 int main()
 {

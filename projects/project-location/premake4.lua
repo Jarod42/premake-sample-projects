@@ -5,7 +5,7 @@ if (_ACTION == nil) then
 end
 
 local LocationDir = path.join(Root, "solution/" .. _ACTION) -- premake4 doesn't support variadic join
-local ProjectLocationDir = path.join(Root, "project-solution/" .. _ACTION) -- premake4 doesn't support variadic join
+local ProjectLocationDir = path.join(Root, "project-solution/subdir/" .. _ACTION) -- premake4 doesn't support variadic join
 
 solution "Project"
 	language "c++"
@@ -23,6 +23,7 @@ project "app"
 	targetname "app"
 
 	files { path.join(Root, "src/app/main.cpp") }
+	includedirs { 'src/staticlib' }
 	links {"staticLib"}
 
 project "staticLib"
