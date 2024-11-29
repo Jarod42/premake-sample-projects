@@ -13,6 +13,8 @@ workspace "Project"
 
 	startproject "app"
 
+	flags { "NoImplicitLink" }
+
 project "app"
 	kind "ConsoleApp"
 	targetname "app"
