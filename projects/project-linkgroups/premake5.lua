@@ -18,7 +18,7 @@ project "app"
 
 	files { "src/app/main.cpp" }
 
-	linkgroups "On" -- Ideally, we should check there are errors with "Off" for linker(toolset) requiring linksgroup (ld (gcc)).
+	linkgroups "Off" -- Ideally, we should check there are errors with "Off" for linker(toolset) requiring linksgroup (ld (gcc)).
 	libdirs { "%{cfg.targetdir}" }
 	links { "LibraryA", "LibraryB", "LibraryC" } -- links project: A <-> B <-> C <-> A
 
