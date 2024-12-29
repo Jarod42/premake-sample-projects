@@ -28,7 +28,7 @@ on:
 
 jobs:
   mac:
-    runs-on: macos-12
+    runs-on: macos-latest
 
     strategy:
       fail-fast: false
