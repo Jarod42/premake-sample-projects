@@ -44,7 +44,8 @@ jobs:
     - name: install premake5
       uses: ./.github/actions/install-premake5
       with:
-          repository: premake/premake-core
+          repository: Jarod42/premake-core
+          ref: gmake_prelink_deps
 
     - name: make --version
       run: make --version
