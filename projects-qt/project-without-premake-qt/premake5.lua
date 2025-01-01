@@ -143,7 +143,7 @@ else
     premake.error("Not supported QtVersion " .. _OPTIONS["qt-version"])
 end
 
-if _ACTION == "gmake" then
+if _ACTION == "gmakelegacy" then
     filter "files:**.ts"
       lrelease_command()
 

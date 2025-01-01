@@ -118,7 +118,7 @@ def select_action_runner(action):
 		return run_codeblocks
 	elif action == 'codelite':
 		return run_codelite
-	elif action in ['gmake', 'gmake2']:
+	elif action in ['gmakelegacy', 'gmake', 'gmake2']:
 		return run_make
 	elif action == 'ninja':
 		return run_ninja
