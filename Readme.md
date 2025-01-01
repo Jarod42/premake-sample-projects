@@ -13,7 +13,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 - [Module Ninja](https://github.com/jimon/premake-ninja)
 - [Module qmake](https://github.com/Jarod42/premake-qmake) (fixed fork)
 
-||gmake|gmake2|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake|
+||gmakelegacy[^gmakelegacy]|gmake2|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 ||![Premake5 ubuntu gmake badge][1]|![Premake5 ubuntu gmake2 badge][2]![Premake5 windows gmake2 badge][3]|![Premake5 ubuntu codelite badge][4]|![Premake5 windows msvc 2019 badge][5]|![Premake5 windows msvc 2022 badge][6]|![Premake5 mac_xcode4 badge][7]|![Premake5 ubuntu codeblocks badge][8]|![Premake5 ubuntu cmake badge][9]![Premake5 ubuntu cmake badge][10]|![Premake5 ubuntu ninja badge][11]![Premake5 window ninja badge][12]|![Premake5 ubuntu qmake badge][13]|
 |[`location`](https://premake.github.io/docs/location)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark::warning:[^project_location]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|
@@ -59,7 +59,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 - using [premake-qt module](https://github.com/dcourtois/premake-qt) for all generators but qmake :information_source:[^qmake_premake_qt_incompatible].
 - with [Module qmake](https://github.com/Jarod42/premake-qmake) (fixed fork)
 
-||gmake|gmake2|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake :information_source:[^qmake_premake_qt_incompatible]|
+||gmakelegacy[^gmakelegacy]|gmake2|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake :information_source:[^qmake_premake_qt_incompatible]|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 ||![qt gmake badge][20]|![qt gmake2 badge][21]|![qt Codelite badge][22]|![qt msvc badge][23]|![qt msvc badge][24]|![qt xcode badge][25]|![qt codeblocks badge][26]|![qt cmake badge][27]|![qt ninja badge][28]|![qt qmake badge][29]|
 |basic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
@@ -68,7 +68,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |ts |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark::warning:[^codeblocks_fileconfig_per_config]|:heavy_check_mark:|:heavy_check_mark:|:x:|
 |uic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 
-[1]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-gmake.yml/badge.svg
+[1]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-gmakelegacy.yml/badge.svg
 [2]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-gmake2.yml/badge.svg
 [3]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-gmake2.yml/badge.svg
 [4]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-codelite.yml/badge.svg
@@ -82,7 +82,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [12]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-windows-ninja.yml/badge.svg
 [13]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-ubuntu-qmake.yml/badge.svg
 
-[20]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-gmake.yml/badge.svg
+[20]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-gmakelegacy.yml/badge.svg
 [21]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-gmake2.yml/badge.svg
 [22]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-codelite.yml/badge.svg
 [23]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-windows-msvc-2019.yml/badge.svg
@@ -93,6 +93,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [28]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-ninja.yml/badge.svg
 [29]:https://github.com/Jarod42/premake-sample-projects/actions/workflows/premake5-qt-ubuntu-qmake.yml/badge.svg
 
+[^gmakelegacy]: :information_source: https://github.com/premake/premake-core/pull/2404 rename gmake into gmakelegacy
 [^untested_by_ci]: :information_source: Not tested by the CI even if projects uses them.
 [^project_location]: :warning: project location != workspace/solution location unsupported though.
 [^objdir_extra]: :information_source: premake appends extra `$(configName)/$(AppName)`.
