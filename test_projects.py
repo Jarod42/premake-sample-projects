@@ -202,9 +202,16 @@ if __name__ == "__main__":
 			ko_projects.append(project + ' (premake)')
 			continue
 
+		failed_build_expected = os.path.isfile(os.path.join(project_dir, 'failed_build_expected'))
 		with chdir(os.path.join(project_dir, 'solution', action)):
 			ret = run_action()
-			if ret == 0:
+			if failed_build_expected:
+				if ret == 0 and (os.path.isfile('./bin/Release/app') or os.path.isfile('./bin/Release/app.exe')):
+					print(project, '(not failed) KO', ret, flush=True)
+					ko_projects.append(project + ' Execution')
+				else:
+					print(project, '(failed) OK', flush=True)
+			elif ret == 0:
 				print('execute app')
 				ret = exec_os()
 				if ret == 0:

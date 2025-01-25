@@ -18,7 +18,7 @@ project "app"
 
 	files { "src/app/main.cpp" }
 
-	linkgroups "On" -- See project-no-linkgroups for failed_build_expected with "Off"
+	linkgroups "Off" -- compilation should pass with "On"
 	libdirs { "%{cfg.targetdir}" }
 	links { "LibraryA", "LibraryB", "LibraryC" } -- links project: A <-> B <-> C <-> A
 
