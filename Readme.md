@@ -13,7 +13,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 - [Module Ninja](https://github.com/jimon/premake-ninja)
 - [Module qmake](https://github.com/Jarod42/premake-qmake) (fixed fork)
 
-||gmakelegacy:information_source:[^gmakelegacy]|gmake:information_source:[^game2]|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake|
+||gmakelegacy :information_source:[^gmakelegacy]|gmake :information_source:[^game2]|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 ||![Premake5 ubuntu gmake badge][1]|![Premake5 ubuntu gmake badge][2]![Premake5 windows gmake badge][3]|![Premake5 ubuntu codelite badge][4]|![Premake5 windows msvc 2019 badge][5]|![Premake5 windows msvc 2022 badge][6]|![Premake5 mac_xcode4 badge][7]|![Premake5 ubuntu codeblocks badge][8]|![Premake5 ubuntu cmake badge][9]![Premake5 ubuntu cmake badge][10]|![Premake5 ubuntu ninja badge][11]![Premake5 window ninja badge][12]|![Premake5 ubuntu qmake badge][13]|
 |[`location`](https://premake.github.io/docs/location)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark::warning:[^project_location]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:grey_question:|
@@ -59,7 +59,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 - using [premake-qt module](https://github.com/dcourtois/premake-qt) for all generators but qmake :information_source:[^qmake_premake_qt_incompatible].
 - with [Module qmake](https://github.com/Jarod42/premake-qmake) (fixed fork)
 
-||gmakelegacy:information_source:[^gmakelegacy]|gmake:information_source:[^game2]|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake :information_source:[^qmake_premake_qt_incompatible]|
+||gmakelegacy :information_source:[^gmakelegacy]|gmake :information_source:[^game2]|Codelite|Msvc vs2019|Msvc vs2022|xcode4|CodeBlocks|CMake|Ninja|qmake :information_source:[^qmake_premake_qt_incompatible]|
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 ||![qt gmake badge][20]|![qt gmake2 badge][21]|![qt Codelite badge][22]|![qt msvc badge][23]|![qt msvc badge][24]|![qt xcode badge][25]|![qt codeblocks badge][26]|![qt cmake badge][27]|![qt ninja badge][28]|![qt qmake badge][29]|
 |basic|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
