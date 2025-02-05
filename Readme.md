@@ -48,7 +48,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |[`compileas`](https://premake.github.io/docs/compileas) |:x:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x::warning:[^codeblocks_fileconfig_per_config]|:x:|:heavy_check_mark:|:x:|
 |[`dependson`](https://premake.github.io/docs/dependson)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|
 |[`nuget`](https://premake.github.io/docs/nuget)|:x:|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x:|:x:|:x:|:x:|
-|[`linkgroups`](https://premake.github.io/docs/linkgroups)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:(Fixed)|:heavy_check_mark:|:heavy_check_mark:|:x:|
+|[`linkgroups`](https://premake.github.io/docs/linkgroups)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:no_entry: :information_source: [^msvc_linkgroups]|:no_entry: :information_source:[^msvc_linkgroups]|:heavy_check_mark: :warning: [^xcode4_linkgroups]|:heavy_check_mark:(Fixed)|:heavy_check_mark: :warning:[^cmake_linkgroups]|:heavy_check_mark: :information_source: [^msvc_linkgroups]|:x:|
 |[`externalproject`](https://premake.github.io/docs/externalproject)|:x:|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x:|:x:|:x:|:x:|
 |[`openMP`](https://premake.github.io/docs/openmp)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|
 |[`sanitize {"Address"}`](https://premake.github.io/docs/sanitize) |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x:|:heavy_check_mark:|:heavy_check_mark:(Fixed)|:heavy_check_mark:|:grey_question:|
@@ -101,6 +101,9 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [^deprecated_sysincludedirs]: :older_man: `sysincludirs` has been deprecated by `externalincludedirs`.
 [^cmake_objdir]: :no_entry: cmake doesn't allow to specify `objdir`.
 [^prelink_as_prebuild]: :warning: prelinkcommands is done between prebuildcommand and objects creation and not just before link stage (i.e after objects creation).
+[^msvc_linkgroups]: :information_source: msc doesn't need `linkgroups`, so `"On"`/`"Off"` acts identically
+[^xcode4_linkgroups]: :warning: xcode4 doesn't support `linkgroups "Off"`
+[^cmake_linkgroups]: :warning: premake-cmake doesn't support `linkgroups "Off"`
 [^codeblocks_custom_build]: :warning: Code::Blocks doesn't support generation of linkable cpp files from header files.
 [^codeblocks_fileconfig_per_config]: :warning: Code::Blocks doesn't support rules/custom builds which are different by configuration (Using [Tokens](https://premake.github.io/docs/Tokens) might allow to bypass that restriction).
 [^xcode4_includedirsafter_issue]: :beetle: Reported issue: https://github.com/premake/premake-core/issues/2062
