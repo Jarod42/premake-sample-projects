@@ -4,7 +4,8 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'projects/project-*/**'
+      - 'projects/**'
+      - 'projects-C#/**'
       - '.github/workflows/premake5-windows-msvc-2019.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
@@ -15,7 +16,8 @@ on:
 
   pull_request:
     paths:
-      - 'projects/project-*/**'
+      - 'projects/**'
+      - 'projects-C#/**'
       - '.github/workflows/premake5-windows-msvc-2019.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
@@ -50,4 +52,8 @@ jobs:
     - name: test projects (clang)
       run: |
         python3 ./test_projects.py premake5 projects vs2019 --cc=clang
+      shell: bash
+
+    - name: test projects-C# (default)
+      run: python3 ./test_projects.py premake5 projects-C# vs2019
       shell: bash
