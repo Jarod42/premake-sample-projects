@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'projects-qt/project-*/**'
+      - 'projects-qt/**'
       - '.github/workflows/premake5-qt-ubuntu-qmake.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
@@ -17,7 +17,7 @@ on:
 
   pull_request:
     paths:
-      - 'projects-qt/project-*/**'
+      - 'projects-qt/**'
       - '.github/workflows/premake5-qt-ubuntu-qmake.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'

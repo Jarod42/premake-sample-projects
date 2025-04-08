@@ -1,6 +1,6 @@
-## project-rcc:
+## rcc:
 
-Project to test ressource .qrc 
+Project to test resource .qrc 
 
 - qt.enable()
 - qtpath(QtRoot)

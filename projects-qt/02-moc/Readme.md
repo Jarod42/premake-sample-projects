@@ -1,4 +1,4 @@
-## project-moc:
+## moc:
 
 Qt5/Qt6 project testing moc
 

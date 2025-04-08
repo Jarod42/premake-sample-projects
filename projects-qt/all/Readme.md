@@ -1,6 +1,6 @@
-## project-qt:
+## all:
 
-Minimal but complete Qt5/Qt6 project using [premake-qt module](https://github.com/dcourtois/premake-qt)
+Complete Qt5/Qt6 project using [premake-qt module](https://github.com/dcourtois/premake-qt)
 
 - qt.enable()
 - qtpath(QtRoot)

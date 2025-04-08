@@ -1,4 +1,4 @@
-## project-without-premake-qt:
+## without-premake-qt:
 
 Qt project which doesn't use [premake-qt module](https://github.com/dcourtois/premake-qt)
 

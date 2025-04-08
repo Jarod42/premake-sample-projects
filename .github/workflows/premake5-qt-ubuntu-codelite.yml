@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'projects-qt/project-*/**'
+      - 'projects-qt/**'
       - 'codelite/**'
       - '.github/workflows/premake5-qt-ubuntu-codelite.yml'
       - '.github/actions/install-premake5/action.yml'
@@ -18,7 +18,7 @@ on:
 
   pull_request:
     paths:
-      - 'projects-qt/project-*/**'
+      - 'projects-qt/**'
       - 'codelite/**'
       - '.github/workflows/premake5-qt-ubuntu-codelite.yml'
       - '.github/actions/install-premake5/action.yml'

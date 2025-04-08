@@ -1,4 +1,4 @@
-## project-uic:
+## uic:
 
 Project testing .ui files
 
