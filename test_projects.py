@@ -161,8 +161,9 @@ if __name__ == "__main__":
 	skipped_projects=[]
 	ko_projects=[]
 	
-	for project_dir in sorted(glob.glob(os.path.join(project_root, 'project-*'))):
-		project = os.path.basename(project_dir)
+	for project in sorted(os.listdir(project_root)):
+		if not os.path.isdir(project):
+			continue;
 		print('***********************************', project, '************************************', flush=True)
 		premake_lua = os.path.join(project_dir, premake + '.lua')
 		if (not os.path.isfile(premake_lua)
