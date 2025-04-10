@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'projects/project-*/**'
+      - 'projects/**'
       - 'codeblocks/**'
       - '.github/workflows/premake5-ubuntu-codeblocks.yml'
       - '.github/actions/install-premake5/action.yml'
@@ -17,7 +17,7 @@ on:
 
   pull_request:
     paths:
-      - 'projects/project-*/**'
+      - 'projects/**'
       - 'codeblocks/**'
       - '.github/workflows/premake5-ubuntu-codeblocks.yml'
       - '.github/actions/install-premake5/action.yml'

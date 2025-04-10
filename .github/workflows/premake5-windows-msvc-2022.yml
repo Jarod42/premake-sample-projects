@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'projects/project-*/**'
+      - 'projects/**'
       - 'projects-C#/**'
       - '.github/workflows/premake5-windows-msvc-2022.yml'
       - '.github/actions/install-premake5/action.yml'

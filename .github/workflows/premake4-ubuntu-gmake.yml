@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - 'projects/project-*/**'
+      - 'projects/**'
       - '.github/workflows/premake4-ubuntu-gmake.yml'
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
@@ -14,7 +14,7 @@ on:
 
   pull_request:
     paths:
-      - 'projects/project-*/**'
+      - 'projects/**'
       - '.github/workflows/premake4-ubuntu-gmake.yml'
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
