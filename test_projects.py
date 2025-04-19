@@ -162,7 +162,8 @@ if __name__ == "__main__":
 	ko_projects=[]
 	
 	for project in sorted(os.listdir(project_root)):
-		if not os.path.isdir(project):
+		project_dir = os.path.join(project_root, project)
+		if not os.path.isdir(project_dir):
 			continue;
 		print('***********************************', project, '************************************', flush=True)
 		premake_lua = os.path.join(project_dir, premake + '.lua')
