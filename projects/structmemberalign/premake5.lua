@@ -15,6 +15,7 @@ workspace "Project"
 project "app"
 	kind "ConsoleApp"
 	targetname "app"
+	cppdialect "C++11"
 
 	files { "src/main.cpp" }
 
