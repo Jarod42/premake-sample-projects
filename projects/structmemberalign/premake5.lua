@@ -19,12 +19,4 @@ project "app"
 
 	files { "src/main.cpp" }
 
-	filter { 'action:vs*', 'toolset:not clang'}
-		structmemberalign(2)
-	filter { 'action:vs*', 'toolset:clang'}
-		buildoptions("/Zp2")
-	filter { 'action:not vs*', 'toolset:not msc*' }
-		buildoptions("-fpack-struct=2")
-	filter { 'action:not vs*', 'toolset:msc*' }
-		buildoptions("/Zp2")
-	filter {}
+	structmemberalign(2)
