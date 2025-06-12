@@ -30,7 +30,9 @@ on:
 
 jobs:
   windows:
-    runs-on: windows-latest
+    matrix:
+      runner: [ windows-latest, windows-arm ]
+    runs-on: ${{ matrix.runner }}
 
     steps:
     - name: Checkout
