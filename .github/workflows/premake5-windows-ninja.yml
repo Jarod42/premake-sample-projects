@@ -41,7 +41,8 @@ jobs:
     - name: install premake5
       uses: ./.github/actions/install-premake5
       with:
-          repository: premake/premake-core
+          repository: Jarod42/premake-core
+          ref: StringMACRO
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2
