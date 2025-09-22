@@ -53,3 +53,6 @@ jobs:
 
     - name: test projects clang
       run: python3 ./test_projects.py premake5 projects gmake --cc=clang
+
+    - name: test projects-C# (default)
+      run: python3 ./test_projects.py premake5 projects-C# gmake
