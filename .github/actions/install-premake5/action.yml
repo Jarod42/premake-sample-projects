@@ -46,7 +46,7 @@ runs:
       if: runner.os == 'macOS'
       run: |
         cd .premake-build
-        make -f Bootstrap.mak osx CONFIG=release
+        make -f Bootstrap.mak osx CONFIG=release PLATFORM="ARM64"
         mkdir /Applications/premake5.app
         cp bin/release/premake5 /Applications/premake5.app/
         cd ..
