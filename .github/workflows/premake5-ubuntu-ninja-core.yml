@@ -1,0 +1,67 @@
+name: premake5-ubuntu-ninja-core
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'projects/**'
+      - '.github/workflows/premake5-ubuntu-ninja-core.yml'
+      - '.github/actions/install-premake5/action.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_ninja'
+      - 'projects/**/unsupported_by_premake5_ninja'
+      - 'submodules/premake-ninja'
+
+  pull_request:
+    paths:
+      - 'projects/**'
+      - '.github/workflows/premake5-ubuntu-ninja-core.yml'
+      - '.github/actions/install-premake5/action.yml'
+      - '!**/*.md'
+      - '!projects/**/unsupported_by_*'
+      - '!**/premake4.lua'
+      - 'projects/**/unsupported_by_ninja'
+      - 'projects/**/unsupported_by_premake5_ninja'
+      - 'submodules/premake-ninja'
+
+jobs:
+  linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: ['ubuntu-latest', 'ubuntu-24.04-arm']
+
+    runs-on: ${{matrix.runner}}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+      with:
+        submodules: recursive
+
+    - name: install premake5
+      uses: ./.github/actions/install-premake5
+      with:
+          repository: nickclark2016/premake-core
+          ref: feature/ninja-exporter 
+
+    - name: apt-get update
+      run: sudo apt-get update -y
+
+    - name: apt-get install ninja-build
+      run: |
+        sudo apt-get install -y ninja-build
+
+    - name: ninja --version
+      run: ninja --version
+
+    - name: test projects default(gcc)
+      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd`
+
+    - name: test projects gcc
+      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=gcc
+
+    - name: test projects clang
+      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=clang
