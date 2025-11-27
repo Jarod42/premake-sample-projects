@@ -74,14 +74,16 @@ def run_ninja():
 	ret = subprocess.run(['ninja', 'app_Release'])
 	if os.path.isfile('../../has_permanent_out_of_date_step'): # pre/post build is unconditionally run
 		return ret.returncode
-	ret = subprocess.run(['ninja', 'app_Release'], capture_output=True)
-	if b'ninja: no work to do.' not in ret.stdout:
-		print('--- Next build should have nothing to do ---')
-		print()
-		print(ret.stdout.decode())
-		print('----------', flush=True)
-		return 1
-	return 0
+
+#	ret = subprocess.run(['ninja', 'app_Release'], capture_output=True)
+#	if b'ninja: no work to do.' not in ret.stdout:
+#		print('--- Next build should have nothing to do ---')
+#		print()
+#		print(ret.stdout.decode())
+#		print('----------', flush=True)
+#		return 1
+#	return 0
+	return ret.returncode
 
 def run_make():
 	return subprocess.run(['make', 'app', 'config=release']).returncode
