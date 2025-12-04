@@ -13,7 +13,6 @@ on:
       - 'projects/**/unsupported_by_ninja'
       - 'projects/**/unsupported_by_ninja_windows'
       - 'projects/**/unsupported_by_premake5_ninja'
-      - 'submodules/premake-ninja'
 
   pull_request:
     paths:
@@ -26,7 +25,6 @@ on:
       - 'projects/**/unsupported_by_ninja'
       - 'projects/**/unsupported_by_ninja_windows'
       - 'projects/**/unsupported_by_premake5_ninja'
-      - 'submodules/premake-ninja'
 
 jobs:
   windows:

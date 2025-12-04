@@ -12,7 +12,6 @@ on:
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_ninja'
       - 'projects-qt/**/unsupported_by_premake5_ninja'
-      - 'submodules/premake-ninja'
       - 'submodules/premake-qt'
 
   pull_request:
@@ -25,7 +24,6 @@ on:
       - '!**/premake4.lua'
       - 'projects-qt/**/unsupported_by_ninja'
       - 'projects-qt/**/unsupported_by_premake5_ninja'
-      - 'submodules/premake-ninja'
       - 'submodules/premake-qt'
 
 jobs:

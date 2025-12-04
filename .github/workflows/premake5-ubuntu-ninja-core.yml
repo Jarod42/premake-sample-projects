@@ -12,7 +12,6 @@ on:
       - '!**/premake4.lua'
       - 'projects/**/unsupported_by_ninja'
       - 'projects/**/unsupported_by_premake5_ninja'
-      - 'submodules/premake-ninja'
 
   pull_request:
     paths:
@@ -24,7 +23,6 @@ on:
       - '!**/premake4.lua'
       - 'projects/**/unsupported_by_ninja'
       - 'projects/**/unsupported_by_premake5_ninja'
-      - 'submodules/premake-ninja'
 
 jobs:
   linux:
