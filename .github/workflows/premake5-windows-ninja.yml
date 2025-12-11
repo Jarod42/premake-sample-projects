@@ -10,9 +10,9 @@ on:
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects/**/unsupported_by_ninja'
-      - 'projects/**/unsupported_by_ninja_windows'
-      - 'projects/**/unsupported_by_premake5_ninja'
+      - 'projects/**/unsupported_by_premake-ninja'
+      - 'projects/**/unsupported_by_premake-ninja_windows'
+      - 'projects/**/unsupported_by_premake5_premake-ninja'
       - 'submodules/premake-ninja'
 
   pull_request:
@@ -23,9 +23,9 @@ on:
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects/**/unsupported_by_ninja'
-      - 'projects/**/unsupported_by_ninja_windows'
-      - 'projects/**/unsupported_by_premake5_ninja'
+      - 'projects/**/unsupported_by_premake-ninja'
+      - 'projects/**/unsupported_by_premake-ninja_windows'
+      - 'projects/**/unsupported_by_premake5_premake-ninja'
       - 'submodules/premake-ninja'
 
 jobs:
@@ -52,7 +52,7 @@ jobs:
     - name: ninja --version
       run: ninja --version
 
-    - name: add premake ninja module
+    - name: add premake-ninja module
       run: |
         echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
 
@@ -62,16 +62,16 @@ jobs:
 #    - name: test projects default(msc-v142) # Visual Studio 2019 (version mismatch is not that important, only cl.exe is called)
 #      run: |
 #        #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
-#        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --shell=posix
+#        python3 ./test_projects.py premake5 projects premake-ninja --scripts=`pwd` --shell=posix
 #      shell: bash
 
     - name: test projects msc-v143 # Visual Studio 2022
       run: |
         #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
-        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=msc-v143  --shell=posix
+        python3 ./test_projects.py premake5 projects premake-ninja --scripts=`pwd` --cc=msc-v143  --shell=posix
       shell: bash
 
 #    - name: test projects gcc
 #      run: |
-#        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=gcc  --shell=posix
+#        python3 ./test_projects.py premake5 projects premake-ninja --scripts=`pwd` --cc=gcc  --shell=posix
 #      shell: bash

@@ -10,8 +10,8 @@ on:
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects/**/unsupported_by_ninja'
-      - 'projects/**/unsupported_by_premake5_ninja'
+      - 'projects/**/unsupported_by_premake-ninja'
+      - 'projects/**/unsupported_by_premake5_premake-ninja'
       - 'submodules/premake-ninja'
 
   pull_request:
@@ -22,8 +22,8 @@ on:
       - '!**/*.md'
       - '!projects/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects/**/unsupported_by_ninja'
-      - 'projects/**/unsupported_by_premake5_ninja'
+      - 'projects/**/unsupported_by_premake-ninja'
+      - 'projects/**/unsupported_by_premake5_premake-ninja'
       - 'submodules/premake-ninja'
 
 jobs:
@@ -56,15 +56,15 @@ jobs:
     - name: ninja --version
       run: ninja --version
 
-    - name: add premake ninja module
+    - name: add premake-ninja module
       run: |
         echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
 
     - name: test projects default(gcc)
-      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd`
+      run: python3 ./test_projects.py premake5 projects premake-ninja --scripts=`pwd`
 
     - name: test projects gcc
-      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=gcc
+      run: python3 ./test_projects.py premake5 projects premake-ninja --scripts=`pwd` --cc=gcc
 
     - name: test projects clang
-      run: python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=clang
+      run: python3 ./test_projects.py premake5 projects premake-ninja --scripts=`pwd` --cc=clang

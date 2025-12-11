@@ -38,9 +38,6 @@ jobs:
 
     - name: install premake5
       uses: ./.github/actions/install-premake5
-      with:
-          repository: nickclark2016/premake-core
-          ref: feature/ninja-exporter
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2

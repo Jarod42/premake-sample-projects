@@ -44,9 +44,6 @@ jobs:
 
     - name: install premake5
       uses: ./.github/actions/install-premake5
-      with:
-          repository: nickclark2016/premake-core
-          ref: feature/ninja-exporter 
 
     - name: apt-get update
       run: sudo apt-get update -y
