@@ -59,6 +59,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |[`structmemberalign`](https://premake.github.io/docs/structmemberalign) |:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |Duplicated source filename|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:no_entry:|
 |[`unsignedchar`](https://premake.github.io/docs/unsignedchar)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
+|[`clangtidy`](https://premake.github.io/docs/clangtidy)|:x:|:x:|:x:|:x:|:heavy_check_mark:|:heavy_check_mark:|:x:|:x:|:x:|:heavy_check_mark: :warning: [^premake-ninja_clangtidy_with_msc]:|:x:|
 
 #### Qt's projects:
 - using [premake-qt module](https://github.com/dcourtois/premake-qt) for all generators but qmake :information_source:[^qmake_premake_qt_incompatible].
@@ -117,3 +118,4 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [^xcode4_includedirsafter_issue]: :beetle: Reported issue: https://github.com/premake/premake-core/issues/2062
 [^xcode4_forceincludes_issue]: :beetle: Reported issue: https://github.com/premake/premake-core/issues/1769
 [^qmake_premake_qt_incompatible]: :information_source: qmake handles Qt natively, so premake-qt is disabled.
+[^premake-ninja_clangtidy_with_msc]: :warning: premake-ninja doesn't support clang-tidy with msc
