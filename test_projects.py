@@ -49,7 +49,14 @@ def get_fixed_env_os():
 
 # execute binary
 def exec_os():
-	return subprocess.run(['./bin/Release/app'], env=get_fixed_env_os()).returncode
+	try:
+		return subprocess.run(['./bin/Release/app'], env=get_fixed_env_os()).returncode
+	except FileNotFoundError:
+		print('Error, file not found')
+		return -1
+	else:
+		print('Unknow issue')
+		return -1
 
 #
 # build executable from different generator.
