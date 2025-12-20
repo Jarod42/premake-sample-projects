@@ -18,7 +18,7 @@ project "app"
 
 	files { "src/main.cpp" }
 
-	sysincludedirs { "src/sysinclude" }
+	externalincludedirs { "src/sysinclude" }
 	includedirs { "src/include" }
 
 	defines "MACRO"

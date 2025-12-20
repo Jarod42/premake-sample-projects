@@ -20,7 +20,7 @@ project "app"
 
 	files {path.join(Root, "src/main.cpp")}
 
-	--sysincludedirs {path.join(Root, "src/sysinclude")} -- added in premake5
+	--externalincludedirs {path.join(Root, "src/sysinclude")} -- added in premake5
 	includedirs {path.join(Root, "src/sysinclude")} -- possible workaround
 	includedirs {path.join(Root, "src/include")}
 
