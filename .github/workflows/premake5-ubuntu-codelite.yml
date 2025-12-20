@@ -33,6 +33,7 @@ jobs:
       fail-fast: false
       matrix:
         runner: ['ubuntu-latest', 'ubuntu-24.04-arm']
+        codelite-version: ['default', 'latest']
 
     runs-on: ${{matrix.runner}}
 
@@ -49,8 +50,43 @@ jobs:
       run: sudo apt-get update -y
 
     - name: sudo apt-get install -y codelite
+      if: ${{ matrix.codelite-version == 'default' }}
       run: sudo apt-get install -y codelite
 
+    - name: sudo apt-get install -y codelite
+      if: ${{ matrix.codelite-version == 'latest' }}
+      run: |
+         sudo apt install gdebi-core gdebi
+         curl -o Codelite-latest-gtk3-ubuntu-noble-x86_64.deb -L https://downloads.codelite.org/downloads.php?ubuntu
+         sudo gdebi -n Codelite-latest-gtk3-ubuntu-noble-x86_64.deb
+
+    - name: debugging
+      if: ${{ matrix.codelite-version == 'latest' }}
+      run: |
+         echo LLD codelite
+         ldd /usr/bin/codelite | grep html
+         echo LLD codelite-make
+         ldd /usr/bin/codelite-make |grep html
+         echo OBJDUMP codelite-make
+         objdump -x /usr/bin/codelite-make |grep PATH
+         echo OBJDUMP codelite
+         objdump -x /usr/bin/codelite |grep PATH
+
+#        sudo mkdir -m 0755 -p /etc/apt/keyrings/
+#        wget -qO- http://repos.codelite.org/CodeLite.asc | sudo tee -a /etc/apt/keyrings/CodeLite.asc
+#        echo "Types: deb" > temp.txt
+#        echo "URIs: http://repos.codelite.org/ubuntu-18.2.0" >> temp.txt
+#        echo "Suites: questing" >> temp.txt
+#        echo "Components: universe" >> temp.txt
+#        echo "Signed-By: /etc/apt/keyrings/CodeLite.asc" >> temp.txt
+#        cat temp.txt | sudo tee /etc/apt/sources.list.d/CodeLite.sources
+#        sudo apt-add-repository 'deb https://repos.codelite.org/ubuntu/ questing universe'
+#        rm temp.txt
+#        sudo apt update
+#        sudo apt install codelite
+
+#curl -o Codelite-latest-gtk3-ubuntu-noble-x86_64.deb -L https://downloads.codelite.org/downloads.php?ubuntu
+#sudo dpkg -i Codelite-latest-gtk3-ubuntu-noble-x86_64.deb || sudo apt-get -f install
     - name: codelite --version
       run: xvfb-run -a codelite --version || exit 0 # codelite --version returns -1
 
