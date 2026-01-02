@@ -1,6 +1,7 @@
 name: premake5-mac-xcode4
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     paths:

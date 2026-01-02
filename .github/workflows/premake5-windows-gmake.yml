@@ -1,6 +1,7 @@
 name: premake5-windows-gmake
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     paths:

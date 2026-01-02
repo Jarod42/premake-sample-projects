@@ -1,6 +1,7 @@
 name: premake5-ubuntu-gmakelegacy
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     paths:

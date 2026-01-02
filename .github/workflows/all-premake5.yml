@@ -1,0 +1,60 @@
+name: all-premake5
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+
+jobs:
+  premake5-mac-xcode4:
+    uses: ./.github/workflows/premake5-mac-xcode4.yml
+  premake5-ubuntu-cmake:
+    uses: ./.github/workflows/premake5-ubuntu-cmake.yml
+  premake5-ubuntu-codeblocks:
+    uses: ./.github/workflows/premake5-ubuntu-codeblocks.yml
+  premake5-ubuntu-codelite:
+    uses: ./.github/workflows/premake5-ubuntu-codelite.yml
+  premake5-ubuntu-gmake:
+    uses: ./.github/workflows/premake5-ubuntu-gmake.yml
+  premake5-ubuntu-gmakelegacy:
+    uses: ./.github/workflows/premake5-ubuntu-gmakelegacy.yml
+  premake5-ubuntu-ninja-core:
+    uses: ./.github/workflows/premake5-ubuntu-ninja-core.yml
+  premake5-ubuntu-ninja:
+    uses: ./.github/workflows/premake5-ubuntu-ninja.yml
+  premake5-ubuntu-qmake:
+    uses: ./.github/workflows/premake5-ubuntu-qmake.yml
+  premake5-windows-cmake:
+    uses: ./.github/workflows/premake5-windows-cmake.yml
+  premake5-windows-qmake:
+    uses: ./.github/workflows/premake5-windows-gmake.yml
+  premake5-windows-msvc-2019:
+    uses: ./.github/workflows/premake5-windows-msvc-2019.yml
+  premake5-windows-msvc-2022:
+    uses: ./.github/workflows/premake5-windows-msvc-2022.yml
+  premake5-windows-ninja-core:
+    uses: ./.github/workflows/premake5-windows-ninja-core.yml
+  premake5-windows-ninja:
+    uses: ./.github/workflows/premake5-windows-ninja.yml
+
+  premake5-qt-mac-xcode4:
+    uses: ./.github/workflows/premake5-qt-mac-xcode4.yml
+  premake5-qt-ubuntu-cmake:
+    uses: ./.github/workflows/premake5-qt-ubuntu-cmake.yml
+  premake5-qt-ubuntu-codeblocks:
+    uses: ./.github/workflows/premake5-qt-ubuntu-codeblocks.yml
+  premake5-qt-ubuntu-codelite:
+    uses: ./.github/workflows/premake5-qt-ubuntu-codelite.yml
+  premake5-qt-ubuntu-gmake:
+    uses: ./.github/workflows/premake5-qt-ubuntu-gmake.yml
+  premake5-qt-ubuntu-gmakelegacy:
+    uses: ./.github/workflows/premake5-qt-ubuntu-gmakelegacy.yml
+  premake5-qt-ubuntu-ninja-core:
+    uses: ./.github/workflows/premake5-qt-ubuntu-ninja-core.yml
+  premake5-qt-ubuntu-ninja:
+    uses: ./.github/workflows/premake5-qt-ubuntu-ninja.yml
+  premake5-qt-ubuntu-qmake:
+    uses: ./.github/workflows/premake5-qt-ubuntu-qmake.yml
+  premake5-qt-windows-msvc-2019:
+    uses: ./.github/workflows/premake5-qt-windows-msvc-2019.yml
+  premake5-qt-windows-msvc-2022:
+    uses: ./.github/workflows/premake5-qt-windows-msvc-2022.yml

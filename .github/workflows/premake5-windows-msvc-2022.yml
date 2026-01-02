@@ -1,6 +1,7 @@
 name: premake5-windows-msvc-2022
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     paths:

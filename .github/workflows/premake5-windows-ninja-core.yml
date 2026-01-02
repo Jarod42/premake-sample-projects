@@ -1,6 +1,7 @@
 name: premake5-windows-ninja-core
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     paths:

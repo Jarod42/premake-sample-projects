@@ -1,6 +1,7 @@
 name: premake5-qt-windows-msvc-2019
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     paths:

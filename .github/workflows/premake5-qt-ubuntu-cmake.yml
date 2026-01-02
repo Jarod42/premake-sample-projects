@@ -1,6 +1,7 @@
 name: premake5-qt-ubuntu-cmake
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     paths:
