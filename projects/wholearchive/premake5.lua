@@ -30,9 +30,10 @@ project "dll"
 
 	defines { 'MAKING_DLL', 'MAKING_DLL_LIB' }
 	
-	--links 'lib'
-	--wholearchive 'lib'
+	links { 'lib' }
+	wholearchive 'On' -- { 'lib' }
 
+--[[
 	filter { 'system:macosx' }
 		dependson 'lib'
 		linkoptions { '-force_load bin/%{cfg.buildcfg}/liblib.a' }
@@ -55,7 +56,7 @@ project "dll"
 		dependson 'lib'
 		linkoptions { '-Wl,--whole-archive bin/%{cfg.buildcfg}/lib.lib -Wl,--no-whole-archive' }
 	filter {}
-
+--]]
 project "lib"
 	kind "StaticLib"
 	targetname "lib"
