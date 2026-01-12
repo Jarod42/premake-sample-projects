@@ -2,7 +2,21 @@ name: premake5-qt-windows-msvc-2022
 
 on:
   workflow_call:
+    inputs:
+      premake-repo:
+        default: 'premake/premake-core'
+        type: string
+      premake-ref:
+        default: ''
+        type: string
   workflow_dispatch:
+    inputs:
+      premake-repo:
+        default: 'premake/premake-core'
+        type: string
+      premake-ref:
+        default: ''
+        type: string
   push:
     paths:
       - 'projects-qt/**'
@@ -43,9 +57,17 @@ jobs:
         submodules: recursive
 
     - name: install premake5
+      if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
       uses: ./.github/actions/install-premake5
       with:
           repository: premake/premake-core
+
+    - name: install premake5
+      if: ${{ github.event_name == 'workflow_call' || github.event_name == 'workflow_dispatch' }}
+      uses: ./.github/actions/install-premake5
+      with:
+          repository: ${{ inputs.premake-repo }}
+          ref: ${{ inputs.premake-ref }}
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2

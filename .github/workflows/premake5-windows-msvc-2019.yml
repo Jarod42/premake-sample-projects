@@ -2,7 +2,21 @@ name: premake5-windows-msvc-2019
 
 on:
   workflow_call:
+    inputs:
+      premake-repo:
+        default: 'premake/premake-core'
+        type: string
+      premake-ref:
+        default: ''
+        type: string
   workflow_dispatch:
+    inputs:
+      premake-repo:
+        default: 'premake/premake-core'
+        type: string
+      premake-ref:
+        default: ''
+        type: string
   push:
     paths:
       - 'projects/**'
@@ -36,10 +50,19 @@ jobs:
       uses: actions/checkout@v6
 
     - name: install premake5
+      if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
       uses: ./.github/actions/install-premake5
       with:
-          msdev: vs2019
           repository: premake/premake-core
+          msdev: vs2019
+
+    - name: install premake5
+      if: ${{ github.event_name == 'workflow_call' || github.event_name == 'workflow_dispatch' }}
+      uses: ./.github/actions/install-premake5
+      with:
+          repository: ${{ inputs.premake-repo }}
+          ref: ${{ inputs.premake-ref }}
+          msdev: vs2019
 
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v2

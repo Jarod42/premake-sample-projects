@@ -2,59 +2,152 @@ name: all-premake5
 
 on:
   repository_dispatch:
+  workflow_call:
+    inputs:
+      premake-repo:
+        default: 'premake/premake-core'
+        type: string
+      premake-ref:
+        default: ''
+        type: string
   workflow_dispatch:
+    inputs:
+      premake-repo:
+        default: 'premake/premake-core'
+        type: string
+      premake-ref:
+        default: ''
+        type: string
 
 jobs:
   premake5-mac-xcode4:
     uses: ./.github/workflows/premake5-mac-xcode4.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-cmake:
     uses: ./.github/workflows/premake5-ubuntu-cmake.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-codeblocks:
     uses: ./.github/workflows/premake5-ubuntu-codeblocks.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-codelite:
     uses: ./.github/workflows/premake5-ubuntu-codelite.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-gmake:
     uses: ./.github/workflows/premake5-ubuntu-gmake.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-gmakelegacy:
     uses: ./.github/workflows/premake5-ubuntu-gmakelegacy.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-ninja-core:
     uses: ./.github/workflows/premake5-ubuntu-ninja-core.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-ninja:
     uses: ./.github/workflows/premake5-ubuntu-ninja.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-qmake:
     uses: ./.github/workflows/premake5-ubuntu-qmake.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-windows-cmake:
     uses: ./.github/workflows/premake5-windows-cmake.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-windows-qmake:
     uses: ./.github/workflows/premake5-windows-gmake.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-windows-msvc-2019:
     uses: ./.github/workflows/premake5-windows-msvc-2019.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-windows-msvc-2022:
     uses: ./.github/workflows/premake5-windows-msvc-2022.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-windows-ninja-core:
     uses: ./.github/workflows/premake5-windows-ninja-core.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-windows-ninja:
     uses: ./.github/workflows/premake5-windows-ninja.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
 
   premake5-qt-mac-xcode4:
     uses: ./.github/workflows/premake5-qt-mac-xcode4.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-cmake:
     uses: ./.github/workflows/premake5-qt-ubuntu-cmake.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-codeblocks:
     uses: ./.github/workflows/premake5-qt-ubuntu-codeblocks.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-codelite:
     uses: ./.github/workflows/premake5-qt-ubuntu-codelite.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-gmake:
     uses: ./.github/workflows/premake5-qt-ubuntu-gmake.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-gmakelegacy:
     uses: ./.github/workflows/premake5-qt-ubuntu-gmakelegacy.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-ninja-core:
     uses: ./.github/workflows/premake5-qt-ubuntu-ninja-core.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-ninja:
     uses: ./.github/workflows/premake5-qt-ubuntu-ninja.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-qmake:
     uses: ./.github/workflows/premake5-qt-ubuntu-qmake.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-windows-msvc-2019:
     uses: ./.github/workflows/premake5-qt-windows-msvc-2019.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-windows-msvc-2022:
     uses: ./.github/workflows/premake5-qt-windows-msvc-2022.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
