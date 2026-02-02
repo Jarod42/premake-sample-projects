@@ -77,7 +77,7 @@ jobs:
 
     - name: add premake-ninja module
       run: |
-        echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
+        echo "require 'submodules/premake-ninja/premake-ninja'" >> premake-system.lua
 
     - name: Add cl.exe to PATH # microsoft/setup-msbuild doesn't add it :(
       uses: ilammy/msvc-dev-cmd@v1

@@ -84,7 +84,7 @@ jobs:
 
     - name: add premake-ninja module
       run: |
-        echo "require 'submodules/premake-ninja/ninja'" >> premake-system.lua
+        echo "require 'submodules/premake-ninja/premake-ninja'" >> premake-system.lua
 
     - name: Installing Qt${{matrix.qt-version}} ubuntu
       uses: jurplel/install-qt-action@v4
