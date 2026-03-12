@@ -26,4 +26,5 @@ project "app"
 		buildoptions "/openmp"
 	filter "toolset:not msc*"
 		buildoptions "-fopenmp"
+		linkoptions "-fopenmp"
 --]]

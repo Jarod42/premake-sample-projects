@@ -151,6 +151,8 @@ if __name__ == "__main__":
 	print('project_root:', project_root)
 	print('action', action)
 	print('options:', options)
+	
+	options_without_scripts = [option for option in options if not option.startswith('--scripts=')]
 
 	if premake != 'premake4' and premake != 'premake5':
 		print('Invalid argument, should be premake4 or premake5')
@@ -177,7 +179,8 @@ if __name__ == "__main__":
 		if (not os.path.isfile(premake_lua)
 			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action))
 			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action + '_' + platform.system().lower()))
-			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action + ''.join(options)))
+			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + action + ''.join(options_without_scripts)))
+			or os.path.isfile(os.path.join(project_dir, 'unsupported_by' + ''.join(options_without_scripts)))			
 			or os.path.isfile(os.path.join(project_dir, 'unsupported_by_' + premake + '_' + action))
 			):
 			print(project, "skipped", flush=True)
