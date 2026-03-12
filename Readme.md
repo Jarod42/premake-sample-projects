@@ -22,7 +22,6 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 |[`objdir`](https://premake.github.io/docs/objdir):information_source:[^objdir_extra][^untested_by_ci]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:no_entry:[^cmake_objdir]|:heavy_check_mark:|:x:|
 |[`files`](https://premake.github.io/docs/files)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
 |[`includedirs`](https://premake.github.io/docs/includedirs)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|
-|[`sysincludedirs`](https://premake.github.io/docs/sysincludedirs):older_man:[^deprecated_sysincludedirs]|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|:heavy_check_mark:|
 |[`externalincludedirs`](https://premake.github.io/docs/externalincludedirs)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:(Fixed)|:heavy_check_mark:|:heavy_check_mark:|
 |[`includedirsafter`](https://premake.github.io/docs/includedirsafter)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x::beetle:[^xcode4_includedirsafter_issue]|:heavy_check_mark:|:heavy_check_mark:(Fixed)|:heavy_check_mark:|:x:|
 |[`forceincludes`](https://premake.github.io/docs/forceincludes)|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:heavy_check_mark:|:x::beetle:[^xcode4_forceincludes_issue]|:heavy_check_mark:|:heavy_check_mark: (Fixed)|:heavy_check_mark:|:x:|
@@ -107,7 +106,6 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 [^untested_by_ci]: :information_source: Not tested by the CI even if projects uses them.
 [^project_location]: :warning: project location != workspace/solution location unsupported though.
 [^objdir_extra]: :information_source: premake appends extra `$(configName)/$(AppName)`.
-[^deprecated_sysincludedirs]: :older_man: `sysincludirs` has been deprecated by `externalincludedirs`.
 [^cmake_objdir]: :no_entry: cmake doesn't allow to specify `objdir`.
 [^prelink_as_prebuild]: :warning: prelinkcommands is done between prebuildcommand and objects creation and not just before link stage (i.e after objects creation).
 [^msvc_linkgroups]: :information_source: msc doesn't need `linkgroups`, so `"On"`/`"Off"` acts identically
