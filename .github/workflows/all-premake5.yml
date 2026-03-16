@@ -45,11 +45,6 @@ jobs:
     with:
       premake-repo: ${{ inputs.premake-repo }}
       premake-ref: ${{ inputs.premake-ref }}
-  premake5-ubuntu-gmakelegacy:
-    uses: ./.github/workflows/premake5-ubuntu-gmakelegacy.yml
-    with:
-      premake-repo: ${{ inputs.premake-repo }}
-      premake-ref: ${{ inputs.premake-ref }}
   premake5-ubuntu-ninja-core:
     uses: ./.github/workflows/premake5-ubuntu-ninja-core.yml
     with:
@@ -118,11 +113,6 @@ jobs:
       premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-ubuntu-gmake:
     uses: ./.github/workflows/premake5-qt-ubuntu-gmake.yml
-    with:
-      premake-repo: ${{ inputs.premake-repo }}
-      premake-ref: ${{ inputs.premake-ref }}
-  premake5-qt-ubuntu-gmakelegacy:
-    uses: ./.github/workflows/premake5-qt-ubuntu-gmakelegacy.yml
     with:
       premake-repo: ${{ inputs.premake-repo }}
       premake-ref: ${{ inputs.premake-ref }}
