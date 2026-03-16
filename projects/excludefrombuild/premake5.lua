@@ -19,4 +19,4 @@ project "app"
 	files { "src/main.cpp", "src/excluded.cpp" }
 
 	filter "files:src/excluded.cpp"
-		flags {"ExcludeFromBuild"}
+		excludefrombuild 'On'
