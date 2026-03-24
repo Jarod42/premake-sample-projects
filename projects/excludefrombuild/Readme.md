@@ -1,3 +1,3 @@
-## flags-excludeFromBuild
+## excludefrombuild
 
-Test [`flags`](https://premake.github.io/docs/flags) `{ "ExcludeFromBuild" }`
+Test [`excludefrombuild`](https://premake.github.io/docs/excludefrombuild)
