@@ -18,7 +18,7 @@ rule "myrule"
 		value = 1
 	}
 
-	buildmessage 'custom rule: {copy} %{file.relpath} %{file.basename}'
+	buildmessage 'custom rule: copy %{file.relpath} %{file.basename}'
 	--buildinputs { "%{file.relpath}" }
 	buildoutputs { path.join(LocationDir, "%{file.basename}") }
 	buildcommands { "{COPYFILE} %[%{!file.abspath}] %[%{!sln.location}/%{file.basename}]" }
