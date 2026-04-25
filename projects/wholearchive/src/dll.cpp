@@ -1,3 +1,5 @@
 #include "dll.h"
 
-void foo() {}
+void foo() {
+	bar();
+}
