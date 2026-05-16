@@ -80,6 +80,11 @@ jobs:
     with:
       premake-repo: ${{ inputs.premake-repo }}
       premake-ref: ${{ inputs.premake-ref }}
+  premake5-windows-msvc-2026:
+    uses: ./.github/workflows/premake5-windows-msvc-2026.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
   premake5-windows-ninja-core:
     uses: ./.github/workflows/premake5-windows-ninja-core.yml
     with:
@@ -138,6 +143,11 @@ jobs:
       premake-ref: ${{ inputs.premake-ref }}
   premake5-qt-windows-msvc-2022:
     uses: ./.github/workflows/premake5-qt-windows-msvc-2022.yml
+    with:
+      premake-repo: ${{ inputs.premake-repo }}
+      premake-ref: ${{ inputs.premake-ref }}
+  premake5-qt-windows-msvc-2026:
+    uses: ./.github/workflows/premake5-qt-windows-msvc-2026.yml
     with:
       premake-repo: ${{ inputs.premake-repo }}
       premake-ref: ${{ inputs.premake-ref }}
