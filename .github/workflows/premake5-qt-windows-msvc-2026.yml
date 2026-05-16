@@ -1,4 +1,4 @@
-name: premake5-qt-windows-msvc-2022
+name: premake5-qt-windows-msvc-2026
 
 on:
   workflow_call:
@@ -20,30 +20,30 @@ on:
   push:
     paths:
       - 'projects-qt/**'
-      - '.github/workflows/premake5-qt-windows-msvc-2022.yml'
+      - '.github/workflows/premake5-qt-windows-msvc-2026.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects-qt/**/unsupported_by_vs2022'
-      - 'projects-qt/**/unsupported_by_premake5_vs2022'
+      - 'projects-qt/**/unsupported_by_vs2026'
+      - 'projects-qt/**/unsupported_by_premake5_vs2026'
       - 'submodules/premake-qt'
 
   pull_request:
     paths:
       - 'projects-qt/**'
-      - '.github/workflows/premake5-qt-windows-msvc-2022.yml'
+      - '.github/workflows/premake5-qt-windows-msvc-2026.yml'
       - '.github/actions/install-premake5/action.yml'
       - '!**/*.md'
       - '!projects-qt/**/unsupported_by_*'
       - '!**/premake4.lua'
-      - 'projects-qt/**/unsupported_by_vs2022'
-      - 'projects-qt/**/unsupported_by_premake5_vs2022'
+      - 'projects-qt/**/unsupported_by_vs2026'
+      - 'projects-qt/**/unsupported_by_premake5_vs2026'
       - 'submodules/premake-qt'
 
 jobs:
   windows:
-    runs-on: windows-2022
+    runs-on: windows-2025-vs2026
 
     strategy:
       fail-fast: false
@@ -82,5 +82,5 @@ jobs:
 
     - name: test projects
       run: |
-        python3 ./test_projects.py premake5 projects-qt vs2022 --scripts=`pwd` --qt-root=$QT_ROOT_DIR --qt-version=${{ matrix.qt-version }}
+        python3 ./test_projects.py premake5 projects-qt vs2026 --scripts=`pwd` --qt-root=$QT_ROOT_DIR --qt-version=${{ matrix.qt-version }}
       shell: bash

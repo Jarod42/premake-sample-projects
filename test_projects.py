@@ -102,7 +102,7 @@ def run_qmake():
 
 	return subprocess.run(['make', 'sub-app-all']).returncode
 
-def run_vs():
+def run_vs_sln():
 	if os.path.isfile('packages.config'): # visual studio calls nuget, but not msbuild
 		nuget_cmd = ['nuget', 'install', 'packages.config', '-OutputDirectory', 'packages']
 		print(nuget_cmd)
@@ -113,6 +113,18 @@ def run_vs():
 			return 1
 
 	return subprocess.run(['msbuild.exe', '/property:Configuration=Release', 'Project.sln']).returncode
+
+def run_vs_slnx():
+	if os.path.isfile('packages.config'): # visual studio calls nuget, but not msbuild
+		nuget_cmd = ['nuget', 'install', 'packages.config', '-OutputDirectory', 'packages']
+		print(nuget_cmd)
+		ret = subprocess.run(nuget_cmd)
+		if ret.returncode != 0:
+			print(ret.stdout.decode())
+			print(ret.stderr.decode(), flush=True)
+			return 1
+
+	return subprocess.run(['msbuild.exe', '/property:Configuration=Release', 'Project.slnx']).returncode
 
 def run_xcode4():
   #xcodebuild -list -project app.xcodeproj
@@ -132,7 +144,9 @@ def select_action_runner(action):
 	elif action == 'qmake':
 		return run_qmake
 	elif action in ['vs2005', 'vs2008', 'vs2010', 'vs2012', 'vs2013', 'vs2015', 'vs2017', 'vs2019', 'vs2022']:
-		return run_vs
+		return run_vs_sln
+	elif action in ['vs2026']:
+		return run_vs_slnx
 	elif action == 'xcode4':
 		return run_xcode4
 	return None
