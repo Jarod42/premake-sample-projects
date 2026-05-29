@@ -1,0 +1,9 @@
+#ifndef FOO_CONTENT
+#define FOO_CONTENT
+
+void foo()
+{
+	bar();
+}
+
+#endif
