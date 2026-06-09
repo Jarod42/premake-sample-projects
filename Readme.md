@@ -10,7 +10,7 @@ Sample projects for integration testing [premake4/premake5](https://premake.gith
 #### Generator modules:
 - [Module CodeBlocks](https://github.com/Jarod42/premake-codeblocks) (fixed fork)
 - [Module CMake](https://github.com/Jarod42/premake-cmake) (fixed fork)
-- [Module premake-ninja](https://github.com/jimon/premake-ninja)
+- [Module premake-ninja](https://github.com/jimon/premake-ninja) (No longer needed as core has its own module now)
 - [Module qmake](https://github.com/Jarod42/premake-qmake) (fixed fork)
 
 ||gmake :information_source:[^game2]|Codelite|Ninja|Msvc vs2019/vs2022/vs2026|xcode4|CodeBlocks|CMake|premake-ninja|qmake|
