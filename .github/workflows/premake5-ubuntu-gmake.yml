@@ -50,7 +50,7 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v6
+      uses: actions/checkout@v7
 
     - name: install premake5
       if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
