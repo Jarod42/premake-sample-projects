@@ -48,7 +48,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        qt-version: ['5.15.0', '6.0.4', '6.1.0', '6.7.0']
+        qt-version: ['6.10.3'] # '6.11.1'
 
     steps:
     - name: Checkout
@@ -72,11 +72,11 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v3
 
-    - name: Installing Qt - ${{matrix.qt-version}} win64_msvc2019_64 # No 2022 version yet
+    - name: Installing Qt - ${{matrix.qt-version}} win64_msvc2022_64 # No 2026 version yet
       uses: jurplel/install-qt-action@v4
       with:
         version: ${{matrix.qt-version}}
-        arch: win64_msvc2019_64
+        arch: win64_msvc2022_64
         cache: true
         cache-key-prefix: 'qt-action@v4-Qt${{matrix.qt-version}}_win64_msvc2019_64'
 
