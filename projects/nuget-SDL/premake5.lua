@@ -13,7 +13,7 @@ workspace "Project"
 	startproject "app"
 
 	filter { "action:vs*" }
-		nuget { "sdl2.nuget:2.28.0", "sdl2.nuget.redist:2.28.0" }
+		nuget { "sdl2.nuget:2.32.8", "sdl2.nuget.redist:2.32.8" }
 
 project "app"
 	kind "ConsoleApp"
