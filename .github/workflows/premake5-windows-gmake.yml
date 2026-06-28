@@ -69,6 +69,15 @@ jobs:
         python3 ./test_projects.py premake5 projects gmake --shell=posix
       shell: bash
 
+    - name: Add cl.exe to PATH # microsoft/setup-msbuild doesn't add it :(
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: test projects msc-v143 # Visual Studio 2022
+      run: |
+        #"C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+        python3 ./test_projects.py premake5 projects gmake --scripts=`pwd` --cc=msc-v143  --shell=posix
+      shell: bash
+
 #    - name: test projects
 #      run: |
 #        python3 ./test_projects.py premake5 projects gmake
