@@ -88,7 +88,12 @@ jobs:
         python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=msc-v143  --shell=posix
       shell: bash
 
-#    - name: test projects gcc
-#      run: |
-#        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=gcc  --shell=posix
-#      shell: bash
+    - name: test projects gcc
+      run: |
+        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=gcc --shell=posix
+      shell: bash
+
+    - name: test projects clang
+      run: |
+        python3 ./test_projects.py premake5 projects ninja --scripts=`pwd` --cc=clang --shell=posix
+      shell: bash

@@ -69,6 +69,11 @@ jobs:
         python3 ./test_projects.py premake5 projects gmake --shell=posix
       shell: bash
 
+    - name: test projects clang
+      run: |
+        python3 ./test_projects.py premake5 projects gmake --cc=clang --shell=posix
+      shell: bash
+
 #    - name: test projects
 #      run: |
 #        python3 ./test_projects.py premake5 projects gmake
