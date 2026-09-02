@@ -20,6 +20,9 @@ else:
 		def __exit__(self, etype, value, traceback):
 			os.chdir(self.savedPath)
 
+def get_script_path():
+  return os.path.dirname(os.path.realpath(__file__))
+
 def usage():
 	print('test_project (premake4|premake5) project-root action [args]')
 	sys.exit(-1)
@@ -75,7 +78,7 @@ def run_codeblocks():
 	# app.cbp
 
 def run_codelite():
-	return subprocess.run(['codelite-make', '--settings=../../../../codelite/build_settings.xml', '--workspace=Project.workspace', '--project=app', '--config=Release', '--command=build', '--verbose', '--execute']).returncode
+	return subprocess.run(['codelite-make', '--settings=' + os.path.join(get_script_path(), 'codelite', 'build_settings.xml'), '--workspace=Project.workspace', '--project=app', '--config=Release', '--command=build', '--verbose', '--execute']).returncode
 
 def run_ninja():
 	ret = subprocess.run(['ninja', 'app_Release'])
@@ -189,7 +192,7 @@ if __name__ == "__main__":
 			dirs = sorted(dirs)
 			continue
 		dirs = []
-		project = os.path.basename(root)
+		project = os.path.relpath(root, project_root)
 		project_dir = root
 		print('***********************************', project, '************************************', flush=True)
 		premake_lua = os.path.join(project_dir, premake + '.lua')

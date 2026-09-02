@@ -4,4 +4,4 @@ Test missing [`linkgroups`](https://premake.github.io/docs/linkgroups) with cycl
 
 ### See also
 
-[project-linkgroups](../linkgroups/)
+[project/linkgroups/On](../On/)

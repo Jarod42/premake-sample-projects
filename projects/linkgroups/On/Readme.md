@@ -4,4 +4,4 @@ Test [`linkgroups`](https://premake.github.io/docs/linkgroups) with cyclic depen
 
 # See also
 
-[project-no-linkgroups](../no-linkgroups/)
+[project/linkgroups/Off](../Off/)
