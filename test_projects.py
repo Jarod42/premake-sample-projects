@@ -189,9 +189,9 @@ if __name__ == "__main__":
 	
 	for root, dirs, files in os.walk(project_root):
 		if premake + '.lua' not in files:
-			dirs = sorted(dirs)
+			dirs.sort()
 			continue
-		dirs = []
+		dirs.clear()
 		project = os.path.relpath(root, project_root)
 		project_dir = root
 		print('***********************************', project, '************************************', flush=True)
