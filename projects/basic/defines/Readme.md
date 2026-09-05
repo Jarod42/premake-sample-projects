@@ -1,3 +1,3 @@
-## 04-defines
+## defines
 
 Test [`defines`](https://premake.github.io/docs/defines)

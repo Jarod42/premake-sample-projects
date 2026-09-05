@@ -1,4 +1,4 @@
-## 01-include-define-and-buildoptions
+## include-define-and-buildoptions
 
 Test basic build options:
 - [`includedirs`](https://premake.github.io/docs/includedirs),

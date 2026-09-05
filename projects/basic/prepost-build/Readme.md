@@ -1,4 +1,4 @@
-## 03-prepost-build
+## prepost-build
 
 Test
 - [`prebuildcommands`](https://premake.github.io/docs/prebuildcommands)

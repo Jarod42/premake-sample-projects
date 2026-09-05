@@ -20,6 +20,6 @@ project "app"
 
 	defines "MACRO"
 	defines "MACRO2=2"
-	defines "SIZEOF_CHAR=sizeof(char)" -- use parent
+	defines "SIZEOF_CHAR=sizeof(char)" -- use parenthesis
 	defines 'HELLO="Hello world"' -- Use string
 

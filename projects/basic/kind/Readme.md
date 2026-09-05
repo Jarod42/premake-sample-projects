@@ -1,4 +1,4 @@
-## 02-kind
+## kind
 
 Test [`kind`](https://premake.github.io/docs/kind)
 - `"ConsoleApp"`
